@@ -1,0 +1,60 @@
+# avoid flicker
+double_buffer yes
+
+# own window to run simultanious 2 or more conkys
+own_window yes
+own_window_type override
+own_window_transparent yes
+# own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# borders
+draw_borders no
+border_inner_margin 0
+border_outer_margin 0
+# border_width 0
+draw_outline no
+
+# shades
+draw_shades no
+
+# position
+gap_x 0
+gap_y 25
+alignment top_middle
+
+# behaviour
+update_interval 1
+update_interval_on_battery 2
+net_avg_samples 2
+if_up_strictness address
+# cpu_avg_samples 2
+# pad_percents 3
+
+# colour
+default_color  8f8f8f
+own_window_colour 262729
+
+# font
+use_xft yes
+xftalpha 0.8
+xftfont aller:pixelsize=9
+
+
+# to prevent window from moving
+# use_spacer left
+minimum_size 1280 9
+draw_graph_borders no
+
+TEXT
+${alignc}${color}UPTIME: ${color e0e0e0}${uptime_short} \
+${color}| CPU1: ${color e0e0e0}${cpu cpu1}% ${color}@${freq_g cpu1} GHz \
+| CPU2: ${color e0e0e0}${cpu cpu2}% ${color}@${freq_g cpu2} GHz \
+| GPU: ${color e0e0e0}${nvidia gpufreq} MHz ${nvidia memfreq} MHz${color} \
+| TEMP: ${color e0e0e0}${execi 60 sensors | grep 'Core 0' | cut -d"+" -f2 | cut -d"(" -f1 | tr -d [:blank:]} ${execi 60 sensors | grep 'Core 1' | cut -d"+" -f2 | cut -d"(" -f1 | tr -d [:blank:]} ${nvidia temp}°C ${hddtemp /dev/sda}°C${color} \
+| ${if_up eth0}eth: ${color e0e0e0}${upspeedf eth0} KiB ${downspeedf eth0} KiB \
+${color}| ${else}${if_up wlan0}wifi: ${color e0e0e0}${upspeedf wlan0} KiB ${downspeedf wlan0} KiB \
+${color}| ${endif}${endif}RAM: ${color e0e0e0}${mem} \
+${color}| SWAP: ${color e0e0e0}${swap}\
+${color}| root: ${color e0e0e0}${fs_free /} \
+${color}dokumenty: ${color e0e0e0}${fs_free /home/carno/dokumenty} \
+${color}| ${if_match ${exec acpi -b | grep -c Discharging | tr -d \n} != 0}${if_match ${battery_percent BAT0} <= 10}${color red}${battery_bar 6,80 BAT0}${else}${color yellow}${battery_bar 6,80 BAT0}${endif}${else}${color}${battery_bar 6,80 BAT0}${endif} ${color e0e0e0} ${battery_short BAT0}  

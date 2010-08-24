@@ -1,0 +1,66 @@
+# avoid flicker
+double_buffer yes
+
+# own window to run simultanious 2 or more conkys
+own_window yes
+own_window_type override
+own_window_transparent yes
+# own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# borders
+draw_borders no
+border_inner_margin 0
+border_outer_margin 0
+draw_outline no
+
+# shades
+draw_shades no
+
+# position
+gap_x 2
+gap_y 2
+alignment bottom_left
+
+# behaviour
+update_interval 1
+update_interval_on_battery 2
+# net_avg_samples 2
+cpu_avg_samples 2
+
+# colour
+default_color  8f8f8f
+# default_shade_color 359748
+own_window_colour 00ff00 #262729
+
+# font
+use_xft yes
+xftalpha 0.8
+xftfont aller:pixelsize=9
+
+# to prevent window from moving
+use_spacer left
+draw_graph_borders no
+
+top_name_width 20
+
+TEXT
+${color}${alignc}${font OpenLogos:size=20}J${font}
+${color} KERNEL:
+${alignr}${color e0e0e0} ${kernel}
+${color} CAM: ${alignr}${color e0e0e0}${font}${if_existing /dev/video0}on${else}off${endif}
+${color} BLUETOOTH: ${alignr}${color e0e0e0}${font}${if_existing /sys/class/rfkill/rfkill0/state 0}on${else}off${endif}
+${color} CPU GRAPH:
+${cpugraph cpu1 20,130 8f8f8f 8f8f8f}
+${cpugraph cpu2 20,130 8f8f8f 8f8f8f}
+${color} LOAD: ${alignr}${color e0e0e0}${font}${loadavg}
+${color} VNSTAT:
+${alignr}${color e0e0e0}${font}${execi 60 vnstat --oneline | awk -F ';' '{print $4"  "$5}'}
+${alignr}${color e0e0e0}${font}${execi 60 vnstat --oneline | awk -F ';' '{print $9"  "$10}'}
+${color} TOP 3 CPU:
+${color e0e0e0}${font} ${top name 1} ${alignr}${top cpu 1}%
+${color e0e0e0}${font} ${top name 2} ${alignr}${top cpu 2}%
+${color e0e0e0}${font} ${top name 3} ${alignr}${top cpu 3}%
+${color} TOP 3 MEM:
+${color e0e0e0}${font} ${top_mem name 1} ${alignr}${top_mem mem_res 1}
+${color e0e0e0}${font} ${top_mem name 2} ${alignr}${top_mem mem_res 2}
+${color e0e0e0}${font} ${top_mem name 3} ${alignr}${top_mem mem_res 3}
