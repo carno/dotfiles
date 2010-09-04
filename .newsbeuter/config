@@ -22,5 +22,10 @@ html-renderer "elinks -dump -force-html"
 reload-threads 2
 
 # makro
-macro o open-in-browser ; toggle-article-read "read"
 macro p toggle-article-read "unread"
+
+# key-bindings
+unbind-key o
+unbind-key O
+bind-key o open-in-browser-and-mark-read 
+bind-key O open-in-browser
