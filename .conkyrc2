@@ -48,14 +48,14 @@ ${color}${alignc}${font OpenLogos:size=20}J${font}
 ${color} KERNEL:
 ${alignr}${color e0e0e0} ${kernel}
 ${color} CAM: ${alignr}${color e0e0e0}${font}${if_existing /dev/video0}on${else}off${endif}
-${color} BLUETOOTH: ${alignr}${color e0e0e0}${font}${if_existing /sys/class/rfkill/rfkill0/state 0}on${else}off${endif}
+${color} UPDATES: ${alignr}${color e0e0e0}${font}${if_existing /tmp/new_updates}${lines /tmp/new_updates} available${else}none${endif}
 ${color} CPU GRAPH:
 ${cpugraph cpu1 20,130 8f8f8f 8f8f8f}
 ${cpugraph cpu2 20,130 8f8f8f 8f8f8f}
 ${color} LOAD: ${alignr}${color e0e0e0}${font}${loadavg}
 ${color} VNSTAT:
-${alignr}${color e0e0e0}${font}${execi 60 vnstat --oneline | awk -F ';' '{print $4"  "$5}'}
-${alignr}${color e0e0e0}${font}${execi 60 vnstat --oneline | awk -F ';' '{print $9"  "$10}'}
+${alignr}${color e0e0e0}${font}${execi 3600 vnstat --oneline | awk -F ';' '{print $4"  "$5}'}
+${alignr}${color e0e0e0}${font}${execi 3600 vnstat --oneline | awk -F ';' '{print $9"  "$10}'}
 ${color} TOP 3 CPU:
 ${color e0e0e0}${font} ${top name 1} ${alignr}${top cpu 1}%
 ${color e0e0e0}${font} ${top name 2} ${alignr}${top cpu 2}%

@@ -19,7 +19,7 @@ draw_shades no
 
 # position
 gap_x 0
-gap_y 25
+gap_y 27
 alignment top_middle
 
 # behaviour
@@ -49,8 +49,7 @@ TEXT
 ${alignc}${color}UPTIME: ${color e0e0e0}${uptime_short} \
 ${color}| CPU1: ${color e0e0e0}${cpu cpu1}% ${color}@${freq_g cpu1} GHz \
 | CPU2: ${color e0e0e0}${cpu cpu2}% ${color}@${freq_g cpu2} GHz \
-| GPU: ${color e0e0e0}${nvidia gpufreq} MHz ${nvidia memfreq} MHz${color} \
-| TEMP: ${color e0e0e0}${execi 60 sensors | grep 'Core 0' | cut -d"+" -f2 | cut -d"(" -f1 | tr -d [:blank:]} ${execi 60 sensors | grep 'Core 1' | cut -d"+" -f2 | cut -d"(" -f1 | tr -d [:blank:]} ${nvidia temp}°C ${hddtemp /dev/sda}°C${color} \
+| TEMP: ${color e0e0e0}${execi 60 sensors | awk '/Core 0/{sub("+", "", $3); print $3}'} ${execi 60 sensors | awk '/Core 1/{sub("+", "", $3); print $3}'} ${execi 60 sensors | awk '/temp1/{sub("+", "", $2); print $2}'} ${hddtemp /dev/sda}°C${color} \
 | ${if_up eth0}eth: ${color e0e0e0}${upspeedf eth0} KiB ${downspeedf eth0} KiB \
 ${color}| ${else}${if_up wlan0}wifi: ${color e0e0e0}${upspeedf wlan0} KiB ${downspeedf wlan0} KiB \
 ${color}| ${endif}${endif}RAM: ${color e0e0e0}${mem} \
