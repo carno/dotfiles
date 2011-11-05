@@ -6,5 +6,13 @@ startup_message off
 
 vbell off
 
+shelltitle "$ |bash"
+defscrollback 10000
+
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m%{W} %c %{g}]'
+
+screen -t upper 1
+split
+focus
+screen -t lower 0

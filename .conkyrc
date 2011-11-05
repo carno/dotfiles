@@ -49,11 +49,11 @@ TEXT
 ${alignc}${color}UPTIME: ${color e0e0e0}${uptime_short} \
 ${color}| CPU1: ${color e0e0e0}${cpu cpu1}% ${color}@${freq_g cpu1} GHz \
 | CPU2: ${color e0e0e0}${cpu cpu2}% ${color}@${freq_g cpu2} GHz \
-| TEMP: ${color e0e0e0}${execi 60 sensors | awk '/Core 0/{sub("+", "", $3); print $3}'} ${execi 60 sensors | awk '/Core 1/{sub("+", "", $3); print $3}'} ${execi 60 sensors | awk '/temp1/{sub("+", "", $2); print $2}'} ${hddtemp /dev/sda}°C${color} \
+| TEMP: ${color e0e0e0}${execi 60 sensors | awk '/Core 0/{sub("+", "", $3); print $3}'} ${execi 60 sensors | awk '/Core 1/{sub("+", "", $3); print $3}'} ${execi 60 sensors -A | awk '/nouveau-pci-0100/{getline;sub("+", "", $2); print $2}'} ${hddtemp /dev/sda}°C${color} \
 | ${if_up eth0}eth: ${color e0e0e0}${upspeedf eth0} KiB ${downspeedf eth0} KiB \
 ${color}| ${else}${if_up wlan0}wifi: ${color e0e0e0}${upspeedf wlan0} KiB ${downspeedf wlan0} KiB \
 ${color}| ${endif}${endif}RAM: ${color e0e0e0}${mem} \
-${color}| SWAP: ${color e0e0e0}${swap}\
+${color}| SWAP: ${color e0e0e0}${swap} \
 ${color}| root: ${color e0e0e0}${fs_free /} \
 ${color}dokumenty: ${color e0e0e0}${fs_free /home/carno/dokumenty} \
 ${color}| ${if_match ${exec acpi -b | grep -c Discharging | tr -d \n} != 0}${if_match ${battery_percent BAT0} <= 10}${color red}${battery_bar 6,80 BAT0}${else}${color yellow}${battery_bar 6,80 BAT0}${endif}${else}${color}${battery_bar 6,80 BAT0}${endif} ${color e0e0e0} ${battery_short BAT0}  
