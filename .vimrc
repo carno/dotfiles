@@ -63,5 +63,17 @@ autocmd FocusLost * :wa
 "Spacebar to clear highlight
 nmap <SPACE> <SPACE>:noh<CR>
 
+"TaskList
+map <leader>td <Plug>TaskList
+
+"NeerdTree on/off
+map <leader>n :NERDTreeToggle<CR>
+
 "F9 to set paste on/off
-set pt=<f9>
+set pt=<F9>
+
+"miniBufExpl options
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
