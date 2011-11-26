@@ -1,16 +1,19 @@
-# detach on hangup
 autodetach on
-
-# don't display the copyright page
 startup_message off
-
 vbell off
+nethack on
 
 shelltitle "$ |bash"
 defscrollback 10000
 
+bind ^q
+bind q
+bind q quit
+
+caption splitonly "%?%F%{=b 9g} ACTIVE %:%{= 9K} INACTIVE %?"
+
 hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m%{W} %c %{g}]'
+hardstatus string '%{= 9G}%{g}[ %{G}%H %{g}][%= %{= 9K}%?%-Lw%?%{W}%n*%f%t%?(%u)%?%{K}%?%+Lw%?%?%= %{g}][%{G} %l %{g}][%{G} %d/%m%{G} %c %{g}]'
 
 screen -t upper 1
 split
