@@ -26,7 +26,9 @@ set expandtab
 set softtabstop=4
 "set textwidth=78
 "set wrap
-set colorcolumn=80
+if version >= 730
+    set colorcolumn=80
+endif
 
 colorscheme wombat
 
