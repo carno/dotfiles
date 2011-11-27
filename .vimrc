@@ -60,6 +60,10 @@ autocmd FileType make setlocal noexpandtab
 "Autosave file when lost focus
 autocmd FocusLost * :wa
 
+"pylint support
+au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+au FileType python set efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
+
 "Spacebar to clear highlight
 nmap <SPACE> <SPACE>:noh<CR>
 
