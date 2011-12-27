@@ -30,7 +30,8 @@ if version >= 7.3
     set colorcolumn=80
 endif
 
-colorscheme wombat
+"colorscheme wombat
+colorscheme 256-grayvim
 
 set spelllang=pl
 
