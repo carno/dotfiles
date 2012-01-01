@@ -1,6 +1,6 @@
-h2. About
+h1. About
 
-h4. dot config files used by me
+h3. dot config files used by me including, but not limited to:
 
 * vim
 * screen
