@@ -56,7 +56,7 @@ set foldmethod=indent
 set foldminlines=3
 
 "Start new files in insert mode
-autocmd BufNewFile * startinsert
+"autocmd BufNewFile * startinsert
 
 "Don't expand tabs if editing a makefile
 autocmd FileType make setlocal noexpandtab
