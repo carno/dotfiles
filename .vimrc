@@ -30,6 +30,9 @@ if version >= 7.3
     set colorcolumn=80
 endif
 
+set cursorline
+"set cursorcolumn
+
 "colorscheme wombat
 colorscheme 256-grayvim
 
@@ -85,3 +88,13 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
+
+"usability
+command W w
+command Wq wq
+command WQ wq
+command Q q
+
+noremap <leader>y "+y
+noremap <leader>Y "+Y
+noremap <leader>p "+p
