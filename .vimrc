@@ -95,6 +95,20 @@ command Wq wq
 command WQ wq
 command Q q
 
+nnoremap ; :
+nnoremap j gj
+nnoremap k gk
+
 noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
+
+"feel the pain ;-)
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
