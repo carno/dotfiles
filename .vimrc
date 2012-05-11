@@ -99,6 +99,8 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 
+inoremap jj <esc>
+
 noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
