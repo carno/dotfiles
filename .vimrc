@@ -95,11 +95,13 @@ command Wq wq
 command WQ wq
 command Q q
 
+inoremap jj <esc>
+
 nnoremap ; :
 nnoremap j gj
 nnoremap k gk
-
-inoremap jj <esc>
+noremap <left> :bp<CR>
+noremap <right> :pn<CR>
 
 noremap <leader>y "+y
 noremap <leader>Y "+Y
