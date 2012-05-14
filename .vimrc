@@ -101,7 +101,7 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 noremap <left> :bp<CR>
-noremap <right> :pn<CR>
+noremap <right> :bn<CR>
 
 noremap <leader>y "+y
 noremap <leader>Y "+Y
