@@ -26,7 +26,7 @@ set expandtab
 set softtabstop=4
 "set textwidth=78
 "set wrap
-if version >= 7.3
+if exists("+colorcolumn")
     set colorcolumn=80
 endif
 
