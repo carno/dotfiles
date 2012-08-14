@@ -71,17 +71,25 @@ autocmd FocusLost * :wa
 au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 au FileType python set efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
 
+nmap <leader>w :w<CR>:silent make<CR>:redraw!<CR>:cw<CR>
+
 "Spacebar to clear highlight
 nmap <SPACE> <SPACE>:noh<CR>
 
 "TaskList
 map <leader>td <Plug>TaskList
 
+"tagbar
+map <leader>tb :TagbarToggle<CR>
+
 "NeerdTree on/off
 map <leader>n :NERDTreeToggle<CR>
 
 "F9 to set paste on/off
 set pt=<F9>
+
+"Spell on/off
+map <leader>s :set spell!<CR>
 
 "miniBufExpl options
 let g:miniBufExplMapWindowNavVim = 1
