@@ -30,7 +30,9 @@ if exists("+colorcolumn")
     set colorcolumn=80
 endif
 
-set cursorline
+if exists("+cursorline")
+    set cursorline
+endif
 "set cursorcolumn
 
 "colorscheme wombat
