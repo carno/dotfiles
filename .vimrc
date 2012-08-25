@@ -61,8 +61,9 @@ set foldminlines=3
 "Start new files in insert mode
 "autocmd BufNewFile * startinsert
 
-"Don't expand tabs if editing a makefile
+"Don't expand tabs in some special cases
 autocmd FileType make setlocal noexpandtab
+autocmd FileType gitconfig setlocal noexpandtab
 
 "Autosave file when lost focus
 autocmd FocusLost * :wa
