@@ -36,7 +36,7 @@ set cursorline
 "colorscheme wombat
 colorscheme 256-grayvim
 
-set spelllang=pl
+set spelllang=pl,en
 
 set noswapfile
 set nobackup
@@ -108,8 +108,8 @@ inoremap jj <esc>
 nnoremap ; :
 nnoremap j gj
 nnoremap k gk
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
 
 noremap <leader>y "+y
 noremap <leader>Y "+Y
@@ -124,3 +124,4 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
