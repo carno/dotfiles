@@ -131,3 +131,5 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+"rst helper
+let @h = "yypVr"
