@@ -26,6 +26,7 @@ set expandtab
 set softtabstop=4
 "set textwidth=78
 "set wrap
+
 if exists("+colorcolumn")
     set colorcolumn=80
 endif
@@ -35,7 +36,6 @@ if exists("+cursorline")
 endif
 "set cursorcolumn
 
-"colorscheme 256-grayvim
 colorscheme lucius
 
 set spelllang=pl,en
