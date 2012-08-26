@@ -88,9 +88,6 @@ map <leader>tb :TagbarToggle<CR>
 "NeerdTree on/off
 map <leader>n :NERDTreeToggle<CR>
 
-"tagbar
-map <leader>tb :TagbarToggle<CR>
-
 "F9 to set paste on/off
 set pt=<F9>
 
