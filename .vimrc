@@ -30,13 +30,15 @@ if exists("+colorcolumn")
     set colorcolumn=80
 endif
 
-set cursorline
+if exists("+cursorline")
+    set cursorline
+endif
 "set cursorcolumn
 
-"colorscheme wombat
-colorscheme 256-grayvim
+"colorscheme 256-grayvim
+colorscheme lucius
 
-set spelllang=pl
+set spelllang=pl,en
 
 set noswapfile
 set nobackup
@@ -61,8 +63,9 @@ set foldminlines=3
 "Start new files in insert mode
 "autocmd BufNewFile * startinsert
 
-"Don't expand tabs if editing a makefile
+"Don't expand tabs in some special cases
 autocmd FileType make setlocal noexpandtab
+autocmd FileType gitconfig setlocal noexpandtab
 
 "Autosave file when lost focus
 autocmd FocusLost * :wa
@@ -78,6 +81,9 @@ nmap <SPACE> <SPACE>:noh<CR>
 
 "TaskList
 map <leader>td <Plug>TaskList
+
+"tagbar
+map <leader>tb :TagbarToggle<CR>
 
 "NeerdTree on/off
 map <leader>n :NERDTreeToggle<CR>
@@ -108,8 +114,8 @@ inoremap jj <esc>
 nnoremap ; :
 nnoremap j gj
 nnoremap k gk
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
 
 noremap <leader>y "+y
 noremap <leader>Y "+Y
@@ -118,9 +124,10 @@ noremap <leader>p "+p
 "feel the pain ;-)
 nnoremap <up> <nop>
 nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
