@@ -35,8 +35,8 @@ if exists("+cursorline")
 endif
 "set cursorcolumn
 
-"colorscheme wombat
-colorscheme 256-grayvim
+"colorscheme 256-grayvim
+colorscheme lucius
 
 set spelllang=pl,en
 
