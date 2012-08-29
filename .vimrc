@@ -36,6 +36,7 @@ if exists("+cursorline")
 endif
 "set cursorcolumn
 
+set t_Co=256
 colorscheme lucius
 
 set spelllang=pl,en
