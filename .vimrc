@@ -89,8 +89,8 @@ map <leader>tb :TagbarToggle<CR>
 "NeerdTree on/off
 map <leader>n :NERDTreeToggle<CR>
 
-"F9 to set paste on/off
-set pt=<F9>
+"Paste on/off
+nmap <leader>p :setlocal paste! paste?<CR>
 
 "Spell on/off
 map <leader>s :set spell!<CR>
@@ -115,15 +115,9 @@ nnoremap k gk
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
-noremap <leader>y "+y
-noremap <leader>Y "+Y
-noremap <leader>p "+p
-
 "feel the pain ;-)
 nnoremap <up> <nop>
 nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
