@@ -61,6 +61,10 @@ set laststatus=2
 set foldmethod=indent
 set foldminlines=3
 
+"Start scrolling before we loose visibility
+set scrolloff=5
+set sidescrolloff=15
+
 "Start new files in insert mode
 "autocmd BufNewFile * startinsert
 
