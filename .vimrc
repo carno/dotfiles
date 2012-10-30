@@ -10,6 +10,7 @@ set showcmd
 set showmode
 set report=0
 set backspace=2
+set ttyfast
 "set mouse=a
 
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$
