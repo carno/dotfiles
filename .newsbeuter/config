@@ -17,6 +17,8 @@ max-items 50
 error-log "~/.newsbeuter/error.log"
 cleanup-on-quit yes
 keep-articles-days 60
+download-retries 2
+download-full-page yes
 # mark-as-read-on-hover yes
 notify-format "Nowych: %d (%n)"
 notify-program "/home/carno/dokumenty/skrypty/rss.sh"
@@ -31,3 +33,7 @@ unbind-key o
 unbind-key O
 bind-key o open-in-browser-and-mark-read 
 bind-key O open-in-browser
+
+# podbeuter
+download-path "~/dokumenty/podcasts/%n"
+player "mocp"
