@@ -26,16 +26,6 @@
 "
 " Startup Check
 "
-" Stop auto starting MBE in diff mode? {{{
-if !exists('g:miniBufExplorerHideWhenDiff')
-    let g:miniBufExplorerHideWhenDiff = 0
-endif
-
-if g:miniBufExplorerHideWhenDiff==1 && &diff
-    let g:miniBufExplorerAutoUpdate = 0
-endif
-" }}}
-
 " Has this plugin already been loaded? {{{
 "
 if exists('loaded_minibufexplorer')
@@ -131,6 +121,16 @@ if !exists('g:miniBufExplorerAutoUpdate')
 endif
 
 " }}}
+" Stop auto starting MBE in diff mode? {{{
+if !exists('g:miniBufExplorerHideWhenDiff')
+    let g:miniBufExplorerHideWhenDiff = 0
+endif
+
+if g:miniBufExplorerHideWhenDiff==1 && &diff
+    let g:miniBufExplorerAutoUpdate = 0
+endif
+" }}}
+
 " MoreThanOne? {{{
 " Display Mini Buf Explorer when there are 'More Than One' eligible buffers
 "
@@ -417,13 +417,13 @@ autocmd MiniBufExplorer CursorHoldI    * call <SID>DEBUG('-=> CursorHoldI AutoCm
 autocmd MiniBufExplorer VimEnter       * call <SID>DEBUG('-=> VimEnter AutoCmd', 10) |
             \ if g:miniBufExplorerHideWhenDiff!=1 || !&diff |let g:miniBufExplorerAutoUpdate = 1 |endif |
             \ call <SID>AutoUpdate(-1,bufnr("%"))
-augroup NONE
+augroup END
 " }}}
 
 " Functions
 " StartExplorer - Sets up our explorer and causes it to be displayed {{{
 "
-function! <SID>StartExplorer(sticky,delBufNum,currBufName)
+function! <SID>StartExplorer(sticky,delBufNum,curBufNum)
   call <SID>DEBUG('===========================',10)
   call <SID>DEBUG('Entering StartExplorer()'   ,10)
   call <SID>DEBUG('===========================',10)
@@ -548,7 +548,7 @@ function! <SID>StartExplorer(sticky,delBufNum,currBufName)
   nnoremap <buffer> l   :call search('\[[0-9]*:[^\]]*\]')<CR>:<BS>
   nnoremap <buffer> h :call search('\[[0-9]*:[^\]]*\]','b')<CR>:<BS>
 
-  call <SID>DisplayBuffers(a:delBufNum,a:currBufName)
+  call <SID>DisplayBuffers(a:delBufNum,a:curBufNum)
 
   if (l:curBuf != -1)
     let l:bname = expand('#'.l:curBuf.':t')
@@ -752,7 +752,7 @@ endfunction
 " Makes sure we are in our explorer, then erases the current buffer and turns
 " it into a mini buffer explorer window.
 "
-function! <SID>DisplayBuffers(delBufNum,currBufName)
+function! <SID>DisplayBuffers(delBufNum,curBufNum)
   call <SID>DEBUG('Entering DisplayBuffers()',10)
 
   " Make sure we are in our window
@@ -764,7 +764,7 @@ function! <SID>DisplayBuffers(delBufNum,currBufName)
   " We need to be able to modify the buffer
   setlocal modifiable
 
-  call <SID>ShowBuffers(a:delBufNum,a:currBufName)
+  call <SID>ShowBuffers(a:delBufNum,a:curBufNum)
   call <SID>ResizeWindow()
 
   normal! zz
@@ -863,10 +863,10 @@ endfunction
 " buffers to the current buffer. Special marks are added for buffers that
 " are in one or more windows (*) and buffers that have been modified (+)
 "
-function! <SID>ShowBuffers(delBufNum,currBufName)
+function! <SID>ShowBuffers(delBufNum,curBufNum)
   call <SID>DEBUG('Entering ShowBuffers()',10)
 
-  let l:ListChanged = <SID>BuildBufferList(a:delBufNum, 1, a:currBufName)
+  let l:ListChanged = <SID>BuildBufferList(a:delBufNum, 1, a:curBufNum)
 
   if (l:ListChanged == 1 || g:miniBufExplForceDisplay)
     let l:save_rep = &report
@@ -965,11 +965,11 @@ endfunction
 " Creates the buffer list string and returns 1 if it is different than
 " last time this was called and 0 otherwise.
 "
-function! <SID>BuildBufferList(delBufNum, updateBufList, currBufName)
+function! <SID>BuildBufferList(delBufNum, updateBufList, curBufNum)
     call <SID>DEBUG('Entering BuildBufferList()',10)
 
 
-    let l:CurrBufName = a:currBufName
+    let l:CurBufNum = a:curBufNum
     let l:NBuffers = bufnr('$')     " Get the number of the last buffer.
     let l:i = 0                     " Set the buffer index to zero.
 
@@ -1121,8 +1121,8 @@ function! <SID>BuildBufferList(delBufNum, updateBufList, currBufName)
         endif
 
         " If the buffer matches the)current buffer name, then  mark it
-        call <SID>DEBUG('l:i is '.l:i.' and l:CurrBufName is '.l:CurrBufName,10)
-        if(bufname(l:i) == l:CurrBufName)
+        call <SID>DEBUG('l:i is '.l:i.' and l:CurBufNum is '.l:CurBufNum,10)
+        if(l:i == l:CurBufNum)
             let l:tab .= '!'
         endif
 
@@ -1310,7 +1310,7 @@ endfunction
 " buffer, in which case we will want to close
 " the MBE window.
 "
-function! <SID>AutoUpdate(delBufNum,currBufName)
+function! <SID>AutoUpdate(delBufNum,curBufNum)
   call <SID>DEBUG('===========================',10)
   call <SID>DEBUG('Entering AutoUpdate('.a:delBufNum.') : '.bufnr('%').' : '.bufname('%'),10)
   call <SID>DEBUG('===========================',10)
@@ -1370,7 +1370,7 @@ function! <SID>AutoUpdate(delBufNum,currBufName)
         else
         " otherwise only update the window if the contents have
         " changed
-          let l:ListChanged = <SID>BuildBufferList(a:delBufNum, 0, a:currBufName)
+          let l:ListChanged = <SID>BuildBufferList(a:delBufNum, 0, a:curBufNum)
           if (l:ListChanged)
             call <SID>DEBUG('About to call StartExplorer (Update MBE)', 9)
             call <SID>StartExplorer(0, a:delBufNum, bufname("%"))
@@ -1805,4 +1805,4 @@ function! <SID>CheckForLastWindow()
   endif
 endfunction " }}}
 
-" vim:ft=vim:fdm=marker:ff=unix:nowrap:tabstop=4:shiftwidth=4:softtabstop=4:smarttab:shiftround:expandtab
+" vim:ft=vim:fdm=marker:ff=unix:nowrap:tabstop=2:shiftwidth=2:softtabstop=2:smarttab:shiftround:expandtab
