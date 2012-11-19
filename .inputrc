@@ -6,3 +6,5 @@ set visible-stats on
 set page-completions off
 # Ignore case for tab completion
 set completion-ignore-case on
+# Don't waste my time with questions <1000
+set completion-query-items 1000
