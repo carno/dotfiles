@@ -88,4 +88,7 @@ export PATH=$HOME/dokumenty/github/todo.txt-cli:$PATH
 # default action for todo.txt
 export TODOTXT_DEFAULT_ACTION=ls
 
+# vimgpg
+export GPG_TTY=`tty`
+
 # vim: ft=sh
