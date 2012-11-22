@@ -133,4 +133,6 @@ inoremap <right> <nop>
 let @h = "yypVr"
 
 "local settings
-source ~/.vim/local.vim
+if filereadable("~/.vim/local.vim")
+    source ~/.vim/local.vim
+endif
