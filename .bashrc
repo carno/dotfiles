@@ -59,8 +59,8 @@ fi
 # history settings
 HISTIGNORE="&:la:ls:ll:c:q"
 HISTTIMEFORMAT='[%d/%m %H:%M] '
-HISTSIZE=1000
-HISTFILESIZE=1000
+HISTSIZE=10000
+HISTFILESIZE=10000
 
 # colorful man
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -75,7 +75,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # export TERM=xterm-256color
 
 # don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
+export HISTCONTROL=erasedups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 
