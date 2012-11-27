@@ -91,9 +91,6 @@ map <leader>td <Plug>TaskList
 "tagbar
 map <leader>tb :TagbarToggle<CR>
 
-"NeerdTree on/off
-map <leader>n :NERDTreeToggle<CR>
-
 "Paste on/off
 nmap <leader>p :setlocal paste! paste?<CR>
 
