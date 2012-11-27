@@ -8,3 +8,5 @@ set page-completions off
 set completion-ignore-case on
 # Don't waste my time with questions <1000
 set completion-query-items 1000
+# Add / when autocompleting symlink to directories
+set mark-symlinked-directories on
