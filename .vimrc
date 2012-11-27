@@ -95,6 +95,7 @@ nmap <SPACE> <SPACE>:noh<CR>
 
 "TaskList
 map <leader>td <Plug>TaskList
+let g:tlWindowPosition = 1
 
 "tagbar
 map <leader>tb :TagbarToggle<CR>
