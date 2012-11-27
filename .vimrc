@@ -1,4 +1,10 @@
+"Bye bye Vi
 set nocompatible
+
+"init pathogen"
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
 set nu
 set showmatch
 set autoindent
