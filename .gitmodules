@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-gnupg"]
 	path = .vim/bundle/vim-gnupg
 	url = git://github.com/jamessan/vim-gnupg.git
+[submodule ".vim/bundle/vim-plugin-minibufexpl"]
+	path = .vim/bundle/vim-plugin-minibufexpl
+	url = git://github.com/techlivezheng/vim-plugin-minibufexpl.git
