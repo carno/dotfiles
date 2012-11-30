@@ -6,7 +6,7 @@
 	up = pull
 	st = status -sb
 	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
-	ups = submodule foreach git pull
+	ups = submodule foreach git pull origin master
 [diff]
 	tool = vimdiff
 [merge]
