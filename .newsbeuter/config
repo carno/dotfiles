@@ -4,7 +4,7 @@ include ~/.newsbeuter/colors
 # google-reader
 urls-source "googlereader"
 include ~/.newsbeuter/googlereader
-googlereader-flag-star "s"
+# googlereader-flag-star "s"
 # googlereader-show-special-feeds no
 
 # my settings
@@ -20,12 +20,12 @@ keep-articles-days 60
 download-retries 2
 download-full-page yes
 # mark-as-read-on-hover yes
-notify-format "Nowych: %d (%n)"
+notify-format "RSS: %d (%n)"
 notify-program "/home/carno/dokumenty/skrypty/rss.sh"
 html-renderer "elinks -dump -force-html"
 reload-threads 2
 
-# makro
+# macro
 macro p toggle-article-read "unread"
 
 # key-bindings
