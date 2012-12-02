@@ -3,4 +3,3 @@
 # type settings
 --type-add=rhapsody=.sbs,.cls,.prp,.rpy
 --type-add=rest=.rst
---type-add=make=.in
