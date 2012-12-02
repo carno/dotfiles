@@ -1,3 +1,9 @@
 .vim/local.vim
 .vim/.netrwhist
 .newsbeuter/queue
+.newsbeuter/cache.db
+.newsbeuter/cache.db.lock
+.newsbeuter/error.log
+.newsbeuter/googlereader
+.newsbeuter/history.cmdline
+.newsbeuter/history.search
