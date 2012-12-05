@@ -29,7 +29,7 @@ set title
 set undolevels=1000
 
 "non-printable chars {{{1
-set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$
+set listchars=tab:\|\ ,trail:·,extends:>,precedes:<,eol:¬
 set list
 
 "syntax and filetype {{{1
