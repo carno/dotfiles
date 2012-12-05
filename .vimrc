@@ -70,8 +70,9 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%0
 set laststatus=2
 
 "default folding {{{1
-set foldmethod=indent
+set foldmethod=syntax
 set foldminlines=3
+au FileType python setlocal foldmethod=indent
 
 "start scrolling before we loose visibility {{{1
 set scrolloff=5
@@ -81,21 +82,21 @@ set sidescrolloff=15
 "autocmd BufNewFile * startinsert
 
 "don't expand tabs in some special cases {{{1
-autocmd FileType make setlocal noexpandtab
-autocmd FileType gitconfig setlocal noexpandtab
+au FileType make setlocal noexpandtab
+au FileType gitconfig setlocal noexpandtab
 
 "autosave file when lost focus {{{1
-autocmd FocusLost * :wa
+au FocusLost * :wa
 
 "pylint support {{{1
-au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
-au FileType python set efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
+au FileType python setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+au FileType python setlocal efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
 
 "custom make {{{1
-nmap <leader>w :w<CR>:silent make<CR>:redraw!<CR>:cw<CR>
+nmap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
 
 "spacebar to clear highlight {{{1
-nmap <SPACE> <SPACE>:noh<CR>
+nmap <space> <space>:noh<cr>
 
 "plugins {{{1
 "taskList settings {{{2
@@ -103,7 +104,7 @@ map <leader>td <Plug>TaskList
 let g:tlWindowPosition = 1
 
 "tagbar settings {{{2
-map <leader>tb :TagbarToggle<CR>
+map <leader>tb :TagbarToggle<cr>
 
 "miniBufExpl settings {{{2
 let g:miniBufExplMapWindowNavVim = 1
@@ -113,10 +114,10 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplorerHideWhenDiff = 1
 
 "paste on/off {{{1
-nmap <leader>p :setlocal paste! paste?<CR>
+nmap <leader>p :setlocal paste! paste?<cr>
 
 "spell on/off {{{1
-map <leader>s :setlocal spell! spell?<CR>
+map <leader>s :setlocal spell! spell?<cr>
 
 "usability {{{1
 command W w
@@ -129,8 +130,8 @@ inoremap jj <esc>
 nnoremap ; :
 nnoremap j gj
 nnoremap k gk
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+nnoremap <left> :bp<cr>
+nnoremap <right> :bn<cr>
 
 "feel the pain ;-)
 nnoremap <up> <nop>
