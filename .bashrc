@@ -91,4 +91,7 @@ export TODOTXT_DEFAULT_ACTION=ls
 # vimgpg
 export GPG_TTY=`tty`
 
+# virtualenvwrapper
+export WORKON_HOME=$HOME/envs
+
 # vim: ft=sh
