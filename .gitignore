@@ -6,5 +6,6 @@
 .newsbeuter/cache.db.lock
 .newsbeuter/error.log
 .newsbeuter/googlereader
+.newsbeuter/ttrss
 .newsbeuter/history.cmdline
 .newsbeuter/history.search
