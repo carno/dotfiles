@@ -46,20 +46,25 @@ set softtabstop=4
 "set textwidth=78
 "set wrap
 
+"colorscheme {{{1
+set t_Co=256
+set background=dark
+colorscheme lucius
+LuciusDarkLowContrast
+
 "show cursor position {{{1
 if exists("+colorcolumn")
     set colorcolumn=80
+    highlight ColorColumn ctermbg=235
 endif
 
 if exists("+cursorline")
     set cursorline
 endif
-"set cursorcolumn
 
-"colorscheme {{{1
-set t_Co=256
-set background=dark
-colorscheme lucius
+"if exists("+cursorcolumn")
+"    set cursorcolumn
+"endif
 
 "spelling {{{1
 set spelllang=pl,en
