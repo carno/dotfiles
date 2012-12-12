@@ -99,6 +99,14 @@ nmap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
 "spacebar to clear highlight {{{1
 nmap <space> <space>:noh<cr>
 
+"easier moving of code blocks {{{1
+vnoremap < <gv " better indentation
+vnoremap > >gv " better indentation
+
+"easier formatting of paragraphs {{{1
+vmap Q gq
+nmap Q gqap
+
 "plugins {{{1
 "taskList settings {{{2
 map <leader>td <Plug>TaskList
