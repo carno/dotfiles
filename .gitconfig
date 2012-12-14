@@ -11,7 +11,11 @@
 	tool = vimdiff
 [merge]
 	tool = vimdiff
+	log = true
 [color]
 	ui = auto
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
 [include]
 	path = ~/.gitlocal
