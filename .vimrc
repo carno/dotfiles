@@ -127,6 +127,9 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplorerHideWhenDiff = 1
 
+"tablify {{{2
+let g:tablify_horizontal_header_delimiter = '='
+
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
 
