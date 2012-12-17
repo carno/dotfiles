@@ -33,4 +33,4 @@
 	url = https://github.com/carno/vim-rst-snippets.git
 [submodule ".vim/bundle/tablify"]
 	path = .vim/bundle/tablify
-	url = git://github.com/Stormherz/tablify.git
+	url = https://github.com/Stormherz/tablify.git
