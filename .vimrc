@@ -8,11 +8,11 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "look and feel {{{1
-set nu
+set number
 set showmatch
 set autoindent
 set incsearch
-set hls
+set hlsearch
 set ruler
 set smarttab
 set showcmd
@@ -43,8 +43,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=4
-"set textwidth=78
-"set wrap
+
+"wrapping {{{1
+set textwidth=0
 
 "colorscheme {{{1
 set t_Co=256
@@ -85,7 +86,7 @@ set scrolloff=5
 set sidescrolloff=15
 
 "start new files in insert mode {{{1
-"autocmd BufNewFile * startinsert
+"au BufNewFile * startinsert
 
 "don't expand tabs in some special cases {{{1
 au FileType make setlocal noexpandtab
