@@ -34,3 +34,4 @@
 [submodule ".vim/bundle/tablify"]
 	path = .vim/bundle/tablify
 	url = https://github.com/Stormherz/tablify.git
+	ignore = untracked
