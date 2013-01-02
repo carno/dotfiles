@@ -58,7 +58,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 # Explicitly unset color (default anyhow). Use 1 to set it.
 GIT_PS1_SHOWCOLORHINTS=
 GIT_PS1_DESCRIBE_STYLE="branch"
-GIT_PS1_SHOWUPSTREAM="auto git"
+GIT_PS1_SHOWUPSTREAM="verbose git"
 
 # bash completion for todo.txt
 if [ -f ~/dokumenty/github/todo.txt-cli/todo_completion ]; then
