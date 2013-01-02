@@ -26,9 +26,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# pimp my prompt
-PS1="[\A][\w](\j)\$ "
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -50,11 +47,27 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
 fi
 
+# git-prompt
+if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+    . /usr/lib/git-core/git-sh-prompt
+fi
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+# Explicitly unset color (default anyhow). Use 1 to set it.
+GIT_PS1_SHOWCOLORHINTS=
+GIT_PS1_DESCRIBE_STYLE="branch"
+GIT_PS1_SHOWUPSTREAM="auto git"
+
 # bash completion for todo.txt
 if [ -f ~/dokumenty/github/todo.txt-cli/todo_completion ]; then
     source ~/dokumenty/github/todo.txt-cli/todo_completion
     complete -F _todo t
 fi
+
+# pimp my prompt
+PS1='[\A][\w](\j)$(__git_ps1 "(%s)")\$ '
 
 # history settings
 HISTIGNORE="&:la:ls:ll:c:q"
