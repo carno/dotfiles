@@ -19,7 +19,7 @@ draw_shades no
 
 # position
 gap_x 0
-gap_y 27
+gap_y 23
 alignment top_middle
 
 # behaviour
