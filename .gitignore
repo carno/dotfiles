@@ -1,6 +1,5 @@
 .vim/local.vim
 .vim/.netrwhist
-.vim/snippets/svn.snippets
 .newsbeuter/queue
 .newsbeuter/cache.db
 .newsbeuter/cache.db.lock
