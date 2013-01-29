@@ -35,6 +35,3 @@
 	path = .vim/bundle/tablify
 	url = https://github.com/Stormherz/tablify.git
 	ignore = untracked
-[submodule ".vim/bundle/ultisnips"]
-	path = .vim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
