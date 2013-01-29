@@ -133,6 +133,7 @@ let g:tablify_horizontal_header_delimiter = '='
 
 "Ultisnips {{{2
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
+let g:UltiSnipsUsePythonVersion = 2
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
