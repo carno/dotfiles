@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/vim-lucius"]
 	path = .vim/bundle/vim-lucius
 	url = https://github.com/jonathanfilip/vim-lucius.git
-[submodule ".vim/bundle/vim-rst-snippets"]
-	path = .vim/bundle/vim-rst-snippets
-	url = https://github.com/carno/vim-rst-snippets.git
 [submodule ".vim/bundle/tablify"]
 	path = .vim/bundle/tablify
 	url = https://github.com/Stormherz/tablify.git
