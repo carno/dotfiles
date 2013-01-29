@@ -1,0 +1,57 @@
+snippet em "Emphasis"
+*${1}* ${0}
+endsnippet
+
+snippet st "Strong"
+**${1}** ${0}
+endsnippet
+
+snippet bq "Inline code"
+``${1}`` ${0}
+endsnippet
+
+snippet fn "Footnote"
+[#]_ ${0}
+
+.. [#] ${1:footnote}
+endsnippet
+
+snippet lnk "Hyperlink"
+`${1:link-name}`_ ${0}
+
+.. _`$1`: ${2:link-url}
+endsnippet
+
+snippet pb "Page break" b
+.. raw:: pdf
+
+    PageBreak
+
+${0}
+endsnippet
+
+snippet cb "Code block" !b
+.. code-block:: ${1:language}
+
+    ${2:#code}
+
+${0}
+endsnippet
+
+snippet docinfo "Doc info" b
+:Author: ${1:Author}
+:Revision: ${2:$Revision$}
+:Description: ${3:#description}
+endsnippet
+
+snippet hr "Horizontal rule" b
+-----
+
+${0}
+endsnippet
+
+snippet toc "Table of contents" b
+.. contents::
+
+${0}
+endsnippet
