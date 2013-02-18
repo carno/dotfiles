@@ -20,11 +20,13 @@ fi
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;[${HOSTNAME}][${PWD/#$HOME/~}]\007"; history -n; history -a'
+    PROMPT_COMMAND='echo -ne "\033]0;[${HOSTNAME}][${PWD/#$HOME/~}]\007";'
     ;;
 *)
     ;;
 esac
+
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
