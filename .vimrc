@@ -149,7 +149,7 @@ command Q q
 
 inoremap jj <esc>
 
-nnoremap ; :
+"nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 nnoremap <left> :bp<cr>
@@ -172,4 +172,4 @@ if filereadable("~/.vim/local.vim")
 endif
 
 "modline {{{1
-" vim: fdm=marker fml=1
+" vim: fdm=marker fml=1:
