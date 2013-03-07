@@ -109,4 +109,7 @@ export GPG_TTY=`tty`
 # virtualenvwrapper
 export WORKON_HOME=$HOME/envs
 
+# last but not least, let's go Vim
+set -o vi
+
 # vim: ft=sh
