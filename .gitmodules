@@ -1,12 +1,6 @@
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/tlib_vim"]
-	path = .vim/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim.git
-[submodule ".vim/bundle/vim-addon-mw-utils"]
-	path = .vim/bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule ".vim/bundle/vim-gnupg"]
 	path = .vim/bundle/vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
