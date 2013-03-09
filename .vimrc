@@ -50,6 +50,10 @@ set textwidth=0
 "colorscheme {{{1
 set t_Co=256
 set background=dark
+if &term =~ '256color'
+    "disable background color erase
+    set t_ut=
+endif
 colorscheme lucius
 LuciusDarkLowContrast
 
