@@ -73,6 +73,7 @@ endif
 
 "spelling {{{1
 set spelllang=pl,en
+set spellsuggest=5
 
 "statusline {{{1
 hi statusline cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black
