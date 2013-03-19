@@ -38,8 +38,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # for my eyes only
-if [ -f ~/.local_aliases ]; then
-    . ~/.local_aliases
+if [ -f ~/.local_bash ]; then
+    . ~/.local_bash
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -63,16 +63,16 @@ GIT_PS1_DESCRIBE_STYLE="branch"
 GIT_PS1_SHOWUPSTREAM="auto git"
 
 # bash completion for todo.txt
-if [ -f ~/dokumenty/github/todo.txt-cli/todo_completion ]; then
-    source ~/dokumenty/github/todo.txt-cli/todo_completion
+if [ -f ${GITHUB_DIR}/todo.txt-cli/todo_completion ]; then
+    source ${GITHUB_DIR}/todo.txt-cli/todo_completion
     complete -F _todo t
 fi
 
 # pimp my prompt
-PS1='[\A][\w](\j)$(__git_ps1 "(%s)")\$ '
+PS1='[\A][\h][\w](\j)$(__git_ps1 "(%s)")\$ '
 
 # history settings
-HISTIGNORE="&:la:ls:ll:c:q"
+HISTIGNORE="&:la:ls:ll:c:q:fg:w"
 HISTTIMEFORMAT='[%d/%m %H:%M] '
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -98,7 +98,7 @@ export HISTCONTROL=ignoreboth
 export MANWIDTH=96
 
 # pimp my PATH
-export PATH=$HOME/dokumenty/github/todo.txt-cli:$PATH
+export PATH=${GITHUB_DIR}/todo.txt-cli:$PATH
 
 # default action for todo.txt
 export TODOTXT_DEFAULT_ACTION=ls
