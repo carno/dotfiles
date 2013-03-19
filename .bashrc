@@ -6,17 +6,12 @@
 [ -z "$PS1" ] && return
 
 shopt -s checkwinsize
-
 shopt -s histappend
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
+unset PROMPT_COMMAND
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -25,14 +20,9 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -40,6 +30,10 @@ fi
 # for my eyes only
 if [ -f ~/.local_bash ]; then
     . ~/.local_bash
+fi
+
+if [ -f ~/.local_aliases ]; then
+    . ~/.local_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -107,7 +101,7 @@ export TODOTXT_DEFAULT_ACTION=ls
 export GPG_TTY=`tty`
 
 # virtualenvwrapper
-export WORKON_HOME=$HOME/envs
+export WORKON_HOME=${HOME}/envs
 
 # last but not least, let's go Vim
 set -o vi
