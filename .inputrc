@@ -10,3 +10,5 @@ set completion-ignore-case on
 set completion-query-items 1000
 # Add / when autocompleting symlink to directories
 set mark-symlinked-directories on
+# More inteligent autocomplete
+set skip-completed-text on
