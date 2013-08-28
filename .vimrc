@@ -123,7 +123,7 @@ au FileType gitconfig setlocal noexpandtab
 au FocusLost * :wa
 
 "pylint support {{{1
-au FileType python setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+au FileType python setlocal makeprg=pylint\ --reports=n\ %:p
 au FileType python setlocal efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
 
 "custom make {{{1
