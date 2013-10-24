@@ -12,7 +12,6 @@ alias mv='mv -v'
 alias ack='ack-grep'
 alias t='todo.sh'
 alias tmux='tmux -2'
-alias newsbeuter='TERM=xterm newsbeuter'
 
 # functions
 function _error() {
