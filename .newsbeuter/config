@@ -1,12 +1,6 @@
 # my colors
 include ~/.newsbeuter/colors
 
-# google-reader
-# urls-source "googlereader"
-# include ~/.newsbeuter/googlereader
-# googlereader-flag-star "s"
-# googlereader-show-special-feeds no
-
 # tt-rss
 urls-source "ttrss"
 include ~/.newsbeuter/ttrss
