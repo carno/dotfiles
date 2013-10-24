@@ -8,11 +8,14 @@
 	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
 	ll = log --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d %C(reset)%s%C(red) [%cn]' --decorate --numstat
 	ups = submodule foreach git pull origin master
+	dt = difftool
 [diff]
 	tool = vimdiff
 [merge]
 	tool = vimdiff
 	log = true
+[difftool]
+	prompt = false
 [color]
 	ui = auto
 [include]
