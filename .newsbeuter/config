@@ -1,5 +1,6 @@
 # my colors
-include ~/.newsbeuter/colors
+#include ~/.newsbeuter/colors
+include ~/.newsbeuter/solarized-dark
 
 # tt-rss
 urls-source "ttrss"
