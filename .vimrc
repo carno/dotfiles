@@ -120,7 +120,7 @@ au FileType make setlocal noexpandtab
 au FileType gitconfig setlocal noexpandtab
 
 "autosave file when lost focus {{{1
-au FocusLost * :wa
+au BufLeave,FocusLost * silent! update
 
 "pylint support {{{1
 au FileType python setlocal makeprg=pylint\ --reports=n\ %:p
