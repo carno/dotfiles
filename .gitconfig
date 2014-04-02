@@ -24,6 +24,3 @@
 	ui = auto
 [include]
 	path = ~/.gitlocal
-[user]
-	name = r00t
-	mail = root@hal9001
