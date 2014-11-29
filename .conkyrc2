@@ -54,14 +54,15 @@ ${color} CPU GRAPH:
 ${cpugraph cpu1 20,130 8f8f8f 8f8f8f}
 ${cpugraph cpu2 20,130 8f8f8f 8f8f8f}
 ${color} LOAD: ${alignr}${color e0e0e0}${font}${loadavg}
-${color} VNSTAT:
-${alignr}${color e0e0e0}${font}${execi 3600 vnstat --oneline | awk -F ';' '{print $4"  "$5}'}
-${alignr}${color e0e0e0}${font}${execi 3600 vnstat --oneline | awk -F ';' '{print $9"  "$10}'}
-${color} TOP 3 CPU:
+${color} TOP 5 CPU:
 ${color e0e0e0}${font} ${top name 1} ${alignr}${top cpu 1}%
 ${color e0e0e0}${font} ${top name 2} ${alignr}${top cpu 2}%
 ${color e0e0e0}${font} ${top name 3} ${alignr}${top cpu 3}%
-${color} TOP 3 MEM:
+${color e0e0e0}${font} ${top name 4} ${alignr}${top cpu 4}%
+${color e0e0e0}${font} ${top name 5} ${alignr}${top cpu 5}%
+${color} TOP 5 MEM:
 ${color e0e0e0}${font} ${top_mem name 1} ${alignr}${top_mem mem_res 1}
 ${color e0e0e0}${font} ${top_mem name 2} ${alignr}${top_mem mem_res 2}
 ${color e0e0e0}${font} ${top_mem name 3} ${alignr}${top_mem mem_res 3}
+${color e0e0e0}${font} ${top_mem name 4} ${alignr}${top_mem mem_res 4}
+${color e0e0e0}${font} ${top_mem name 5} ${alignr}${top_mem mem_res 5}
