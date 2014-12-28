@@ -7,6 +7,11 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+" define a group `vimrc` and initialize. {{{1
+augroup vimrc
+  autocmd!
+augroup END
+
 "look and feel {{{1
 set number
 set showmatch
@@ -84,7 +89,7 @@ set laststatus=2
 "default folding {{{1
 set foldmethod=syntax
 set foldminlines=3
-au FileType python setlocal foldmethod=indent
+autocmd vimrc FileType python setlocal foldmethod=indent
 
 fu! CustomFoldText()
     "get first non-blank line
@@ -113,18 +118,18 @@ set scrolloff=5
 set sidescrolloff=15
 
 "start new files in insert mode {{{1
-"au BufNewFile * startinsert
+"autocmd BufNewFile * startinsert
 
 "don't expand tabs in some special cases {{{1
-au FileType make setlocal noexpandtab
-au FileType gitconfig setlocal noexpandtab
+autocmd vimrc FileType make setlocal noexpandtab
+autocmd vimrc FileType gitconfig setlocal noexpandtab
 
 "autosave file when lost focus {{{1
-au BufLeave,FocusLost * silent! update
+autocmd vimrc BufLeave,FocusLost * silent! update
 
 "pylint support {{{1
-au FileType python setlocal makeprg=pylint\ --reports=n\ %:p
-au FileType python setlocal efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
+autocmd vimrc FileType python setlocal makeprg=pylint\ --reports=n\ %:p
+autocmd vimrc FileType python setlocal efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
 
 "custom make {{{1
 nmap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
