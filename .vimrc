@@ -161,7 +161,8 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplorerHideWhenDiff = 1
 
 "tablify {{{2
-let g:tablify_horizontal_header_delimiter = '='
+let g:tablify_headerDelimiter = '#'
+let g:tablify_horHeaderDelimiter = '='
 
 "Ultisnips {{{2
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
