@@ -124,6 +124,9 @@ set sidescrolloff=15
 autocmd vimrc FileType make setlocal noexpandtab
 autocmd vimrc FileType gitconfig setlocal noexpandtab
 
+"yaml indent
+autocmd vimrc FileType yaml setlocal ts=2 sts=2 sw=2
+
 "autosave file when lost focus {{{1
 autocmd vimrc BufLeave,FocusLost * silent! update
 
