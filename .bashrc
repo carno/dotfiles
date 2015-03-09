@@ -20,7 +20,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
