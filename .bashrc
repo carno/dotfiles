@@ -101,6 +101,9 @@ export TODOTXT_DEFAULT_ACTION=ls
 export GPG_TTY=`tty`
 
 # virtualenvwrapper
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 export WORKON_HOME=${HOME}/envs
 
 # last but not least, let's go Vim
