@@ -6,7 +6,7 @@ urls-source "ttrss"
 include ~/.newsbeuter/ttrss
 
 # my settings
-browser "iceweasel -new-tab %u 2> /dev/null &"
+browser "iceweasel -new-tab %u 1>/dev/null 2>&- &"
 auto-reload yes
 reload-time 60
 suppress-first-reload yes
@@ -18,7 +18,7 @@ keep-articles-days 15
 download-retries 2
 download-full-page yes
 notify-format "RSS: %d (%n)"
-notify-program "/home/carno/dokumenty/skrypty/rss.sh"
+notify-program "~/dokumenty/github/scripts/newsbeuter-notifyd.sh"
 html-renderer "elinks -dump -force-html"
 reload-threads 2
 feed-sort-order title
