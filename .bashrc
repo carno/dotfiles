@@ -109,4 +109,9 @@ export WORKON_HOME=${HOME}/envs
 # last but not least, let's go Vim
 set -o vi
 
+if [ -x /usr/games/fortune ]; then
+    fortune -s
+    echo
+fi
+
 # vim: ft=sh
