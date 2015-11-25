@@ -24,3 +24,5 @@
 	ui = auto
 [include]
 	path = ~/.gitlocal
+[branch "master"]
+	rebase = true
