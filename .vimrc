@@ -171,6 +171,9 @@ let g:tablify_horHeaderDelimiter = '='
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
 let g:UltiSnipsUsePythonVersion = 2
 
+"signify {{{2
+let g:signify_vcs_list = [ 'git', 'svn' ]
+
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
 
