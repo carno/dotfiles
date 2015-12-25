@@ -22,8 +22,7 @@ function _error() {
 
 function s() {
     if [[ $# -ne 1 ]]; then
-        _error "No session name provided";
-        return 1
+        tmux -q ls
     else
         tmux -q has -t "$1" && tmux att -d -t "$1" || tmux new -s "$1"
     fi
