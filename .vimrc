@@ -178,8 +178,8 @@ let g:signify_vcs_list = [ 'git', 'svn' ]
 let g:indent_guides_start_level=3
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors = 0
-highlight IndentGuidesOdd ctermbg=242
-highlight IndentGuidesEven ctermbg=242
+highlight IndentGuidesOdd ctermbg=darkgrey
+highlight IndentGuidesEven ctermbg=darkgrey
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
