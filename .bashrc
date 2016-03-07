@@ -56,12 +56,6 @@ GIT_PS1_SHOWCOLORHINTS=
 GIT_PS1_DESCRIBE_STYLE="branch"
 GIT_PS1_SHOWUPSTREAM="auto git"
 
-# bash completion for todo.txt
-if [ -f ${GITHUB_DIR}/todo.txt-cli/todo_completion ]; then
-    source ${GITHUB_DIR}/todo.txt-cli/todo_completion
-    complete -F _todo t
-fi
-
 # pimp my prompt
 PS1='[\A][\h][\w](\j)$(__git_ps1 "(%s)")\$ '
 
@@ -90,12 +84,6 @@ export HISTCONTROL=ignoreboth
 
 # limit man display width
 export MANWIDTH=96
-
-# pimp my PATH
-export PATH=${GITHUB_DIR}/todo.txt-cli:$PATH
-
-# default action for todo.txt
-export TODOTXT_DEFAULT_ACTION=ls
 
 # vimgpg
 export GPG_TTY=`tty`
