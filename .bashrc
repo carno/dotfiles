@@ -5,8 +5,17 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Update window size after every command
 shopt -s checkwinsize
+# Append to the history file, don't overwrite it
 shopt -s histappend
+
+# Prepend cd to directory names automatically
+shopt -s autocd 2> /dev/null
+# Correct spelling errors during tab-completion
+shopt -s dirspell 2> /dev/null
+# Correct spelling errors in arguments supplied to cd
+shopt -s cdspell 2> /dev/null
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
@@ -31,7 +40,6 @@ fi
 if [ -f ~/.local_bash ]; then
     . ~/.local_bash
 fi
-
 if [ -f ~/.local_aliases ]; then
     . ~/.local_aliases
 fi
@@ -78,9 +86,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # export TERM=xterm-256color
 
 # don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=erasedups
 # ... and ignore same sucessive entries.
-export HISTCONTROL=ignoreboth
+export HISTCONTROL="erasedups:ignoreboth"
 
 # limit man display width
 export MANWIDTH=96
