@@ -169,7 +169,6 @@ let g:tablify_horHeaderDelimiter = '='
 
 "Ultisnips {{{2
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
-let g:UltiSnipsUsePythonVersion = 2
 
 "signify {{{2
 let g:signify_vcs_list = [ 'git', 'svn' ]
