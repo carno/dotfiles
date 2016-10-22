@@ -11,8 +11,8 @@ alias rm='rm -Iv'
 alias cp='cp -v'
 alias mv='mv -v'
 alias ack='ack-grep'
-alias t='todo.sh'
 alias tmux='tmux -2'
+alias myip='curl http://text.whatisyourip.org/ip'
 
 # functions
 function _error() {
