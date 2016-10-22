@@ -93,7 +93,7 @@ export HISTCONTROL="erasedups:ignoreboth"
 export MANWIDTH=96
 
 # vimgpg
-export GPG_TTY=`tty`
+export GPG_TTY=$(tty)
 
 # virtualenvwrapper
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
