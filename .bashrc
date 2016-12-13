@@ -109,4 +109,7 @@ if [ -x /usr/games/fortune ]; then
     echo
 fi
 
+# enable fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # vim: ft=sh
