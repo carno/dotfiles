@@ -133,6 +133,7 @@ autocmd vimrc BufLeave,FocusLost * silent! update
 "pylint support {{{1
 autocmd vimrc FileType python setlocal makeprg=pylint\ --reports=n\ %:p
 autocmd vimrc FileType python setlocal efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
+autocmd vimrc FileType python setlocal completeopt-=preview
 
 "custom make {{{1
 nmap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
