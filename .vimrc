@@ -175,7 +175,7 @@ let g:signify_vcs_list = [ 'git', 'svn' ]
 
 "jedi-vim {{{2
 autocmd vimrc FileType python setlocal completeopt-=preview
-let g:jedi#show_call_signatures = "2"
+let g:jedi#show_call_signatures = "0"
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
