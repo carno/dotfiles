@@ -1,13 +1,32 @@
 "bye bye Vi {{{1
 set nocompatible
 
-"init pathogen {{{1
-filetype off
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+"check for vim-plug {{{1
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-" define a group `vimrc` and initialize. {{{1
+"plugins {{{1
+call plug#begin('~/.vim/plugged')
+Plug 'jamessan/vim-gnupg'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/TaskList.vim'
+Plug 'Townk/vim-autoclose'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'Stormherz/tablify'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'rking/ag.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'mhinz/vim-signify'
+Plug 'davidhalter/jedi-vim'
+Plug 'matze/vim-move'
+call plug#end()
+
+"define a group `vimrc` and initialize. {{{1
 augroup vimrc
   autocmd!
 augroup END
@@ -148,7 +167,7 @@ vnoremap > >gv " better indentation
 vmap Q gq
 nmap Q gqap
 
-"plugins {{{1
+"plugin configs {{{1
 "taskList settings {{{2
 map <leader>td <Plug>TaskList
 let g:tlWindowPosition = 1
@@ -176,6 +195,9 @@ let g:signify_vcs_list = [ 'git', 'svn' ]
 "jedi-vim {{{2
 autocmd vimrc FileType python setlocal completeopt-=preview
 let g:jedi#show_call_signatures = "0"
+
+"vim-move {{{2
+let g:move_key_modifier = 'C'
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>

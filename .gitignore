@@ -1,5 +1,7 @@
-.vim/local.vim
 .vim/.netrwhist
+.vim/autoload/plug.vim
+.vim/local.vim
+.vim/plugged/
 .newsbeuter/queue
 .newsbeuter/cache.db
 .newsbeuter/cache.db.lock
