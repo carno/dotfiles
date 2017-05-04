@@ -54,7 +54,10 @@ set title
 set undolevels=1000
 
 "non-printable chars {{{1
-set listchars=tab:\|\ ,trail:·,extends:>,precedes:<,eol:¬
+set listchars=tab:\|\ ,trail:·,extends:>,precedes:<,eol:¬,nbsp:␣
+"if has('patch-7.4.710')
+"    set listchars+=space:·
+"endif
 set list
 
 "syntax and filetype {{{1
