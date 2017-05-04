@@ -3,9 +3,9 @@ set nocompatible
 
 "check for vim-plug {{{1
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 "plugins {{{1
@@ -24,11 +24,12 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'mhinz/vim-signify'
 Plug 'davidhalter/jedi-vim'
 Plug 'matze/vim-move'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
 augroup vimrc
-  autocmd!
+    autocmd!
 augroup END
 
 "look and feel {{{1
@@ -110,7 +111,7 @@ set foldmethod=syntax
 set foldminlines=3
 autocmd vimrc FileType python setlocal foldmethod=indent
 
-fu! CustomFoldText()
+function! CustomFoldText()
     "get first non-blank line
     let fs = v:foldstart
     while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
