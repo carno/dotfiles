@@ -210,10 +210,10 @@ nmap <leader>p :setlocal paste! paste?<cr>
 map <leader>s :setlocal spell! spell?<cr>
 
 "usability {{{1
-command W w
-command Wq wq
-command WQ wq
-command Q q
+command! W w
+command! Wq wq
+command! WQ wq
+command! Q q
 
 inoremap jj <esc>
 
