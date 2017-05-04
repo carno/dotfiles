@@ -203,6 +203,10 @@ let g:jedi#show_call_signatures = "0"
 "vim-move {{{2
 let g:move_key_modifier = 'C'
 
+"indentLine
+let g:indentLine_indentLevel = 20
+map <leader>il :IndentLinesToggle<cr>
+
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
 
