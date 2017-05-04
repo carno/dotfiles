@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'jamessan/vim-gnupg'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TaskList.vim'
-Plug 'Townk/vim-autoclose'
+Plug 'jiangmiao/auto-pairs'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'Stormherz/tablify'
 Plug 'SirVer/ultisnips'
