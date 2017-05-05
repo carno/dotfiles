@@ -204,6 +204,7 @@ let g:jedi#show_call_signatures = "0"
 let g:move_key_modifier = 'C'
 
 "indentLine
+let g:indentLine_setColors = 0
 let g:indentLine_indentLevel = 20
 map <leader>il :IndentLinesToggle<cr>
 
