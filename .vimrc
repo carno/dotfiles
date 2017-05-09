@@ -228,14 +228,6 @@ nnoremap k gk
 nnoremap <left> :bp<cr>
 nnoremap <right> :bn<cr>
 
-"feel the pain ;-)
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
 "rst helper {{{1
 let @h = "yypVr"
 
