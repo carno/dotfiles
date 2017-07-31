@@ -110,7 +110,7 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENC=%{(&fenc!=''?&fenc:&
 set laststatus=2
 
 "default folding {{{1
-set foldmethod=syntax
+set foldmethod=manual
 set foldminlines=3
 autocmd vimrc FileType python setlocal foldmethod=indent
 
