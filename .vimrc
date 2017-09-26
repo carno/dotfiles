@@ -201,7 +201,7 @@ autocmd vimrc FileType python setlocal completeopt-=preview
 let g:jedi#show_call_signatures = "0"
 
 "vim-move {{{2
-let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'A'
 
 "indentLine
 let g:indentLine_enabled = 0
