@@ -31,6 +31,9 @@ xterm*|rxvt*)
 esac
 export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 
+# .local/bin (pip --user etc)
+export PATH=${HOME}/.local/bin:${PATH}
+
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
