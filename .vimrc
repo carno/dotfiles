@@ -199,7 +199,6 @@ let g:signify_vcs_list = [ 'git', 'svn' ]
 
 "jedi-vim {{{2
 autocmd vimrc FileType python setlocal completeopt-=preview
-let g:jedi#show_call_signatures = "0"
 
 "vim-move {{{2
 let g:move_key_modifier = 'A'
