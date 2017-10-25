@@ -100,9 +100,18 @@ export GPG_TTY=$(tty)
 
 # virtualenvwrapper
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+    . /usr/local/bin/virtualenvwrapper.sh
 fi
 export WORKON_HOME=${HOME}/envs
+
+# enable fzf
+if [ -f ~/.fzf.bash ]; then
+    . ~/.fzf.bash
+    if [[ -x "$(command -v rg)"  ]]; then
+        export FZF_DEFAULT_COMMAND='rg --files'
+        export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+    fi
+fi
 
 # last but not least, let's go Vim
 set -o vi
@@ -111,8 +120,5 @@ if [ -x /usr/games/fortune ]; then
     fortune -s
     echo
 fi
-
-# enable fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # vim: ft=sh
