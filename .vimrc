@@ -25,6 +25,8 @@ Plug 'mhinz/vim-signify'
 Plug 'davidhalter/jedi-vim'
 Plug 'matze/vim-move'
 Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
