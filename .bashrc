@@ -116,7 +116,7 @@ if [ -f ~/.fzf.bash ]; then
     fi
 fi
 
-if [ -x /usr/games/fortune ]; then
+if [ -x "$(command -v fortune)" ]; then
     fortune -s
     echo
 fi
