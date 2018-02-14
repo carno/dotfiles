@@ -181,13 +181,9 @@ let g:tlWindowPosition = 1
 
 "tagbar settings {{{2
 map <leader>tb :TagbarToggle<cr>
-
-"miniBufExpl settings {{{2
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplorerHideWhenDiff = 1
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_width = 50
 
 "tablify {{{2
 let g:tablify_headerDelimiter = '#'
