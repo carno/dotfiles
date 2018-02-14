@@ -27,6 +27,7 @@ Plug 'matze/vim-move'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -210,6 +211,9 @@ let g:indentLine_enabled = 0
 let g:indentLine_setColors = 0
 let g:indentLine_indentLevel = 20
 map <leader>il :IndentLinesToggle<cr>
+
+"vim-gutentags {{{2
+let g:gutentags_cache_dir = "~/.vimtags"
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
