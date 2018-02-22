@@ -109,7 +109,7 @@ set spellsuggest=5
 "statusline {{{1
 hi statusline cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black
 hi statuslineNC cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENC=%{(&fenc!=''?&fenc:&enc)}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=[%F%m%r%h%w]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENC=%{(&fenc!=''?&fenc:&enc)}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{gutentags#statusline('[Generating…]')}
 set laststatus=2
 
 "default folding {{{1

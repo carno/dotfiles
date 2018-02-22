@@ -1,0 +1,7 @@
+--recurse=yes
+--python-kinds=-i
+--exclude=.svn
+--exclude=.git
+--exclude=*.pyc
+--exclude=*.pyo
+--languages=C,C++,Make,Perl,Python,reStructuredText,Sh
