@@ -210,6 +210,10 @@ map <leader>il :IndentLinesToggle<cr>
 
 "vim-gutentags {{{2
 let g:gutentags_cache_dir = "~/.vimtags"
+" disable gutentags if ctags in not available
+if !executable('ctags')
+    let g:gutentags_enabled = 0
+endif
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
