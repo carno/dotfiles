@@ -28,6 +28,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'ambv/black'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -190,11 +191,12 @@ let g:tablify_headerDelimiter = '#'
 let g:tablify_horHeaderDelimiter = '='
 
 "Ultisnips {{{2
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
-let g:ultisnips_python_style="sphinx"
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "myUltiSnips"]
+let g:ultisnips_python_style = "sphinx"
 
 "signify {{{2
 let g:signify_vcs_list = [ 'git', 'svn' ]
+let g:signify_realtime = 1
 
 "jedi-vim {{{2
 autocmd vimrc FileType python setlocal completeopt-=preview
@@ -202,7 +204,7 @@ autocmd vimrc FileType python setlocal completeopt-=preview
 "vim-move {{{2
 let g:move_key_modifier = 'A'
 
-"indentLine
+"indentLine {{{2
 let g:indentLine_enabled = 0
 let g:indentLine_setColors = 0
 let g:indentLine_indentLevel = 20
@@ -214,6 +216,10 @@ let g:gutentags_cache_dir = "~/.vimtags"
 if !executable('ctags')
     let g:gutentags_enabled = 0
 endif
+
+"black {{{2
+let g:black_linelength = 120
+let g:black_virtualenv = "~/envs/vim-black"
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
