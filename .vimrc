@@ -28,7 +28,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'ambv/black'
+Plug 'ambv/black', { 'do': ':BlackUpgrade' }
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
