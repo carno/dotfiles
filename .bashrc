@@ -68,7 +68,7 @@ GIT_PS1_DESCRIBE_STYLE="branch"
 GIT_PS1_SHOWUPSTREAM="auto git"
 
 # pimp my prompt
-PS1='\A | \u@\h | \w | $(__git_ps1 " %s | ")$?\n(\j) \$ '
+PS1='\A | \u@\h | \w | $(__git_ps1 " %s | ")${PIPESTATUS[@]}\n(\j) \$ '
 
 # history settings
 HISTIGNORE="&:la:ls:ll:c:q:fg:w"
