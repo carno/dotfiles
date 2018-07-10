@@ -29,6 +29,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ambv/black', { 'do': ':BlackUpgrade' }
+Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -45,7 +47,7 @@ set hlsearch
 set ruler
 set smarttab
 set showcmd
-set showmode
+set noshowmode
 set report=0
 set backspace=2
 set ttyfast
@@ -80,14 +82,10 @@ set softtabstop=4
 set textwidth=0
 
 "colorscheme {{{1
-set t_Co=256
-set background=dark
-if &term =~ '256color'
-    "disable background color erase
-    set t_ut=
+if (has("termguicolors"))
+    set termguicolors
 endif
-colorscheme lucius
-LuciusDarkLowContrast
+colorscheme onedark
 
 "show cursor position {{{1
 if exists("+colorcolumn")
@@ -108,9 +106,7 @@ set spelllang=pl,en
 set spellsuggest=5
 
 "statusline {{{1
-hi statusline cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black
-hi statuslineNC cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black
-set statusline=[%F%m%r%h%w]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENC=%{(&fenc!=''?&fenc:&enc)}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{gutentags#statusline('[Generating…]')}
+"set statusline=[%F%m%r%h%w]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENC=%{(&fenc!=''?&fenc:&enc)}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{gutentags#statusline('[Generating…]')}
 set laststatus=2
 
 "default folding {{{1
@@ -220,6 +216,19 @@ endif
 "black {{{2
 let g:black_linelength = 120
 let g:black_virtualenv = "~/envs/vim-black"
+
+"lightline {{{2
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ 'active': {
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
+      \ }
+  \ }
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
