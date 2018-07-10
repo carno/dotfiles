@@ -106,7 +106,6 @@ set spelllang=pl,en
 set spellsuggest=5
 
 "statusline {{{1
-"set statusline=[%F%m%r%h%w]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ENC=%{(&fenc!=''?&fenc:&enc)}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{gutentags#statusline('[Generating…]')}
 set laststatus=2
 
 "default folding {{{1
@@ -139,9 +138,6 @@ set foldtext=CustomFoldText()
 "start scrolling before we loose visibility {{{1
 set scrolloff=5
 set sidescrolloff=15
-
-"start new files in insert mode {{{1
-"autocmd BufNewFile * startinsert
 
 "don't expand tabs in some special cases {{{1
 autocmd vimrc FileType make setlocal noexpandtab
