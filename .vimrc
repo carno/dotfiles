@@ -212,6 +212,7 @@ endif
 "black {{{2
 let g:black_linelength = 120
 let g:black_virtualenv = "~/envs/vim-black"
+let g:black_skip_string_normalization = 1
 
 "lightline {{{2
 let g:lightline = {
