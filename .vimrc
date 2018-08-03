@@ -31,6 +31,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'ambv/black', { 'do': ':BlackUpgrade' }
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'RRethy/vim-illuminate'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -226,6 +227,9 @@ let g:lightline = {
       \   'charvaluehex': '0x%B'
       \ }
   \ }
+
+"illuminate {{{2
+let g:Illuminate_highlightUnderCursor = 0
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
