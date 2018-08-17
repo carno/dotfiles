@@ -2,7 +2,6 @@
 alias ls='ls --color=none -F'
 alias ll='ls -lFh'
 alias la='ls -alFh'
-alias mc='TERM=xterm-256color mc'
 alias ..='cd ..'
 alias q='exit'
 alias c='clear'
@@ -11,7 +10,6 @@ alias rm='rm -Iv'
 alias cp='cp -v'
 alias mv='mv -v'
 alias ack='ack-grep'
-alias tmux='tmux -2'
 alias myip='curl http://text.whatisyourip.org/ip'
 
 # functions
