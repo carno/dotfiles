@@ -2,6 +2,9 @@
 --python-kinds=-i
 --exclude=.svn
 --exclude=.git
+--exclude=.tox
 --exclude=*.pyc
 --exclude=*.pyo
---languages=C,C++,Make,Perl,Python,reStructuredText,Sh
+--extras=+r
+--fields=+r
+--languages=AnsiblePlaybook,C,C++,JSON,Make,Markdown,Perl,Python,PythonLoggingConfig,Sh,Yaml,reStructuredText
