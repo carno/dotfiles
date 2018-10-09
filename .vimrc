@@ -114,6 +114,7 @@ set laststatus=2
 set foldmethod=manual
 set foldminlines=3
 autocmd vimrc FileType python setlocal foldmethod=indent
+autocmd vimrc FileType json setlocal foldmethod=syntax
 
 function! CustomFoldText()
     "get first non-blank line
