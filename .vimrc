@@ -32,6 +32,7 @@ Plug 'ambv/black', { 'do': ':BlackUpgrade' }
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
