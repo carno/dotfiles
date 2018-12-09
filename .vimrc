@@ -14,7 +14,6 @@ Plug 'jamessan/vim-gnupg'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TaskList.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'Stormherz/tablify'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -23,7 +22,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mhinz/vim-signify'
 Plug 'davidhalter/jedi-vim'
-Plug 'matze/vim-move'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -197,9 +195,6 @@ let g:signify_realtime = 1
 
 "jedi-vim {{{2
 autocmd vimrc FileType python setlocal completeopt-=preview
-
-"vim-move {{{2
-let g:move_key_modifier = 'A'
 
 "indentLine {{{2
 let g:indentLine_enabled = 0
