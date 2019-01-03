@@ -17,7 +17,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'Stormherz/tablify'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'rking/ag.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mhinz/vim-signify'
@@ -31,6 +30,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -230,6 +230,11 @@ let g:lightline = {
 
 "illuminate {{{2
 let g:Illuminate_highlightUnderCursor = 0
+
+"ack/ag {{{2
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
