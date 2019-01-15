@@ -31,6 +31,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mileszs/ack.vim'
+Plug 'igordejanovic/textx.vim'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
