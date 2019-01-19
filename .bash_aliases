@@ -9,7 +9,6 @@ alias v='vim'
 alias rm='rm -Iv'
 alias cp='cp -v'
 alias mv='mv -v'
-alias ack='ack-grep'
 alias myip='curl http://text.whatisyourip.org/ip'
 
 # functions
