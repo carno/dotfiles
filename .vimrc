@@ -1,6 +1,3 @@
-"bye bye Vi {{{1
-set nocompatible
-
 "check for vim-plug {{{1
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
