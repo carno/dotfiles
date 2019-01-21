@@ -87,7 +87,7 @@ colorscheme onedark
 
 "show cursor position {{{1
 if exists("+colorcolumn")
-    set colorcolumn=80
+    set colorcolumn=100
     highlight ColorColumn ctermbg=235
 endif
 
