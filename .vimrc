@@ -29,6 +29,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mileszs/ack.vim'
 Plug 'igordejanovic/textx.vim'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
