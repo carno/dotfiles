@@ -10,6 +10,7 @@ alias rm='rm -Iv'
 alias cp='cp -v'
 alias mv='mv -v'
 alias myip='curl http://text.whatisyourip.org/ip'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # functions
 function _error() {
