@@ -31,6 +31,7 @@ Plug 'mileszs/ack.vim'
 Plug 'igordejanovic/textx.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'fisadev/vim-isort'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -244,6 +245,10 @@ let g:Illuminate_highlightUnderCursor = 0
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+"isort {{{2
+let g:vim_isort_config_overrides = {
+  \ 'include_trailing_comma': 1, 'multi_line_output': 3, 'indent': '    '}
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
