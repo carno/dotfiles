@@ -58,6 +58,7 @@ set wildmenu
 set wildmode=list:full
 set title
 set undolevels=1000
+set modeline
 
 "non-printable chars {{{1
 set listchars=tab:\|\ ,trail:·,extends:>,precedes:<,eol:¬,nbsp:␣
