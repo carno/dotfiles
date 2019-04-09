@@ -30,6 +30,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'mileszs/ack.vim'
 Plug 'igordejanovic/textx.vim'
 Plug 'tpope/vim-commentary'
+Plug 'mengelbrecht/lightline-bufferline'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -106,6 +107,9 @@ set spellsuggest=5
 
 "statusline {{{1
 set laststatus=2
+
+"tabline {{{1
+set showtabline=2
 
 "default folding {{{1
 set foldmethod=manual
@@ -226,6 +230,11 @@ let g:lightline = {
       \   'charvaluehex': '0x%B'
       \ }
   \ }
+
+"lightline-bufferline {{{2
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 "illuminate {{{2
 let g:Illuminate_highlightUnderCursor = 0
