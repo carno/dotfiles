@@ -22,7 +22,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'ambv/black', { 'do': ':BlackUpgrade' }
+Plug 'ambv/black', { 'do': ':BlackUpgrade', 'for': 'python' }
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
@@ -31,7 +31,7 @@ Plug 'mileszs/ack.vim'
 Plug 'igordejanovic/textx.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'fisadev/vim-isort'
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
