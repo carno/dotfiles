@@ -248,7 +248,11 @@ endif
 
 "isort {{{2
 let g:vim_isort_config_overrides = {
-  \ 'include_trailing_comma': 1, 'multi_line_output': 3, 'indent': '    '}
+  \ 'include_trailing_comma': 1,
+  \ 'multi_line_output': 3,
+  \ 'indent': '    ',
+  \ 'line_length': 120,
+  \ }
 
 "paste on/off {{{1
 nmap <leader>p :setlocal paste! paste?<cr>
