@@ -17,7 +17,7 @@ Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mhinz/vim-signify'
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -31,7 +31,7 @@ Plug 'mileszs/ack.vim'
 Plug 'igordejanovic/textx.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'fisadev/vim-isort', { 'for': 'python' }
+Plug 'fisadev/vim-isort', { 'on': 'Isort' }
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
