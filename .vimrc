@@ -32,6 +32,7 @@ Plug 'igordejanovic/textx.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'fisadev/vim-isort', { 'on': 'Isort' }
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
