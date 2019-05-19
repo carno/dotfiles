@@ -22,7 +22,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'ambv/black', { 'do': ':BlackUpgrade', 'for': 'python' }
+Plug 'python/black', { 'do': ':BlackUpgrade', 'for': 'python' }
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
