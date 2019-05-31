@@ -33,6 +33,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'fisadev/vim-isort', { 'on': 'Isort' }
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'mbbill/undotree'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -161,26 +162,26 @@ autocmd vimrc FileType python setlocal makeprg=pylint\ --reports=n\ %:p
 autocmd vimrc FileType python setlocal efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
 
 "custom make {{{1
-nmap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
+nnoremap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
 
 "spacebar to clear highlight {{{1
-nmap <space> <space>:noh<cr>
+nnoremap <space> <space>:noh<cr>
 
 "easier moving of code blocks {{{1
 vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
 "easier formatting of paragraphs {{{1
-vmap Q gq
-nmap Q gqap
+vnoremap Q gq
+nnoremap Q gqap
 
 "plugin configs {{{1
 "taskList settings {{{2
-map <leader>td <Plug>TaskList
+nnoremap <leader>td <Plug>TaskList
 let g:tlWindowPosition = 1
 
 "tagbar settings {{{2
-map <leader>tb :TagbarToggle<cr>
+nnoremap <leader>tb :TagbarToggle<cr>
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
@@ -206,7 +207,7 @@ autocmd vimrc FileType python setlocal completeopt-=preview
 let g:indentLine_enabled = 0
 let g:indentLine_setColors = 0
 let g:indentLine_indentLevel = 20
-map <leader>il :IndentLinesToggle<cr>
+nnoremap <leader>il :IndentLinesToggle<cr>
 
 "vim-gutentags {{{2
 let g:gutentags_cache_dir = "~/.vimtags"
@@ -219,7 +220,7 @@ endif
 let g:black_linelength = 120
 let g:black_virtualenv = "~/envs/vim-black"
 let g:black_skip_string_normalization = 1
-map <leader>b :Black<cr>
+nnoremap <leader>b :Black<cr>
 
 "lightline {{{2
 let g:lightline = {
@@ -255,11 +256,24 @@ let g:vim_isort_config_overrides = {
   \ 'line_length': 120,
   \ }
 
+"undotree {{{2
+nnoremap <leader>u :UndotreeToggle<cr>
+if has("persistent_undo")
+    set undodir=$HOME."/.undodir"
+    set undofile
+endif
+
 "paste on/off {{{1
-nmap <leader>p :setlocal paste! paste?<cr>
+nnoremap <leader>p :setlocal paste! paste?<cr>
 
 "spell on/off {{{1
-map <leader>s :setlocal spell! spell?<cr>
+nnoremap <leader>s :setlocal spell! spell?<cr>
+
+"format json
+nnoremap =j :%!python -m json.tool<cr>
+
+"format xml
+nnoremap =x :%!xmllint --format -<cr>
 
 "usability {{{1
 command! W w
