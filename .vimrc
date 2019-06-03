@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'jamessan/vim-gnupg'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TaskList.vim'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'Stormherz/tablify'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
