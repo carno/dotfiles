@@ -211,6 +211,9 @@ nnoremap <leader>il :IndentLinesToggle<cr>
 
 "vim-gutentags {{{2
 let g:gutentags_cache_dir = "~/.vimtags"
+if executable('rg')
+    let g:gutentags_file_list_command = 'rg --files'
+endif
 " disable gutentags if ctags in not available
 if !executable('ctags')
     let g:gutentags_enabled = 0
