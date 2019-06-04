@@ -261,9 +261,9 @@ let g:vim_isort_config_overrides = {
 
 "undotree {{{2
 nnoremap <leader>u :UndotreeToggle<cr>
-if has("persistent_undo")
-    set undodir=$HOME."/.undodir"
+if (has("persistent_undo"))
     set undofile
+    set undodir=~/.undodir
 endif
 
 "paste on/off {{{1
