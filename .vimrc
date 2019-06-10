@@ -27,7 +27,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'mileszs/ack.vim'
 Plug 'igordejanovic/textx.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mengelbrecht/lightline-bufferline'
@@ -246,10 +245,6 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 "illuminate {{{2
 let g:Illuminate_highlightUnderCursor = 0
 
-"ack/ag {{{2
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
 
 "isort {{{2
 let g:vim_isort_config_overrides = {
@@ -272,11 +267,15 @@ nnoremap <leader>p :setlocal paste! paste?<cr>
 "spell on/off {{{1
 nnoremap <leader>s :setlocal spell! spell?<cr>
 
-"format json
+"format json {{{1
 nnoremap =j :%!python -m json.tool<cr>
 
-"format xml
+"format xml {{{1
 nnoremap =x :%!xmllint --format -<cr>
+
+"fzf mappings {{{1
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>g :Rg<cr>
 
 "usability {{{1
 command! W w
