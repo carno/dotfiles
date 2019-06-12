@@ -275,7 +275,6 @@ nnoremap =x :%!xmllint --format -<cr>
 
 "fzf mappings {{{1
 nnoremap <leader>f :Files<cr>
-nnoremap <leader>g :Rg<cr>
 
 "usability {{{1
 command! W w
