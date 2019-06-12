@@ -35,4 +35,12 @@ function git-no-merged-remote() {
     for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
 }
 
+function ve() {
+    if [ -e ./venv/bin/activate ]; then
+        . ./venv/bin/activate
+    elif [[ $# -gt 0 ]]; then
+        virtualenv -q -p "$1" venv && . ./venv/bin/activate
+    fi
+}
+
 # vim: ft=sh
