@@ -244,6 +244,7 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 "illuminate {{{2
 let g:Illuminate_highlightUnderCursor = 0
+hi illuminatedWord cterm=underline gui=underline
 
 
 "isort {{{2
