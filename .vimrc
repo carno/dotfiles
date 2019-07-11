@@ -41,26 +41,26 @@ augroup vimrc
 augroup END
 
 "look and feel {{{1
-set number
-set showmatch
 set autoindent
-set incsearch
-set hlsearch
-set ruler
-set smarttab
-set showcmd
-set noshowmode
-set report=0
+set autowrite
 set backspace=2
-set ttyfast
-"set mouse=a
-set noswapfile
+set hlsearch
+set incsearch
+set modeline
 set nobackup
+set noshowmode
+set noswapfile
+set number
+set report=0
+set ruler
+set showcmd
+set showmatch
+set smarttab
+set title
+set ttyfast
+set undolevels=1000
 set wildmenu
 set wildmode=list:full
-set title
-set undolevels=1000
-set modeline
 
 "non-printable chars {{{1
 set listchars=tab:\|\ ,trail:·,extends:>,precedes:<,eol:¬,nbsp:␣
@@ -155,10 +155,6 @@ autocmd vimrc FileType yaml setlocal ts=2 sts=2 sw=2
 
 "autosave file when lost focus {{{1
 autocmd vimrc BufLeave,FocusLost * silent! update
-
-"pylint support {{{1
-autocmd vimrc FileType python setlocal makeprg=pylint\ --reports=n\ %:p
-autocmd vimrc FileType python setlocal efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
 
 "custom make {{{1
 nnoremap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
