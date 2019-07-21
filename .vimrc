@@ -163,8 +163,8 @@ nnoremap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
 nnoremap <space> <space>:noh<cr>
 
 "easier moving of code blocks {{{1
-vnoremap < <gv " better indentation
-vnoremap > >gv " better indentation
+vnoremap < <gv
+vnoremap > >gv
 
 "easier formatting of paragraphs {{{1
 vnoremap Q gq
@@ -197,6 +197,8 @@ let g:signify_realtime = 1
 
 "jedi-vim {{{2
 autocmd vimrc FileType python setlocal completeopt-=preview
+" map clash with spell
+let g:jedi#goto_stubs_command = ""
 
 "indentLine {{{2
 let g:indentLine_enabled = 0
@@ -279,11 +281,10 @@ command! Wq wq
 command! WQ wq
 command! Q q
 
-inoremap jj <esc>
-
-"nnoremap ; :
 nnoremap j gj
 nnoremap k gk
+
+" change buffers easier
 nnoremap <left> :bp<cr>
 nnoremap <right> :bn<cr>
 
