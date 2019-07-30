@@ -112,7 +112,7 @@ set -o vi
 if [ -f ~/.fzf.bash ]; then
     . ~/.fzf.bash
     if [[ -x "$(command -v rg)"  ]]; then
-        export FZF_DEFAULT_COMMAND='rg --files'
+        export FZF_DEFAULT_COMMAND='rg --files --hidden'
         export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
     fi
 fi
