@@ -114,6 +114,11 @@ set laststatus=2
 "tabline {{{1
 set showtabline=2
 
+"diffopts {{{1
+if has("patch-8.1.0360")
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
+
 "default folding {{{1
 set foldmethod=manual
 set foldminlines=3
