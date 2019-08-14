@@ -44,6 +44,7 @@ augroup END
 set autoindent
 set autowrite
 set backspace=2
+set completeopt=menuone,longest
 set hlsearch
 set incsearch
 set modeline
@@ -60,7 +61,7 @@ set title
 set ttyfast
 set undolevels=1000
 set wildmenu
-set wildmode=list:full
+set wildmode=list:longest,full
 
 "non-printable chars {{{1
 set listchars=tab:\|\ ,trail:·,extends:>,precedes:<,eol:¬,nbsp:␣
@@ -78,8 +79,8 @@ filetype plugin on
 "tabs {{{1
 set tabstop=4
 set shiftwidth=4
-set expandtab
 set softtabstop=4
+set expandtab
 
 "wrapping {{{1
 set textwidth=0
