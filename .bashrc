@@ -118,7 +118,7 @@ if [ -f ~/.fzf.bash ]; then
 fi
 
 if [ -x "$(command -v fortune)" ]; then
-    fortune -s
+    fortune -a
     echo
 fi
 
