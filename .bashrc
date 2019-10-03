@@ -117,9 +117,13 @@ if [ -f ~/.fzf.bash ]; then
     fi
 fi
 
-if [ -x "$(command -v fortune)" ]; then
+if [[ -x "$(command -v fortune)" ]]; then
     fortune -a
     echo
+fi
+
+if [[ -x "$(command -v kubectl)" ]]; then
+    source <(kubectl completion bash)
 fi
 
 # vim: ft=sh
