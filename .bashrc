@@ -126,4 +126,9 @@ if [[ -x "$(command -v kubectl)" ]]; then
     source <(kubectl completion bash)
 fi
 
+if [[ -x "$(command -v terraform)" ]]; then
+    complete -C terraform terraform
+fi
+
 # vim: ft=sh
+
