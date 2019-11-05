@@ -117,18 +117,18 @@ if [ -f ~/.fzf.bash ]; then
     fi
 fi
 
-if [[ -x "$(command -v fortune)" ]]; then
-    fortune -a
-    echo
-fi
-
 if [[ -x "$(command -v kubectl)" ]]; then
     source <(kubectl completion bash)
+    alias k=kubectl
+    complete -F __start_kubectl k
 fi
 
 if [[ -x "$(command -v terraform)" ]]; then
     complete -C terraform terraform
 fi
 
-# vim: ft=sh
+if [[ -x "$(command -v fortune)" ]]; then
+    echo -e "$(fortune -a)\n"
+fi
 
+# vim: ft=sh
