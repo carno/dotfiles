@@ -32,3 +32,5 @@
 	submoduleSummary = true
 [diff "sopsdiffer"]
 	textconv = sops -d
+[core]
+	excludesfile = ~/.ignore
