@@ -283,6 +283,7 @@ nnoremap =x :%!xmllint --format -<cr>
 
 "fzf mappings {{{1
 nnoremap <leader>f :Files<cr>
+nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)
 
 "usability {{{1
 command! W w
