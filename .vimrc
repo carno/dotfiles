@@ -44,7 +44,7 @@ augroup END
 set autoindent
 set autowrite
 set backspace=2
-set completeopt=menuone,longest
+set completeopt=longest,menuone
 set hlsearch
 set incsearch
 set modeline
@@ -205,7 +205,7 @@ let g:signify_vcs_list = [ 'git', 'svn' ]
 let g:signify_realtime = 1
 
 "jedi-vim {{{2
-autocmd vimrc FileType python setlocal completeopt-=preview
+let g:jedi#show_call_signatures = "2"
 " map clash with spell
 let g:jedi#goto_stubs_command = ""
 
