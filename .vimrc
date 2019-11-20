@@ -177,6 +177,9 @@ vnoremap Q gq
 nnoremap Q gqap
 
 "plugin configs {{{1
+"python-sytnax {{{2
+let g:python_highlight_all = 1
+
 "taskList settings {{{2
 nnoremap <leader>td <Plug>TaskList
 let g:tlWindowPosition = 1
