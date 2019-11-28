@@ -5,12 +5,13 @@ alias la='ls -alFh'
 alias ..='cd ..'
 alias q='exit'
 alias c='clear'
-alias v='vim'
 alias rm='rm -Iv'
 alias cp='cp -v'
 alias mv='mv -v'
 alias myip='curl http://text.whatisyourip.org/ip'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo package-install || echo package-broken)" "$(date +"[%d/%m %H:%M]") Finished" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 # functions
 function _error() {
