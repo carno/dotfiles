@@ -8,7 +8,6 @@ endif
 "plugins {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'jamessan/vim-gnupg'
-Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TaskList.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Stormherz/tablify'
@@ -33,6 +32,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'fisadev/vim-isort', { 'on': 'Isort' }
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'mbbill/undotree'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -184,13 +184,10 @@ let g:python_highlight_all = 1
 nnoremap <leader>td <Plug>TaskList
 let g:tlWindowPosition = 1
 
-"tagbar settings {{{2
-nnoremap <leader>tb :TagbarToggle<cr>
-let g:tagbar_autoclose = 1
-let g:tagbar_autofocus = 1
-let g:tagbar_width = 50
-let g:tagbar_compact = 1
-let g:tagbar_zoom_width = 1
+"vista settings {{{2
+nnoremap <silent> <leader>tb :Vista!!<cr>
+let g:vista_sidebar_width = 50
+let g:vista_close_on_jump = 1
 
 "tablify {{{2
 let g:tablify_headerDelimiter = '#'
@@ -283,7 +280,7 @@ nnoremap =x :%!xmllint --format -<cr>
 
 "fzf mappings {{{1
 nnoremap <leader>f :Files<cr>
-nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)
+nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)<cr>
 
 "usability {{{1
 command! W w
