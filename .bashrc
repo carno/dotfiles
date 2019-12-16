@@ -100,7 +100,7 @@ export MANWIDTH=96
 export GPG_TTY=$(tty)
 
 # virtualenvwrapper
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
 export WORKON_HOME=${HOME}/envs
@@ -109,7 +109,7 @@ export WORKON_HOME=${HOME}/envs
 set -o vi
 
 # enable fzf
-if [ -f ~/.fzf.bash ]; then
+if [[ -f ~/.fzf.bash ]]; then
     . ~/.fzf.bash
     if [[ -x "$(command -v rg)"  ]]; then
         export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
@@ -125,6 +125,10 @@ fi
 
 if [[ -x "$(command -v terraform)" ]]; then
     complete -C terraform terraform
+fi
+
+if [[ -d ~/.krew/bin ]]; then
+    export PATH=${HOME}/.krew/bin:${PATH}
 fi
 
 if [[ -x "$(command -v fortune)" ]]; then
