@@ -1,0 +1,3 @@
+[flake8]
+# ignore line-length as it differs across projects
+ignore = E501
