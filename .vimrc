@@ -26,13 +26,13 @@ Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'igordejanovic/textx.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'fisadev/vim-isort', { 'on': 'Isort' }
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
+Plug 'neomake/neomake'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -163,7 +163,7 @@ autocmd vimrc FileType yaml setlocal ts=2 sts=2 sw=2
 autocmd vimrc BufLeave,FocusLost * silent! update
 
 "custom make {{{1
-nnoremap <leader>w :w<cr>:silent make<cr>:redraw!<cr>:cw<cr>
+nnoremap <leader>w :w<cr><silent> :Neomake<cr>
 
 "spacebar to clear highlight {{{1
 nnoremap <space> <space>:noh<cr>
@@ -177,7 +177,7 @@ vnoremap Q gq
 nnoremap Q gqap
 
 "plugin configs {{{1
-"python-sytnax {{{2
+"python-syntax {{{2
 let g:python_highlight_all = 1
 
 "taskList settings {{{2
@@ -265,6 +265,10 @@ if (has("persistent_undo"))
     set undofile
     set undodir=~/.undodir
 endif
+
+"noemake {{{2
+let g:neomake_open_list = 2
+let g:neomake_python_enabled_makers = ['flake8']
 
 "paste on/off {{{1
 nnoremap <leader>p :setlocal paste! paste?<cr>
