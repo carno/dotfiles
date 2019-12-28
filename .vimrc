@@ -76,7 +76,7 @@ filetype on
 filetype indent on
 filetype plugin on
 
-"tabs {{{1
+"indent {{{1
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -162,20 +162,6 @@ autocmd vimrc FileType yaml setlocal ts=2 sts=2 sw=2
 "autosave file when lost focus {{{1
 autocmd vimrc BufLeave,FocusLost * silent! update
 
-"custom make {{{1
-nnoremap <leader>w :w<cr><silent> :Neomake<cr>
-
-"spacebar to clear highlight {{{1
-nnoremap <space> <space>:noh<cr>
-
-"easier moving of code blocks {{{1
-vnoremap < <gv
-vnoremap > >gv
-
-"easier formatting of paragraphs {{{1
-vnoremap Q gq
-nnoremap Q gqap
-
 "plugin configs {{{1
 "python-syntax {{{2
 let g:python_highlight_all = 1
@@ -223,7 +209,7 @@ if !executable('ctags')
 endif
 
 "black {{{2
-let g:black_linelength = 120
+let g:black_linelength = 100
 let g:black_virtualenv = "~/envs/vim-black"
 let g:black_skip_string_normalization = 1
 nnoremap <leader>b :Black<cr>
@@ -250,7 +236,6 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 let g:Illuminate_highlightUnderCursor = 0
 hi illuminatedWord cterm=underline gui=underline
 
-
 "isort {{{2
 let g:vim_isort_config_overrides = {
   \ 'include_trailing_comma': 1,
@@ -269,6 +254,12 @@ endif
 "noemake {{{2
 let g:neomake_open_list = 2
 let g:neomake_python_enabled_makers = ['flake8']
+nnoremap <leader>w :w<cr><silent> :Neomake<cr>
+nnoremap <leader>l <silent> :Neomake<cr>
+
+"fzf mappings {{{2
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)<cr>
 
 "paste on/off {{{1
 nnoremap <leader>p :setlocal paste! paste?<cr>
@@ -282,24 +273,33 @@ nnoremap =j :%!python -m json.tool<cr>
 "format xml {{{1
 nnoremap =x :%!xmllint --format -<cr>
 
-"fzf mappings {{{1
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)<cr>
-
 "usability {{{1
+"close/quit {{{2
 command! W w
 command! Wq wq
 command! WQ wq
 command! Q q
 
+"moving {{{2
 nnoremap j gj
 nnoremap k gk
 
-" change buffers easier
-nnoremap <left> :bp<cr>
-nnoremap <right> :bn<cr>
+"change buffers easier {{{2
+nnoremap <left> <silent> :bp<cr>
+nnoremap <right> <silent> :bn<cr>
 
-"rst helper {{{1
+"spacebar to clear highlight {{{2
+nnoremap <space> <space>:noh<cr>
+
+"easier moving of code blocks {{{2
+vnoremap < <gv
+vnoremap > >gv
+
+"easier formatting of paragraphs {{{2
+vnoremap Q gq
+nnoremap Q gqap
+
+"rst helper {{{2
 let @h = "yypVr"
 
 "local settings {{{1
