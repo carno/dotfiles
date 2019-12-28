@@ -33,6 +33,8 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
 Plug 'neomake/neomake'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-abolish'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
