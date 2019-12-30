@@ -35,6 +35,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-obsession'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
