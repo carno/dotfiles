@@ -89,8 +89,10 @@ set expandtab
 set textwidth=0
 
 "colorscheme {{{1
-if (has("termguicolors"))
-    set termguicolors
+if (empty($_NOTRUECOLORS))
+    if (has("termguicolors"))
+        set termguicolors
+    endif
 endif
 colorscheme onedark
 
