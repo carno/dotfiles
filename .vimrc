@@ -176,7 +176,7 @@ nnoremap <leader>td <Plug>TaskList
 let g:tlWindowPosition = 1
 
 "vista settings {{{2
-nnoremap <silent> <leader>tb :Vista!!<cr>
+nnoremap <silent><leader>tb :Vista!!<cr>
 let g:vista_sidebar_width = 50
 let g:vista_close_on_jump = 1
 
@@ -259,8 +259,8 @@ endif
 "noemake {{{2
 let g:neomake_open_list = 2
 let g:neomake_python_enabled_makers = ['flake8']
-nnoremap <leader>w :w<cr><silent> :Neomake<cr>
-nnoremap <leader>l <silent> :Neomake<cr>
+nnoremap <silent><leader>w :w<cr>:Neomake<cr>
+nnoremap <silent><leader>l :Neomake<cr>
 
 "fzf mappings {{{2
 nnoremap <leader>f :Files<cr>
@@ -290,8 +290,8 @@ nnoremap j gj
 nnoremap k gk
 
 "change buffers easier {{{2
-nnoremap <left> <silent> :bp<cr>
-nnoremap <right> <silent> :bn<cr>
+nnoremap <silent><left> :bp<cr>
+nnoremap <silent><right> :bn<cr>
 
 "spacebar to clear highlight {{{2
 nnoremap <space> <space>:noh<cr>
