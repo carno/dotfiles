@@ -37,11 +37,19 @@ function git-no-merged-remote() {
 }
 
 function ve() {
-    if [ -e ./venv/bin/activate ]; then
-        . ./venv/bin/activate
+    if [[ -e ./venv/bin/activate ]]; then
+        source ./venv/bin/activate
     elif [[ $# -gt 0 ]]; then
         virtualenv -q -p "$1" venv && . ./venv/bin/activate
     fi
+}
+
+function v() {
+    if [[ -e ./venv/bin/activate  ]]; then
+        source ./venv/bin/activate
+    fi
+    vim "$@"
+    deactivate
 }
 
 # vim: ft=sh
