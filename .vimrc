@@ -18,7 +18,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'mhinz/vim-signify'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'tag': '*', 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'python/black', { 'do': ':BlackUpgrade', 'for': 'python' }
