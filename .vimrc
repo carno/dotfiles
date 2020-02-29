@@ -36,6 +36,7 @@ Plug 'neomake/neomake'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-obsession'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -55,6 +56,7 @@ set nobackup
 set noshowmode
 set noswapfile
 set number
+set relativenumber
 set report=0
 set ruler
 set showcmd
