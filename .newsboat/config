@@ -20,7 +20,7 @@ download-full-page yes
 notify-format "RSS: %d (%n)"
 notify-program "~/dokumenty/github/scripts/newsboat-notifyd.sh"
 html-renderer "elinks -dump -force-html"
-reload-threads 4
+reload-threads 2
 feed-sort-order title
 
 # macro
