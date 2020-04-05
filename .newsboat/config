@@ -1,5 +1,5 @@
 # my colors
-include ~/.newsboat/colors
+include ~/.newsboat/solarized-dark
 
 # tt-rss
 urls-source "ttrss"
