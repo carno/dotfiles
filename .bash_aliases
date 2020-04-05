@@ -1,17 +1,18 @@
 # basic aliases
-alias ls='ls --color=none -F'
-alias ll='ls -lFh'
-alias la='ls -alFh'
 alias ..='cd ..'
-alias q='exit'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo package-install || echo package-broken)" "$(date +"[%d/%m %H:%M]") Finished" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias c='[ $[$RANDOM % 10] = 0 ] && timeout 3 cmatrix; clear || clear'
-alias rm='rm -Iv'
 alias cp='cp -v'
+alias la='ls -alFh'
+alias ll='ls -lFh'
+alias ls='ls --color=none -F'
+alias mc='mc -b'
 alias mv='mv -v'
 alias myip='curl http://text.whatisyourip.org/ip'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo package-install || echo package-broken)" "$(date +"[%d/%m %H:%M]") Finished" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias q='exit'
+alias rm='rm -Iv'
 
 # functions
 function _error() {
