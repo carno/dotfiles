@@ -76,7 +76,7 @@ HISTTIMEFORMAT='[%d/%m %H:%M] '
 HISTSIZE=10000
 HISTFILESIZE=10000
 
-# colorful man
+# less colors
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -125,6 +125,10 @@ fi
 
 if [[ -x "$(command -v terraform)" ]]; then
     complete -C terraform terraform
+fi
+
+if [[ -x "$(command -v helm)" ]]; then
+    source <(helm completion bash)
 fi
 
 if [[ -d ~/.krew/bin ]]; then
