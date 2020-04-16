@@ -136,7 +136,7 @@ if [[ -d ~/.krew/bin ]]; then
 fi
 
 if [[ -x "$(command -v fortune)" ]]; then
-    echo -e "$(fortune -a)\n"
+    echo -e "$(fortune -a -s)\n"
 fi
 
 # vim: ft=sh
