@@ -7,36 +7,36 @@ endif
 
 "plugins {{{1
 call plug#begin('~/.vim/plugged')
-Plug 'jamessan/vim-gnupg'
-Plug 'vim-scripts/TaskList.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'Stormherz/tablify'
+Plug 'RRethy/vim-illuminate'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'sheerun/vim-polyglot'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'mhinz/vim-signify'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'Stormherz/tablify'
 Plug 'Yggdroot/indentLine'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fisadev/vim-isort', { 'on': 'Isort' }
+Plug 'honza/vim-snippets'
+Plug 'itchyny/lightline.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jiangmiao/auto-pairs'
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'python/black', { 'tag': '19.10b0', 'do': ':BlackUpgrade', 'for': 'python' }
-Plug 'joshdick/onedark.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'RRethy/vim-illuminate'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-commentary'
-Plug 'mengelbrecht/lightline-bufferline'
-Plug 'fisadev/vim-isort', { 'on': 'Isort' }
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mbbill/undotree'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'mhinz/vim-signify'
+Plug 'nelstrom/vim-visual-star-search'
 Plug 'neomake/neomake'
-Plug 'tpope/vim-vinegar'
+Plug 'python/black', { 'tag': '19.10b0', 'do': ':BlackUpgrade', 'for': 'python' }
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/TaskList.vim'
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
