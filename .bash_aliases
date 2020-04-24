@@ -39,17 +39,18 @@ function git-no-merged-remote() {
 }
 
 function ve() {
-    if [[ -e ./venv/bin/activate ]]; then
-        source ./venv/bin/activate
+    local venv='.venv'
+    local venv_activate="${venv}/bin/activate"
+
+    if [[ -e "${venv_activate}" ]]; then
+        source "${venv_activate}"
     elif [[ $# -gt 0 ]]; then
-        virtualenv -q -p "$1" venv && . ./venv/bin/activate
+        virtualenv -q -p "$1" "${venv}" && . "${venv_activate}"
     fi
 }
 
 function v() {
-    if [[ -e ./venv/bin/activate  ]]; then
-        source ./venv/bin/activate
-    fi
+    ve
     vim "$@"
     deactivate
 }
