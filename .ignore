@@ -1,5 +1,8 @@
+.cache/
+.cargo/
+.envs/
 .git/
 .svn/
-.cargo/
 .terraform/
 Session.vim
+__pycache__/

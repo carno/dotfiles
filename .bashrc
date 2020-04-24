@@ -103,7 +103,7 @@ export GPG_TTY=$(tty)
 if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
-export WORKON_HOME=${HOME}/envs
+export WORKON_HOME=${HOME}/.envs
 
 # last but not least, let's go Vim
 set -o vi
@@ -114,6 +114,9 @@ if [[ -f ~/.fzf.bash ]]; then
     if [[ -x "$(command -v rg)"  ]]; then
         export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
         export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+    fi
+    if [[ -x "$(command -v fdfind)" ]]; then
+        export FZF_ALT_C_COMMAND='fdfind --type d --hidden --follow'
     fi
 fi
 
