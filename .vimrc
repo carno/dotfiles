@@ -37,6 +37,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/TaskList.vim'
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -173,56 +174,42 @@ autocmd vimrc FileType helm setlocal ts=2 sts=2 sw=2
 autocmd vimrc BufLeave,FocusLost * silent! update
 
 "plugin configs {{{1
-"python-syntax {{{2
-let g:python_highlight_all = 1
-
-"taskList settings {{{2
-nnoremap <leader>td <Plug>TaskList
-let g:tlWindowPosition = 1
-
-"vista settings {{{2
-nnoremap <silent><leader>tb :Vista!!<cr>
-let g:vista_sidebar_width = 50
-let g:vista_close_on_jump = 1
-
-"tablify {{{2
-let g:tablify_headerDelimiter = '#'
-let g:tablify_horHeaderDelimiter = '='
-
 "Ultisnips {{{2
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "myUltiSnips"]
 let g:ultisnips_python_style = "sphinx"
-
-"signify {{{2
-let g:signify_vcs_list = [ 'git', 'svn' ]
-let g:signify_realtime = 1
-
-"jedi-vim {{{2
-let g:jedi#show_call_signatures = "2"
-" map clash with spell
-let g:jedi#goto_stubs_command = ""
-
-"indentLine {{{2
-let g:indentLine_enabled = 0
-let g:indentLine_setColors = 0
-let g:indentLine_indentLevel = 20
-nnoremap <leader>il :IndentLinesToggle<cr>
-
-"vim-gutentags {{{2
-let g:gutentags_cache_dir = "~/.vimtags"
-if executable('rg')
-    let g:gutentags_file_list_command = 'rg --files'
-endif
-" disable gutentags if ctags in not available
-if !executable('ctags')
-    let g:gutentags_enabled = 0
-endif
 
 "black {{{2
 let g:black_linelength = 100
 let g:black_virtualenv = "~/.envs/vim-black"
 let g:black_skip_string_normalization = 1
 nnoremap <leader>b :Black<cr>
+
+"fzf mappings {{{2
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)<cr>
+"
+"indentLine {{{2
+let g:indentLine_enabled = 0
+let g:indentLine_setColors = 0
+let g:indentLine_indentLevel = 20
+nnoremap <leader>il :IndentLinesToggle<cr>
+
+"illuminate {{{2
+let g:Illuminate_highlightUnderCursor = 0
+hi illuminatedWord cterm=underline gui=underline
+
+"isort {{{2
+let g:vim_isort_config_overrides = {
+  \ 'include_trailing_comma': 1,
+  \ 'multi_line_output': 3,
+  \ 'indent': '    ',
+  \ 'line_length': 120,
+  \ }
+
+"jedi-vim {{{2
+let g:jedi#show_call_signatures = "2"
+" map clash with spell
+let g:jedi#goto_stubs_command = ""
 
 "lightline {{{2
 let g:lightline = {
@@ -242,17 +229,27 @@ let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
-"illuminate {{{2
-let g:Illuminate_highlightUnderCursor = 0
-hi illuminatedWord cterm=underline gui=underline
+"noemake {{{2
+let g:neomake_open_list = 2
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_sh_enabled_makers = ['shellcheck']
+nnoremap <silent><leader>w :w<cr>:Neomake<cr>
+nnoremap <silent><leader>l :Neomake<cr>
 
-"isort {{{2
-let g:vim_isort_config_overrides = {
-  \ 'include_trailing_comma': 1,
-  \ 'multi_line_output': 3,
-  \ 'indent': '    ',
-  \ 'line_length': 120,
-  \ }
+"python-syntax {{{2
+let g:python_highlight_all = 1
+
+"signify {{{2
+let g:signify_vcs_list = [ 'git', 'svn' ]
+let g:signify_realtime = 1
+
+"tablify {{{2
+let g:tablify_headerDelimiter = '#'
+let g:tablify_horHeaderDelimiter = '='
+
+"taskList settings {{{2
+nnoremap <leader>td <Plug>TaskList
+let g:tlWindowPosition = 1
 
 "undotree {{{2
 nnoremap <leader>u :UndotreeToggle<cr>
@@ -261,16 +258,23 @@ if (has("persistent_undo"))
     set undodir=~/.undodir
 endif
 
-"noemake {{{2
-let g:neomake_open_list = 2
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_sh_enabled_makers = ['shellcheck']
-nnoremap <silent><leader>w :w<cr>:Neomake<cr>
-nnoremap <silent><leader>l :Neomake<cr>
+"vim-gutentags {{{2
+let g:gutentags_cache_dir = "~/.vimtags"
+if executable('rg')
+    let g:gutentags_file_list_command = 'rg --files'
+endif
+" disable gutentags if ctags in not available
+if !executable('ctags')
+    let g:gutentags_enabled = 0
+endif
 
-"fzf mappings {{{2
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)<cr>
+"vim-shfmt {{{2
+let g:shfmt_extra_args = '-i 4'
+
+"vista settings {{{2
+nnoremap <silent><leader>tb :Vista!!<cr>
+let g:vista_sidebar_width = 50
+let g:vista_close_on_jump = 1
 
 "paste on/off {{{1
 nnoremap <leader>p :setlocal paste! paste?<cr>
