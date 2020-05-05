@@ -220,7 +220,7 @@ endif
 
 "black {{{2
 let g:black_linelength = 100
-let g:black_virtualenv = "~/envs/vim-black"
+let g:black_virtualenv = "~/.envs/vim-black"
 let g:black_skip_string_normalization = 1
 nnoremap <leader>b :Black<cr>
 
