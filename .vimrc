@@ -264,6 +264,7 @@ endif
 "noemake {{{2
 let g:neomake_open_list = 2
 let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_sh_enabled_makers = ['shellcheck']
 nnoremap <silent><leader>w :w<cr>:Neomake<cr>
 nnoremap <silent><leader>l :Neomake<cr>
 
