@@ -11,6 +11,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'SirVer/ultisnips'
 Plug 'Stormherz/tablify'
 Plug 'Yggdroot/indentLine'
+Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fisadev/vim-isort', { 'on': 'Isort' }
@@ -18,7 +19,6 @@ Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
