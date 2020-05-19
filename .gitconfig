@@ -1,19 +1,21 @@
 [push]
 	default = current
 [alias]
-	co = checkout
-	ci = commit -v
-	up = pull
-	st = status -sb
-	sti = st --ignored
-	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
-	ll = log --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d %C(reset)%s%C(red) [%cn]' --decorate --numstat
-	ups = submodule update --recursive -j 4
-	dt = difftool
-	mt = mergetool
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
 	bdone = "!f() { git co ${1-master} && git up ${2-origin} ${1-master} && git bclean ${1-master}; }; f"
+	ci = commit -v
+	co = checkout
+	dt = difftool
+	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
+	ll = log --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d %C(reset)%s%C(red) [%cn]' --decorate --numstat
+	ls = ls-files
+	mt = mergetool
 	recent = !git for-each-ref --count=10 --sort=-committerdate --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'
+	st = status -sb
+	sti = st --ignored
+	up = pull
+	ups = submodule update --recursive -j 4
+	wip = "!vim $(git ls-files -m)"
 [diff]
 	tool = vimdiff
 [merge]
