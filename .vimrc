@@ -160,6 +160,10 @@ set foldtext=CustomFoldText()
 set scrolloff=5
 set sidescrolloff=15
 
+"vert split tune
+set fillchars+=vert:\ 
+hi VertSplit ctermbg=NONE
+
 "don't expand tabs in some special cases {{{1
 autocmd vimrc FileType make setlocal noexpandtab
 autocmd vimrc FileType gitconfig setlocal noexpandtab
