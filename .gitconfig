@@ -13,7 +13,8 @@
 	recent = !git for-each-ref --count=10 --sort=-committerdate --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'
 	st = status -sb
 	sti = st --ignored
-	up = pull
+	um = !"git co master && git up -v && git co -"
+	up = pull --rebase
 	ups = submodule update --recursive -j 4
 	wip = "!vim $(git ls-files -m)"
 [diff]
