@@ -30,7 +30,6 @@ Plug 'mhinz/vim-signify'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neomake/neomake'
 Plug 'python/black', { 'tag': '19.10b0', 'do': ':BlackUpgrade', 'for': 'python' }
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
