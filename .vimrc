@@ -13,7 +13,7 @@ Plug 'Stormherz/tablify'
 Plug 'Yggdroot/indentLine'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fisadev/vim-isort', { 'on': 'Isort' }
+Plug 'brentyi/isort.vim'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
@@ -200,14 +200,6 @@ nnoremap <leader>il :IndentLinesToggle<cr>
 "illuminate {{{2
 let g:Illuminate_highlightUnderCursor = 0
 hi illuminatedWord cterm=underline gui=underline
-
-"isort {{{2
-let g:vim_isort_config_overrides = {
-  \ 'include_trailing_comma': 1,
-  \ 'multi_line_output': 3,
-  \ 'indent': '    ',
-  \ 'line_length': 120,
-  \ }
 
 "jedi-vim {{{2
 let g:jedi#show_call_signatures = "2"
