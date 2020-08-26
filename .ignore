@@ -4,5 +4,6 @@
 .git/
 .svn/
 .terraform/
+.venv/
 Session.vim
 __pycache__/
