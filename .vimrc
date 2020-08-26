@@ -279,7 +279,7 @@ nnoremap <leader>p :setlocal paste! paste?<cr>
 nnoremap <leader>s :setlocal spell! spell?<cr>
 
 "format json {{{1
-nnoremap =j :%!python -m json.tool<cr>
+nnoremap =j :%!python3 -m json.tool<cr>
 
 "format xml {{{1
 nnoremap =x :%!xmllint --format -<cr>
