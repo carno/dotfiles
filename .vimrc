@@ -29,7 +29,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neomake/neomake'
-Plug 'python/black', { 'tag': '19.10b0', 'do': ':BlackUpgrade', 'for': 'python' }
+Plug 'python/black', { 'tag': '20.8b1', 'do': ':BlackUpgrade', 'for': 'python' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
