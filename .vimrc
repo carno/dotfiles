@@ -8,7 +8,6 @@ endif
 "plugins {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'RRethy/vim-illuminate'
-Plug 'SirVer/ultisnips'
 Plug 'Stormherz/tablify'
 Plug 'Yggdroot/indentLine'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -18,7 +17,6 @@ Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -27,6 +25,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neomake/neomake'
 Plug 'python/black', { 'tag': '20.8b1', 'do': ':BlackUpgrade', 'for': 'python' }
@@ -48,7 +47,9 @@ augroup END
 set autoindent
 set autowrite
 set backspace=2
+set cmdheight=2
 set completeopt=longest,menuone
+set hidden
 set hlsearch
 set incsearch
 set modeline
@@ -59,11 +60,14 @@ set number
 set relativenumber
 set report=0
 set ruler
+set shortmess+=c
 set showcmd
 set showmatch
+set signcolumn=number
 set smarttab
 set title
 set ttyfast
+set updatetime=300
 set undolevels=1000
 set wildmenu
 set wildmode=list:longest,full
@@ -187,6 +191,33 @@ let g:black_virtualenv = "~/.envs/vim-black"
 let g:black_skip_string_normalization = 1
 nnoremap <leader>b :Black<cr>
 
+"coc {{{2
+inoremap <silent><expr> <c-@> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>ff  <Plug>(coc-format-selected)
+nmap <leader>ff  <Plug>(coc-format-selected)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
 "fzf mappings {{{2
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)<cr>
@@ -207,12 +238,22 @@ let g:jedi#show_call_signatures = "2"
 let g:jedi#goto_stubs_command = ""
 
 "lightline {{{2
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ 'active': {
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ],
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
       \ },
       \ 'component': {
       \   'charvaluehex': '0x%B'
