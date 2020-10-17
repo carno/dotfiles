@@ -10,9 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'RRethy/vim-illuminate'
 Plug 'Stormherz/tablify'
 Plug 'Yggdroot/indentLine'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'brentyi/isort.vim'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
@@ -28,14 +26,12 @@ Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neomake/neomake'
-Plug 'python/black', { 'tag': '20.8b1', 'do': ':BlackUpgrade', 'for': 'python' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/TaskList.vim'
-Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 call plug#end()
 
 "define a group `vimrc` and initialize. {{{1
@@ -63,7 +59,7 @@ set ruler
 set shortmess+=c
 set showcmd
 set showmatch
-set signcolumn=number
+set signcolumn=yes
 set smarttab
 set title
 set ttyfast
@@ -185,13 +181,17 @@ autocmd vimrc BufLeave,FocusLost * silent! update
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "myUltiSnips"]
 let g:ultisnips_python_style = "sphinx"
 
-"black {{{2
-let g:black_linelength = 100
-let g:black_virtualenv = "~/.envs/vim-black"
-let g:black_skip_string_normalization = 1
-nnoremap <leader>b :Black<cr>
-
 "coc {{{2
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-yaml',
+    \ 'coc-tag',
+    \ 'coc-sh',
+    \ 'coc-python',
+    \ 'coc-pairs'
+\ ]
+
+" Use ctrl+space for completion
 inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -211,10 +211,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code.
-xmap <leader>ff  <Plug>(coc-format-selected)
-nmap <leader>ff  <Plug>(coc-format-selected)
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
@@ -232,11 +228,6 @@ nnoremap <leader>il :IndentLinesToggle<cr>
 let g:Illuminate_highlightUnderCursor = 0
 hi illuminatedWord cterm=underline gui=underline
 
-"jedi-vim {{{2
-let g:jedi#show_call_signatures = "2"
-" map clash with spell
-let g:jedi#goto_stubs_command = ""
-
 "lightline {{{2
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -245,11 +236,11 @@ endfunction
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ 'active': {
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ],
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ 'right': [ [ 'lineinfo' ],
+      \            [ 'percent' ],
+      \            [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ] ],
+      \ 'left': [ [ 'mode', 'paste' ],
+      \           [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
@@ -303,9 +294,6 @@ endif
 if !executable('ctags')
     let g:gutentags_enabled = 0
 endif
-
-"vim-shfmt {{{2
-let g:shfmt_extra_args = '-i 4'
 
 "vista settings {{{2
 nnoremap <silent><leader>tb :Vista!!<cr>

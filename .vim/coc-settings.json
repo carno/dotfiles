@@ -1,5 +1,8 @@
 {
     "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length 100"
+    ],
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "yaml.schemas": {
@@ -8,6 +11,14 @@
         ],
         "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": [
             "docker-compose.yml"
+        ],
+        "https://json.schemastore.org/ansible-playbook": [
+            "playbook.yml",
+            "site.yml",
+            "/**/roles/**/*.yml"
+        ],
+        "https://json.schemastore.org/helmfile": [
+            "Chart.yaml"
         ]
     }
 }
