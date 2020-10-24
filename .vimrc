@@ -24,7 +24,6 @@ Plug 'mbbill/undotree'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'nelstrom/vim-visual-star-search'
 Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
@@ -177,18 +176,16 @@ autocmd vimrc FileType helm setlocal ts=2 sts=2 sw=2
 autocmd vimrc BufLeave,FocusLost * silent! update
 
 "plugin configs {{{1
-"Ultisnips {{{2
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "myUltiSnips"]
-let g:ultisnips_python_style = "sphinx"
 
 "coc {{{2
 let g:coc_global_extensions = [
     \ 'coc-json',
-    \ 'coc-yaml',
-    \ 'coc-tag',
-    \ 'coc-sh',
+    \ 'coc-pairs',
     \ 'coc-python',
-    \ 'coc-pairs'
+    \ 'coc-snippets',
+    \ 'coc-sh',
+    \ 'coc-tag',
+    \ 'coc-yaml'
 \ ]
 
 " Use ctrl+space for completion
