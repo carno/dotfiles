@@ -39,3 +39,5 @@
 	textconv = sops -d
 [core]
 	excludesfile = ~/.ignore
+[fetch]
+	prune = true
