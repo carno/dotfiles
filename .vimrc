@@ -176,7 +176,6 @@ autocmd vimrc FileType helm setlocal ts=2 sts=2 sw=2
 autocmd vimrc BufLeave,FocusLost * silent! update
 
 "plugin configs {{{1
-
 "coc {{{2
 let g:coc_global_extensions = [
     \ 'coc-json',
@@ -187,6 +186,10 @@ let g:coc_global_extensions = [
     \ 'coc-tag',
     \ 'coc-yaml'
 \ ]
+
+let g:coc_filetype_map = {
+    \ 'yaml.ansible': 'yaml'
+\ }
 
 " Use ctrl+space for completion
 inoremap <silent><expr> <c-@> coc#refresh()
