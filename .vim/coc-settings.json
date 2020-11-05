@@ -14,7 +14,9 @@
         ],
         "https://json.schemastore.org/ansible-playbook": [
             "playbook.yml",
-            "site.yml",
+            "site.yml"
+        ],
+        "https://json.schemastore.org/ansible-role-2.9": [
             "/**/roles/**/*.yml"
         ],
         "https://json.schemastore.org/helmfile": [
