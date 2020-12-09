@@ -263,8 +263,8 @@ let g:neomake_sh_enabled_makers = ['shellcheck']
 let g:neomake_gitcommit_enabled_makers = ['gitlint']
 let g:neomake_gitcommit_gitlint_maker= {
   \ 'exe': 'gitlint',
-  \ 'errorformat': '%l: %t%n %m',
-  \ 'args': ['--msg-filename'],
+  \ 'errorformat': '%l: %m',
+  \ 'args': ['--config', '~/.gitlint', '--msg-filename'],
   \}
 nnoremap <silent><leader>w :w<cr>:Neomake<cr>
 nnoremap <silent><leader>l :Neomake<cr>
