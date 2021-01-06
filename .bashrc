@@ -142,4 +142,8 @@ if [[ -x "$(command -v fortune)" ]]; then
     echo -e "$(fortune -a -s)\n"
 fi
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte-2.91.sh
+fi
+
 # vim: ft=sh
