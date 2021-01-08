@@ -1,10 +1,13 @@
 {
+    "python.pythonPath": "python3",
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length 100"
     ],
     "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Args": [
+        "--ignore=E501"
+    ],
     "yaml.schemas": {
         "https://json.schemastore.org/gitlab-ci": [
             ".gitlab-ci.yml"
