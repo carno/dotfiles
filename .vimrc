@@ -180,7 +180,7 @@ autocmd vimrc BufLeave,FocusLost * silent! update
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-pairs',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-snippets',
     \ 'coc-sh',
     \ 'coc-tag',
