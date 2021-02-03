@@ -350,8 +350,8 @@ nnoremap Q gqap
 let @h = "yypVr"
 
 "local settings {{{1
-if filereadable("~/.vim/local.vim")
-    source ~/.vim/local.vim
+if filereadable(expand('~/.local.vim'))
+    source ~/.local.vim
 endif
 
 "modline {{{1
