@@ -44,3 +44,16 @@
 	prune = true
 [commit]
 	verbose = true
+[protocol "http"]
+	allow = never
+[protocol "git"]
+	allow = never
+[fetch]
+	fsckObjects = true
+[transfer]
+	fsckObjects = true
+[receive]
+	fsckObjects = true
+[fetch "fsck"]
+	zeroPaddedFilemode = ignore
+	badTimezone = ignore
