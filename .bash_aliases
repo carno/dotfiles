@@ -15,7 +15,7 @@ fi
 alias ls='ls --color=none -F'
 alias mc='mc -b'
 alias mv='mv -v'
-alias myip='curl http://text.whatisyourip.org/ip'
+alias myip='curl ifconfig.co/'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias q='exit'
