@@ -4,8 +4,14 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo package-install 
 alias c='[ $[$RANDOM % 10] = 0 ] && timeout 3 cmatrix; clear || clear'
 alias cp='cp -v'
 alias git-up='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} um'
-alias la='ls -alFh'
-alias ll='ls -lFh'
+if [[ -x "$(command -v exa)" ]]; then
+    alias la='exa -alFg'
+    alias ll='exa -lFg'
+    alias exa='exa -Fg'
+else
+    alias la='ls -alFh'
+    alias ll='ls -lFh'
+fi
 alias ls='ls --color=none -F'
 alias mc='mc -b'
 alias mv='mv -v'
