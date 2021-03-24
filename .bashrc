@@ -134,6 +134,10 @@ if [[ -x "$(command -v helm)" ]]; then
     source <(helm completion bash)
 fi
 
+if [[ -x "$(command -v yq)" ]]; then
+    source <(yq shell-completion bash)
+fi
+
 if [[ -d ~/.krew/bin ]]; then
     export PATH=${HOME}/.krew/bin:${PATH}
 fi
