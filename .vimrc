@@ -1,11 +1,11 @@
-"check for vim-plug {{{1
+" check for vim-plug {{{1
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-"plugins {{{1
+" plugins {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'RRethy/vim-illuminate'
 Plug 'Stormherz/tablify'
@@ -15,6 +15,7 @@ Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jesseleite/vim-agriculture'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -33,12 +34,12 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/TaskList.vim'
 call plug#end()
 
-"define a group `vimrc` and initialize. {{{1
+" define a group `vimrc` and initialize. {{{1
 augroup vimrc
     autocmd!
 augroup END
 
-"look and feel {{{1
+" look and feel {{{1
 set autoindent
 set autowrite
 set backspace=2
@@ -67,30 +68,27 @@ set undolevels=1000
 set wildmenu
 set wildmode=list:longest,full
 
-"non-printable chars {{{1
+" non-printable chars {{{1
 set listchars=tab:\|\ ,trail:·,extends:>,precedes:<,eol:¬,nbsp:␣
-"if has('patch-7.4.710')
-"    set listchars+=space:·
-"endif
 set list
 
-"syntax and filetype {{{1
+" syntax and filetype {{{1
 syntax on
 filetype on
 filetype indent on
 filetype plugin on
 
-"indent {{{1
+" indent {{{1
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set shiftround
 
-"wrapping {{{1
+" wrapping {{{1
 set textwidth=0
 
-"colorscheme {{{1
+" colorscheme {{{1
 if (empty($_NOTRUECOLORS))
     if (has("termguicolors"))
         set termguicolors
@@ -98,7 +96,7 @@ if (empty($_NOTRUECOLORS))
 endif
 colorscheme onedark
 
-"show cursor position {{{1
+" show cursor position {{{1
 if exists("+colorcolumn")
     set colorcolumn=100
     highlight ColorColumn ctermbg=235
@@ -108,26 +106,22 @@ if exists("+cursorline")
     set cursorline
 endif
 
-"if exists("+cursorcolumn")
-"    set cursorcolumn
-"endif
-
-"spelling {{{1
+" spelling {{{1
 set spelllang=pl,en
 set spellsuggest=5
 
-"statusline {{{1
+" statusline {{{1
 set laststatus=2
 
-"tabline {{{1
+" tabline {{{1
 set showtabline=2
 
-"diffopts {{{1
+" diffopts {{{1
 if has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
 
-"default folding {{{1
+" default folding {{{1
 set foldmethod=manual
 set foldminlines=3
 autocmd vimrc FileType python setlocal foldmethod=indent
@@ -155,29 +149,29 @@ function! CustomFoldText()
 endf
 set foldtext=CustomFoldText()
 
-"start scrolling before we loose visibility {{{1
+" start scrolling before we loose visibility {{{1
 set scrolloff=5
 set sidescrolloff=15
 
-"vert split tune
+" vert split tune
 set fillchars+=vert:\ 
 hi VertSplit ctermbg=NONE
 
-"don't expand tabs in some special cases {{{1
+" don't expand tabs in some special cases {{{1
 autocmd vimrc FileType make setlocal noexpandtab
 autocmd vimrc FileType gitconfig setlocal noexpandtab
 
-"yaml indent
+" yaml indent
 autocmd vimrc FileType yaml setlocal ts=2 sts=2 sw=2
 
-"helm indent
+" helm indent
 autocmd vimrc FileType helm setlocal ts=2 sts=2 sw=2
 
-"autosave file when lost focus {{{1
+" autosave file when lost focus {{{1
 autocmd vimrc BufLeave,FocusLost * silent! update
 
-"plugin configs {{{1
-"coc {{{2
+" plugin configs {{{1
+" coc {{{2
 let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-pairs',
@@ -215,21 +209,20 @@ nmap <leader>rn <Plug>(coc-rename)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
-"fzf mappings {{{2
+" fzf mappings {{{2
 nnoremap <leader>f :Files<cr>
-nnoremap <leader>/ :call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(expand('<cword>')), 1)<cr>
-"
-"indentLine {{{2
+
+" indentLine {{{2
 let g:indentLine_enabled = 0
 let g:indentLine_setColors = 0
 let g:indentLine_indentLevel = 20
 nnoremap <leader>il :IndentLinesToggle<cr>
 
-"illuminate {{{2
+" illuminate {{{2
 let g:Illuminate_highlightUnderCursor = 0
 hi illuminatedWord cterm=underline gui=underline
 
-"lightline {{{2
+" lightline {{{2
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
@@ -252,12 +245,12 @@ let g:lightline = {
       \ }
   \ }
 
-"lightline-bufferline {{{2
+" lightline-bufferline {{{2
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
-"noemake {{{2
+" noemake {{{2
 let g:neomake_open_list = 2
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_sh_enabled_makers = ['shellcheck']
@@ -270,29 +263,36 @@ let g:neomake_gitcommit_gitlint_maker= {
 nnoremap <silent><leader>w :w<cr>:Neomake<cr>
 nnoremap <silent><leader>l :Neomake<cr>
 
-"python-syntax {{{2
+" python-syntax {{{2
 let g:python_highlight_all = 1
 
-"signify {{{2
+" signify {{{2
 let g:signify_vcs_list = [ 'git', 'svn' ]
 let g:signify_realtime = 1
 
-"tablify {{{2
+" tablify {{{2
 let g:tablify_headerDelimiter = '#'
 let g:tablify_horHeaderDelimiter = '='
 
-"taskList settings {{{2
+" taskList settings {{{2
 nnoremap <leader>td <Plug>TaskList
 let g:tlWindowPosition = 1
 
-"undotree {{{2
+" undotree {{{2
 nnoremap <leader>u :UndotreeToggle<cr>
 if (has("persistent_undo"))
     set undofile
     set undodir=~/.undodir
 endif
 
-"vim-gutentags {{{2
+" vim-agriculture {{{2
+if executable('rg')
+    nmap <Leader>/ <Plug>RgRawSearch
+    vmap <Leader>/ <Plug>RgRawVisualSelection
+    nmap <Leader>* <Plug>RgRawWordUnderCursor
+endif
+
+" vim-gutentags {{{2
 let g:gutentags_cache_dir = "~/.vimtags"
 if executable('rg')
     let g:gutentags_file_list_command = 'rg --files'
@@ -302,57 +302,57 @@ if !executable('ctags')
     let g:gutentags_enabled = 0
 endif
 
-"vista settings {{{2
+" vista settings {{{2
 nnoremap <silent><leader>tb :Vista!!<cr>
 let g:vista_sidebar_width = 50
 let g:vista_close_on_jump = 1
 let g:vista#renderer#enable_icon = 0
 
-"paste on/off {{{1
+" paste on/off {{{1
 nnoremap <leader>p :setlocal paste! paste?<cr>
 
-"spell on/off {{{1
+" spell on/off {{{1
 nnoremap <leader>s :setlocal spell! spell?<cr>
 
-"format json {{{1
+" format json {{{1
 nnoremap =j :%!python3 -m json.tool<cr>
 
-"format xml {{{1
+" format xml {{{1
 nnoremap =x :%!xmllint --format -<cr>
 
-"usability {{{1
-"close/quit {{{2
+" usability {{{1
+" close/quit {{{2
 command! W w
 command! Wq wq
 command! WQ wq
 command! Q q
 
-"moving {{{2
+" moving {{{2
 nnoremap j gj
 nnoremap k gk
 
-"change buffers easier {{{2
+" change buffers easier {{{2
 nnoremap <silent><left> :bp<cr>
 nnoremap <silent><right> :bn<cr>
 
-"spacebar to clear highlight {{{2
+" spacebar to clear highlight {{{2
 nnoremap <space> <space>:noh<cr>
 
-"easier moving of code blocks {{{2
+" easier moving of code blocks {{{2
 vnoremap < <gv
 vnoremap > >gv
 
-"easier formatting of paragraphs {{{2
+" easier formatting of paragraphs {{{2
 vnoremap Q gq
 nnoremap Q gqap
 
-"rst helper {{{2
+" rst helper {{{2
 let @h = "yypVr"
 
-"local settings {{{1
+" local settings {{{1
 if filereadable(expand('~/.local.vim'))
     source ~/.local.vim
 endif
 
-"modline {{{1
+" modline {{{1
 " vim: fdm=marker fml=1:
