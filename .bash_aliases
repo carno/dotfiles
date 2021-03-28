@@ -5,14 +5,15 @@ alias c='[ $[$RANDOM % 10] = 0 ] && timeout 3 cmatrix; clear || clear'
 alias cp='cp -v'
 alias git-up='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} um'
 if [[ -x "$(command -v exa)" ]]; then
-    alias la='exa -alFg'
+    alias l='exa -lFg'
     alias ll='exa -lFg'
-    alias exa='exa -Fg'
+    alias la='exa -alFg'
+    alias tree='exa -T'
 else
-    alias la='ls -alFh'
     alias ll='ls -lFh'
+    alias la='ls -alFh'
+    alias ls='ls --color=none -F'
 fi
-alias ls='ls --color=none -F'
 alias mc='mc -b'
 alias mv='mv -v'
 alias myip='curl ifconfig.co/'
@@ -51,7 +52,7 @@ function ve() {
     if [[ -e "${venv_activate}" ]]; then
         source "${venv_activate}"
     elif [[ $# -gt 0 ]]; then
-        virtualenv -q -p "$1" "${venv}" && . "${venv_activate}"
+        virtualenv -q -p "$1" "${venv}" && source "${venv_activate}"
     fi
 }
 
