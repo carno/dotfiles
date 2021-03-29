@@ -17,7 +17,7 @@ fi
 alias mc='mc -b'
 alias mv='mv -v'
 alias myip='curl ifconfig.co/'
-alias pbcopy='xclip -selection clipboard'
+alias pbcopy='xclip -selection clipboard -r'
 alias pbpaste='xclip -selection clipboard -o'
 alias q='exit'
 alias rm='rm -Iv'
