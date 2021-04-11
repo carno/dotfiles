@@ -96,6 +96,9 @@ export HISTCONTROL="erasedups:ignoreboth"
 # limit man display width
 export MANWIDTH=96
 
+# use vim for man pager
+export MANPAGER="vim -M +MANPAGER -"
+
 # vimgpg
 export GPG_TTY=$(tty)
 
