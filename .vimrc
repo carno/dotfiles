@@ -24,7 +24,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+if executable('node') | Plug 'neoclide/coc.nvim', { 'branch': 'release' } | endif
 Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
@@ -94,6 +94,7 @@ if (empty($_NOTRUECOLORS))
         set termguicolors
     endif
 endif
+let g:onedark_terminal_italics = 1
 colorscheme onedark
 
 " show cursor position {{{1
