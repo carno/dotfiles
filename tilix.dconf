@@ -2,11 +2,12 @@
 control-scroll-zoom=true
 quake-height-percent=90
 quake-hide-headerbar=true
-quake-hide-lose-focus=true
+quake-hide-lose-focus=false
 quake-keep-on-top=false
 quake-show-on-all-workspaces=false
 quake-specific-monitor=0
 quake-width-percent=90
+sidebar-on-right=true
 terminal-title-show-when-single=false
 terminal-title-style='small'
 theme-variant='dark'
