@@ -210,6 +210,12 @@ nmap <leader>rn <Plug>(coc-rename)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
 " fzf mappings {{{2
 nnoremap <leader>f :Files<cr>
 
