@@ -14,8 +14,8 @@ download-retries 2
 error-log "~/.newsboat/error.log"
 feed-sort-order title
 html-renderer "elinks -dump -force-html"
-keep-articles-days 15
 max-download-speed 50
+max-items 50
 notify-format "RSS: %d (%n)"
 notify-program "~/dokumenty/github/scripts/newsboat-notifyd.sh"
 reload-threads 2
