@@ -2,7 +2,8 @@
     "python.pythonPath": "python",
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
-        "--line-length 100"
+        "--line-length 100",
+        "--no-color"
     ],
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
