@@ -187,6 +187,12 @@ let g:coc_filetype_map = {
     \ 'yaml.ansible': 'yaml'
 \ }
 
+" configure rootPatterns
+autocmd FileType python let b:coc_root_patterns = ['.git', '.venv', 'tox.ini', 'setup.py', 'setup.cfg', 'pyproject.toml']
+
+" persist workspace folders
+set sessionoptions+=globals
+
 " Use ctrl+space for completion
 inoremap <silent><expr> <c-@> coc#refresh()
 
