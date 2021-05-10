@@ -207,6 +207,9 @@ nmap <leader>rn <Plug>(coc-rename)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
+" Yet another format mapping
+nmap <silent><leader>b <Plug>(coc-format)
+
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
