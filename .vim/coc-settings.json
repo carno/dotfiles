@@ -1,9 +1,9 @@
 {
-    "python.pythonPath": "python",
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length 100",
-        "--no-color"
+    "coc.preferences.willSaveHandlerTimeout": 3000,
+    "python.formatting.darkerPath": "~/.local/bin/darker",
+    "python.formatting.provider": "darker",
+    "python.formatting.darkerArgs": [
+        "-l 100"
     ],
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
