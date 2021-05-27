@@ -214,7 +214,7 @@ nmap <leader>rn <Plug>(coc-rename)
 command! -nargs=0 Format :call CocAction('format')
 
 " Yet another format mapping
-nmap <silent><leader>b <Plug>(coc-format)
+nmap <leader>b :%!black --quiet --line-length 100 -
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
