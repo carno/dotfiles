@@ -1,5 +1,3 @@
-[push]
-	default = current
 [alias]
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
 	bdone = "!f() { git co ${1-master} && git up ${2-origin} ${1-master} && git bclean ${1-master}; }; f"
@@ -7,6 +5,7 @@
 	ci = commit 
 	co = checkout
 	dt = difftool
+	fixup = "!f() { git log --no-merges --oneline ${1-master}..$(git branch --show-current) | fzf | cut -d ' ' -f 1 | xargs -o git commit -a --fixup; }; f"
 	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
 	ll = log --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d %C(reset)%s%C(red) [%cn]' --decorate --numstat
 	ls = ls-files
@@ -14,46 +13,49 @@
 	recent = !git for-each-ref --count=10 --sort=-committerdate --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'
 	st = status -sb
 	sti = st --ignored
-	um = !"git co master && git up -v && git co -"
+	um = "!f() { git co ${1-master} && git up -v && git co -; }; f"
 	up = pull --rebase
 	ups = submodule update --recursive -j 4
 	wip = "!vim $(git ls-files -m)"
-[diff]
-	tool = vimdiff
-[merge]
-	tool = vimdiff
-	log = true
-[difftool]
-	prompt = false
-[mergetool]
-	prompt = false
-	keepBackup = false
-[color]
-	ui = auto
-[include]
-	path = ~/.gitlocal
 [branch "master"]
 	rebase = true
-[status]
-	submoduleSummary = true
-[diff "sopsdiffer"]
-	textconv = sops -d
-[core]
-	excludesfile = ~/.ignore
-[fetch]
-	prune = true
+[color]
+	ui = auto
 [commit]
 	verbose = true
+[core]
+	excludesfile = ~/.ignore
+[diff]
+	tool = vimdiff
+[diff "sopsdiffer"]
+	textconv = sops -d
+[difftool]
+	prompt = false
+[fetch]
+	prune = true
+	fsckObjects = true
+[fetch "fsck"]
+	badTimezone = ignore
+	zeroPaddedFilemode = ignore
+[include]
+	path = ~/.gitlocal
+[merge]
+	log = true
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+	prompt = false
 [protocol "http"]
 	allow = never
 [protocol "git"]
 	allow = never
-[fetch]
-	fsckObjects = true
-[transfer]
-	fsckObjects = true
+[push]
+	default = current
 [receive]
 	fsckObjects = true
-[fetch "fsck"]
-	zeroPaddedFilemode = ignore
-	badTimezone = ignore
+[rebase]
+	autosquash = true
+[status]
+	submoduleSummary = true
+[transfer]
+	fsckObjects = true
