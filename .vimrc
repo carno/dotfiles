@@ -12,6 +12,7 @@ Plug 'Stormherz/tablify'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'honza/vim-snippets'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -262,6 +263,15 @@ let g:lightline = {
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+" markdown-preview {{{2
+" don't autostart
+let g:mkdp_auto_start = 0
+" don't autclose
+let g:mkdp_auto_close = 0
+" don't do live preview refresh
+let g:mkdp_refresh_slow = 1
+let g:mkdp_browser = 'google-chrome'
 
 " noemake {{{2
 let g:neomake_open_list = 2
