@@ -26,6 +26,9 @@
         ],
         "https://json.schemastore.org/helmfile": [
             "Chart.yaml"
+        ],
+        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/master/docs/content/en/schemas/v2beta19.json": [
+            "skaffold*.yaml"
         ]
     }
 }
