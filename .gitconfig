@@ -5,12 +5,12 @@
 	ci = commit 
 	co = checkout
 	dt = difftool
-	fixup = "!f() { git log --no-merges --oneline ${1-master}..$(git branch --show-current) | fzf | cut -d ' ' -f 1 | xargs -o git commit -a --fixup; }; f"
+	fixup = "!f() { git log --no-merges --oneline ${1-master}..$(git branch --show-current) | fzf +m | cut -d ' ' -f 1 | xargs -o git commit -a --fixup; }; f"
 	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
 	ll = log --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d %C(reset)%s%C(red) [%cn]' --decorate --numstat
 	ls = ls-files
 	mt = mergetool
-	recent = !git for-each-ref --count=10 --sort=-committerdate --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'
+	recent = "!f() { git for-each-ref --count=10 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' refs/heads refs/remotes | column -ts'|' | fzf +m | cut -d ' ' -f 1 | xargs -o git checkout; }; f"
 	st = status -sb
 	sti = st --ignored
 	um = "!f() { git co ${1-master} && git up -v && git co -; }; f"
