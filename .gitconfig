@@ -15,7 +15,7 @@
 	st = status -sb
 	sti = st --ignored
 	um = "!f() { git co ${1-master} && git up -v && git co -; }; f"
-	up = pull --rebase
+	up = "!f() { git pull --rebase ${1-origin} ${2-master}; }; f"
 	ups = submodule update --recursive -j 4
 	wip = "!vim $(git ls-files -m)"
 [branch "master"]
