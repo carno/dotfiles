@@ -1,9 +1,8 @@
 [alias]
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
-	bdone = "!f() { git co ${1-master} && git up ${2-origin} ${1-master} && git bclean ${1-master}; }; f"
+	bdone = "!f() { git switch ${1-master} && git up ${2-origin} ${1-master} && git bclean ${1-master}; }; f"
 	ca = commit --amend --no-edit
 	ci = commit 
-	co = checkout
 	dt = difftool
 	fixup = "!f() { git log --no-merges --oneline ${1-master}..$(git branch --show-current) | fzf +m | cut -d ' ' -f 1 | xargs -o git commit -a --fixup; }; f"
 	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
@@ -14,7 +13,7 @@
 	refs = "!f() { git for-each-ref --count=20 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' | column -ts'|' | fzf +m | cut -d ' ' -f 1 | xargs -o git checkout; }; f"
 	st = status -sb
 	sti = st --ignored
-	um = "!f() { git co ${1-master} && git up -v && git co -; }; f"
+	um = "!f() { git switch ${1-master} && git up -v && git switch -; }; f"
 	up = "!f() { git pull --rebase ${1-origin} ${2-master}; }; f"
 	ups = submodule update --recursive -j 4
 	wip = "!vim $(git ls-files -m)"
