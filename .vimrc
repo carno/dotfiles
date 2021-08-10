@@ -271,7 +271,7 @@ let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 0
 " don't do live preview refresh
 let g:mkdp_refresh_slow = 1
-let g:mkdp_browser = 'google-chrome'
+let g:mkdp_browser = 'microsoft-edge'
 
 " noemake {{{2
 let g:neomake_open_list = 2
