@@ -153,4 +153,8 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte-2.91.sh
 fi
 
+if [[ -x "$(command -v starship)" ]]; then
+    eval "$(starship init bash)"
+fi
+
 # vim: ft=sh
