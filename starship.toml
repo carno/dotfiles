@@ -655,7 +655,7 @@ detect_folders = ['.terraform']
 
 [time]
 format = '[$time]($style) '
-style = 'bold yellow'
+style = 'bold dimmed yellow'
 use_12hr = false
 disabled = false
 utc_time_offset = 'local'
