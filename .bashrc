@@ -54,22 +54,6 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
 fi
 
-# git-prompt
-if [ -f /usr/lib/git-core/git-sh-prompt ]; then
-    . /usr/lib/git-core/git-sh-prompt
-fi
-
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-# Explicitly unset color (default anyhow). Use 1 to set it.
-GIT_PS1_SHOWCOLORHINTS=
-GIT_PS1_DESCRIBE_STYLE="branch"
-GIT_PS1_SHOWUPSTREAM="auto git"
-
-# pimp my prompt
-PS1='\A | \u@\h | \w | $(__git_ps1 " %s | ")${PIPESTATUS[@]}\n(\j) \$ '
-
 # history settings
 HISTIGNORE="&:la:ls:ll:c:q:fg:w"
 HISTTIMEFORMAT='[%d/%m %H:%M] '
@@ -155,6 +139,22 @@ fi
 
 if [[ -x "$(command -v starship)" ]]; then
     eval "$(starship init bash)"
+else
+    # git-prompt
+    if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+        . /usr/lib/git-core/git-sh-prompt
+    fi
+
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    # Explicitly unset color (default anyhow). Use 1 to set it.
+    GIT_PS1_SHOWCOLORHINTS=
+    GIT_PS1_DESCRIBE_STYLE="branch"
+    GIT_PS1_SHOWUPSTREAM="auto git"
+
+    # pimp my prompt
+    PS1='\A | \u@\h | \w | $(__git_ps1 " %s | ")${PIPESTATUS[@]}\n(\j) \$ '
 fi
 
 # vim: ft=sh
