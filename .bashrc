@@ -104,7 +104,7 @@ export GPG_TTY=$(tty)
 
 # virtualenvwrapper
 if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
-    . /usr/local/bin/virtualenvwrapper.sh
+    . /usr/local/bin/virtualenvwrapper.sh 2>/dev/null
 fi
 export WORKON_HOME=${HOME}/.envs
 
