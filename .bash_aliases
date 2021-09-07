@@ -19,6 +19,7 @@ alias mv='mv -v'
 alias myip='curl ifconfig.co/'
 alias pbcopy='xclip -selection clipboard -r'
 alias pbpaste='xclip -selection clipboard -o'
+alias pip='python -m pip'
 alias q='exit'
 alias rm='rm -Iv'
 
