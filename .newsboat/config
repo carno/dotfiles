@@ -9,6 +9,8 @@ include ~/.newsboat/ttrss.conf
 auto-reload yes
 browser "firefox -new-tab %u 1>/dev/null 2>&- &"
 cleanup-on-quit yes
+confirm-mark-all-feeds-read no
+confirm-mark-feed-read no
 download-full-page yes
 download-retries 2
 error-log "~/.newsboat/error.log"
