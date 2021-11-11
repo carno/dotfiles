@@ -11,7 +11,7 @@
     ],
     "yaml.format.enable": true,
     "yaml.schemas": {
-        "https://json.schemastore.org/gitlab-ci": [
+        "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [
             ".gitlab-ci.yml"
         ],
         "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": [
@@ -27,7 +27,7 @@
         "https://json.schemastore.org/helmfile": [
             "Chart.yaml"
         ],
-        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/master/docs/content/en/schemas/v2beta19.json": [
+        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/master/docs/content/en/schemas/v2beta22.json": [
             "skaffold*.yaml"
         ]
     }
