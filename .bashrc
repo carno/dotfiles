@@ -137,6 +137,13 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte-2.91.sh
 fi
 
+if [[ -d ~/.pyenv ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
 if [[ -x "$(command -v starship)" ]]; then
     eval "$(starship init bash)"
 else
