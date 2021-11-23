@@ -83,15 +83,6 @@ export MANPAGER="vim -M +MANPAGER -"
 # vimgpg
 export GPG_TTY=$(tty)
 
-# virtualenvwrapper
-if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
-    . /usr/local/bin/virtualenvwrapper.sh 2>/dev/null
-fi
-export WORKON_HOME=${HOME}/.envs
-
-# last but not least, let's go Vim
-set -o vi
-
 # enable fzf
 if [[ -f ~/.fzf.bash ]]; then
     . ~/.fzf.bash
@@ -158,5 +149,8 @@ else
     # pimp my prompt
     PS1='\A | \u@\h | \w | $(__git_ps1 " %s | ")${PIPESTATUS[@]}\n(\j) \$ '
 fi
+
+# last but not least, let's go Vim
+set -o vi
 
 # vim: ft=sh
