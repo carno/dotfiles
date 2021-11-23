@@ -31,9 +31,6 @@ xterm*|rxvt*)
 esac
 export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 
-# .local/bin (pip --user etc)
-export PATH=${HOME}/.local/bin:${PATH}
-
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -138,8 +135,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 if [[ -d ~/.pyenv ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi
