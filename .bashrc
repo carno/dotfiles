@@ -126,6 +126,7 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 if [[ -d ~/.pyenv ]]; then
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi
