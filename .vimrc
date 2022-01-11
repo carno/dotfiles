@@ -230,6 +230,7 @@ nnoremap <leader>f :Files<cr>
 let g:indentLine_enabled = 0
 let g:indentLine_setColors = 0
 let g:indentLine_indentLevel = 20
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 nnoremap <leader>il :IndentLinesToggle<cr>
 
 " illuminate {{{2
