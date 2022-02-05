@@ -51,6 +51,8 @@ set hlsearch
 set incsearch
 set modeline
 set nobackup
+set nojoinspaces
+set nostartofline
 set noshowmode
 set noswapfile
 set number
