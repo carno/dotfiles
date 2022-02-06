@@ -191,7 +191,7 @@ let g:coc_filetype_map = {
 \ }
 
 " configure rootPatterns
-autocmd FileType python let b:coc_root_patterns = ['.git', '.venv', 'tox.ini', 'setup.py', 'setup.cfg', 'pyproject.toml']
+autocmd FileType python let b:coc_root_patterns = ['.git', '.venv', 'tox.ini', 'setup.py', 'setup.cfg', 'pyproject.toml', '.python-version']
 
 " persist workspace folders
 set sessionoptions+=globals
@@ -214,10 +214,13 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
 " Yet another format mapping
 nmap <leader>b :%!black --quiet --line-length 100 -
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
