@@ -6,6 +6,7 @@
 .newsboat/queue
 .newsboat/ttrss.conf
 .newsboat/ttrss.pass.gpg
+!.vim/
 .vim/.netrwhist
 .vim/autoload/plug.vim*
 .vim/local.vim
