@@ -12,17 +12,22 @@
     "yaml.format.enable": true,
     "yaml.schemas": {
         "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [
-            ".gitlab-ci.yml"
+            ".gitlab-ci.yml",
+            ".gitlab-ci.yaml"
         ],
         "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": [
-            "docker-compose.yml"
+            "docker-compose.yml",
+            "docker-compose.yaml"
         ],
         "https://json.schemastore.org/ansible-playbook": [
             "playbook.yml",
-            "site.yml"
+            "playbook.yaml",
+            "site.yml",
+            "site.yaml"
         ],
         "https://json.schemastore.org/ansible-role-2.9": [
-            "/**/roles/**/*.yml"
+            "/**/roles/**/*.yml",
+            "/**/roles/**/*.yaml"
         ],
         "https://json.schemastore.org/helmfile": [
             "Chart.yaml"
