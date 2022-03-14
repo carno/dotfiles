@@ -4,6 +4,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo package-install 
 alias c='[ $[$RANDOM % 10] = 0 ] && timeout 3 cmatrix; clear || clear'
 alias cp='cp -v'
 alias git-up='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} um'
+alias git-bdone='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} bdone'
 if [[ -x "$(command -v exa)" ]]; then
     alias l='exa -lFg'
     alias ll='exa -lFg'
