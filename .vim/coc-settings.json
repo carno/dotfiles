@@ -19,21 +19,37 @@
             "docker-compose.yml",
             "docker-compose.yaml"
         ],
-        "https://json.schemastore.org/ansible-playbook": [
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-playbook.json": [
             "playbook.yml",
             "playbook.yaml",
             "site.yml",
-            "site.yaml"
+            "site.yaml",
+            "playbooks/*.yml",
+            "playbooks/*.yaml"
         ],
-        "https://json.schemastore.org/ansible-role-2.9": [
-            "/**/roles/**/*.yml",
-            "/**/roles/**/*.yaml"
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json": [
+            "tasks/*.yml",
+            "handlers/*.yml"
         ],
-        "https://json.schemastore.org/helmfile": [
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-vars.json": [
+            "playbooks/vars/*.yml",
+            "vars/*.yml",
+            "defaults/*.yml",
+            "host_vars/*.yml",
+            "group_vars/*.yml"
+        ],
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json": [
+            "inventory.yml",
+            "inventory.yaml"
+        ],
+        "https://json.schemastore.org/helmfile.json": [
             "Chart.yaml"
         ],
-        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/master/docs/content/en/schemas/v2beta22.json": [
+        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/master/docs/content/en/schemas/v2beta28.json": [
             "skaffold*.yaml"
+        ],
+        "https://docs.renovatebot.com/renovate-schema.json": [
+            "renovate.json"
         ]
     }
 }
