@@ -25,7 +25,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
-if executable('node') | Plug 'neoclide/coc.nvim', { 'branch': 'release' } | endif
+if executable('node')
+    Plug 'neoclide/coc.nvim', { 'branch': 'release', 'commit': '968e9a25e32e1cdb362a9894a96e038b3c1be0c9', 'do': 'yarn install --frozen-lockfile' }
+endif
 Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
