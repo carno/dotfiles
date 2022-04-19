@@ -68,7 +68,7 @@ set signcolumn=yes
 set smarttab
 set title
 set ttyfast
-set updatetime=300
+set updatetime=1000
 set undolevels=1000
 set wildmenu
 set wildmode=list:longest,full
