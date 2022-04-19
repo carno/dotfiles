@@ -26,7 +26,7 @@ Plug 'mbbill/undotree'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
 if executable('node')
-    Plug 'neoclide/coc.nvim', { 'branch': 'release', 'commit': '968e9a25e32e1cdb362a9894a96e038b3c1be0c9', 'do': 'yarn install --frozen-lockfile' }
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 endif
 Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
@@ -47,7 +47,7 @@ set autoindent
 set autowrite
 set backspace=2
 set cmdheight=2
-set completeopt=longest,menuone
+" set completeopt=longest,menuone
 set hidden
 set hlsearch
 set incsearch
