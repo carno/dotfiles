@@ -349,7 +349,7 @@ detect_folders = []
 symbol = '☸ '
 format = '[$symbol$context( \($namespace\))]($style) in '
 style = 'cyan bold'
-disabled = false
+disabled = true
 
 [kubernetes.context_aliases]
 
