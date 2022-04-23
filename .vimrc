@@ -47,7 +47,7 @@ set autoindent
 set autowrite
 set backspace=2
 set cmdheight=2
-" set completeopt=longest,menuone
+set completeopt=longest,menuone
 set hidden
 set hlsearch
 set incsearch
