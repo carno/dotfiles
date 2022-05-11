@@ -299,6 +299,9 @@ let g:neomake_gitcommit_gitlint_maker= {
   \ 'errorformat': '%l: %m',
   \ 'args': ['--config', '~/.gitlint', '--msg-filename'],
   \}
+if executable('vale')
+    let g:neomake_markdown_enabled_makers = ['vale']
+endif
 nnoremap <silent><leader>w :w<cr>:Neomake<cr>
 nnoremap <silent><leader>l :Neomake<cr>
 
