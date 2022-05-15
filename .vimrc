@@ -29,6 +29,7 @@ if executable('node')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 endif
 Plug 'neomake/neomake'
+Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -348,7 +349,7 @@ endif
 nnoremap <silent><leader>tb :Vista!!<cr>
 let g:vista_sidebar_width = 50
 let g:vista_close_on_jump = 1
-let g:vista#renderer#enable_icon = 0
+let g:vista#renderer#enable_icon = 1
 
 " paste on/off {{{1
 nnoremap <leader>p :setlocal paste! paste?<cr>

@@ -5,21 +5,18 @@ command_timeout = 500
 add_newline = false
 
 [aws]
-format = 'on [$symbol($profile )(\($region\) )(\[$duration\])]($style)'
-symbol = '☁️  '
+symbol = '  '
 style = 'bold yellow'
 disabled = true
 expiration_symbol = 'X'
-
-[aws.region_aliases]
 
 [battery]
 disabled = true
 
 [character]
 format = '$symbol '
-success_symbol = "[➜](bold green) "
-error_symbol = "[✗](bold red) "
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
 vicmd_symbol = '[❮](bold green)'
 disabled = false
 
@@ -46,9 +43,9 @@ show_notifications = false
 min_time_to_notify = 45000
 
 [conda]
+symbol = ' '
 truncation_length = 1
 format = 'via [$symbol$environment]($style) '
-symbol = '🅒 '
 style = 'green bold'
 ignore_base = true
 disabled = false
@@ -100,15 +97,13 @@ use_logical_path = true
 format = '[$path]($style)[$read_only]($read_only_style) '
 style = 'cyan bold'
 disabled = false
-read_only = '🔒'
+read_only = ' '
 read_only_style = 'red'
 truncation_symbol = '…/'
 home_symbol = '~'
 
-[directory.substitutions]
-
 [docker_context]
-symbol = '🐳 '
+symbol = ' '
 style = 'blue bold'
 format = 'via [$symbol$context]($style) '
 only_with_files = true
@@ -145,7 +140,7 @@ detect_folders = []
 [elixir]
 format = 'via [$symbol($version \(OTP $otp_version\) )]($style)'
 version_format = 'v${raw}'
-symbol = '💧 '
+symbol = ' '
 style = 'bold purple'
 disabled = true 
 detect_extensions = []
@@ -155,7 +150,7 @@ detect_folders = []
 [elm]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🌳 '
+symbol = ' '
 style = 'cyan bold'
 disabled = true
 detect_extensions = ['elm']
@@ -165,8 +160,6 @@ detect_files = [
     '.elm-version',
 ]
 detect_folders = ['elm-stuff']
-
-[env_var]
 
 [erlang]
 format = 'via [$symbol($version )]($style)'
@@ -187,11 +180,9 @@ symbol = '☁️  '
 style = 'bold blue'
 disabled = false
 
-[gcloud.region_aliases]
-
 [git_branch]
 format = 'on [$symbol$branch]($style)(:[$remote]($style)) '
-symbol = ' '
+symbol = ' '
 style = 'bold purple'
 truncation_length = 9223372036854775807
 truncation_symbol = '…'
@@ -244,7 +235,7 @@ disabled = false
 [golang]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🐹 '
+symbol = ' '
 style = 'bold cyan'
 disabled = false
 detect_extensions = ['go']
@@ -272,7 +263,7 @@ detect_files = [
 detect_folders = []
 
 [hg_branch]
-symbol = ' '
+symbol = ' '
 style = 'bold purple'
 format = 'on [$symbol$branch]($style) '
 truncation_length = 9223372036854775807
@@ -291,7 +282,7 @@ disabled = false
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
 style = 'red dimmed'
-symbol = '☕ '
+symbol = ' '
 detect_extensions = [
     'java',
     'class',
@@ -321,7 +312,7 @@ disabled = false
 [julia]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = 'ஃ '
+symbol = ' '
 style = 'bold purple'
 disabled = true
 detect_extensions = ['jl']
@@ -351,8 +342,6 @@ format = '[$symbol$context( \($namespace\))]($style) in '
 style = 'cyan bold'
 disabled = true
 
-[kubernetes.context_aliases]
-
 [lua]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
@@ -368,13 +357,13 @@ detect_folders = ['lua']
 threshold = 75
 format = 'via $symbol[$ram( | $swap)]($style) '
 style = 'white bold dimmed'
-symbol = '🐏 '
+symbol = ' '
 disabled = true
 
 [nim]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '👑 '
+symbol = ' '
 style = 'yellow bold'
 disabled = true
 detect_extensions = [
@@ -387,7 +376,7 @@ detect_folders = []
 
 [nix_shell]
 format = 'via [$symbol$state( \($name\))]($style) '
-symbol = '❄️  '
+symbol = ' '
 style = 'bold blue'
 impure_msg = 'impure'
 pure_msg = 'pure'
@@ -396,7 +385,7 @@ disabled = true
 [nodejs]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = ' '
+symbol = ' '
 style = 'bold green'
 disabled = false
 not_capable_style = 'bold red'
@@ -448,7 +437,7 @@ disabled = false
 
 [package]
 format = 'is [$symbol$version]($style) '
-symbol = '📦 '
+symbol = ' '
 style = '208 bold'
 display_private = false
 disabled = false
@@ -509,7 +498,7 @@ python_binary = [
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 version_format = 'v${raw}'
 style = 'yellow bold'
-symbol = '🐍 '
+symbol = ' '
 disabled = false
 detect_extensions = ['py']
 detect_files = [
@@ -519,6 +508,7 @@ detect_files = [
     'Pipfile',
     'tox.ini',
     'setup.py',
+    'setup.cfg',
     '__init__.py',
 ]
 detect_folders = []
@@ -567,7 +557,7 @@ detect_folders = []
 [rust]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🦀 '
+symbol = ' '
 style = 'bold red'
 disabled = false
 detect_extensions = ['rs']
