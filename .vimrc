@@ -28,7 +28,6 @@ Plug 'mhinz/vim-signify'
 if executable('node')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 endif
-Plug 'neomake/neomake'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-abolish'
@@ -180,6 +179,7 @@ autocmd vimrc BufLeave,FocusLost * silent! update
 " plugin configs {{{1
 " coc {{{2
 let g:coc_global_extensions = [
+    \ 'coc-diagnostic',
     \ 'coc-json',
     \ 'coc-pairs',
     \ 'coc-pyright',
@@ -289,22 +289,6 @@ let g:mkdp_auto_close = 0
 " don't do live preview refresh
 let g:mkdp_refresh_slow = 1
 let g:mkdp_browser = 'microsoft-edge'
-
-" noemake {{{2
-let g:neomake_open_list = 2
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_sh_enabled_makers = ['shellcheck']
-let g:neomake_gitcommit_enabled_makers = ['gitlint']
-let g:neomake_gitcommit_gitlint_maker= {
-  \ 'exe': 'gitlint',
-  \ 'errorformat': '%l: %m',
-  \ 'args': ['--config', '~/.gitlint', '--msg-filename'],
-  \}
-if executable('vale')
-    let g:neomake_markdown_enabled_makers = ['vale']
-endif
-nnoremap <silent><leader>w :w<cr>:Neomake<cr>
-nnoremap <silent><leader>l :Neomake<cr>
 
 " python-syntax {{{2
 let g:python_highlight_all = 1

@@ -1,5 +1,11 @@
 {
     "coc.preferences.willSaveHandlerTimeout": 3000,
+    "diagnostic-languageserver.filetypes": {
+        "dockerfile": "hadolint",
+        "markdown": "vale",
+        "python": "mypy",
+        "sh": "shellcheck"
+    },
     "python.formatting.darkerPath": "~/.local/bin/darker",
     "python.formatting.provider": "darker",
     "python.formatting.darkerArgs": [
