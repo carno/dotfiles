@@ -1,23 +1,26 @@
 [alias]
-	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
-	bdone = "!f() { git switch ${1-master} && git up ${2-origin} ${1-master} && git bclean ${1-master}; git fetch; }; f"
+	bclean = "!f() { git branch --merged ${1-$(git default)} | grep -v " ${1-$(git default)}$" | xargs -r git branch -d; }; f"
+	bdone = "!f() { git switch ${1-$(git default)} && git up ${2-origin} ${1-$(git default)} && git bclean ${1-$(git default)}; git fetch; }; f"
 	ca = commit --amend --no-edit
 	ci = commit 
+	default = "!f() { git rev-parse --abbrev-ref origin/HEAD | cut -c8-; }; f"
 	dt = difftool
-	fixup = "!f() { git log --no-merges --oneline ${1-master}..$(git branch --show-current) | fzf +m | cut -d ' ' -f 1 | xargs -o git commit -a --fixup; }; f"
+	fixup = "!f() { git log --no-merges --oneline ${1-$(git default)}..$(git branch --show-current) | fzf +m | cut -d ' ' -f 1 | xargs -o git commit -a --fixup; }; f"
 	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
 	ll = log --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d %C(reset)%s%C(red) [%cn]' --decorate --numstat
 	ls = ls-files
 	mt = mergetool
-	recent = "!f() { git for-each-ref --count=10 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' refs/heads | column -ts'|' | fzf +m | cut -d ' ' -f 1 | xargs -o git checkout; }; f"
+	recent = "!f() { git for-each-ref --count=10 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' refs/heads | column -ts'|' | fzf +m | cut -d ' ' -f 1 | xargs -o git switch; }; f"
 	refs = "!f() { git for-each-ref --count=20 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' | column -ts'|' | fzf +m | cut -d ' ' -f 1 | xargs -o git checkout; }; f"
 	st = status -sb
 	sti = st --ignored
-	um = "!f() { git rev-parse --show-toplevel && git switch ${1-master} && git up origin master -v && git switch -; }; f"
-	up = "!f() { git pull --rebase ${1-origin} ${2-master}; }; f"
+	um = "!f() { git rev-parse --show-toplevel && git switch ${1-$(git default)} && git up -v && git switch -; }; f"
+	up = "!f() { git pull --rebase ${1-origin} ${2-$(git default)}; }; f"
 	ups = submodule update --recursive -j 4
 	wip = "!vim $(git ls-files -m)"
 [branch "master"]
+	rebase = true
+[branch "main"]
 	rebase = true
 [color]
 	ui = auto
