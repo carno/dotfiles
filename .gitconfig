@@ -11,7 +11,7 @@
 	ls = ls-files
 	mt = mergetool
 	recent = "!f() { git for-each-ref --count=10 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' refs/heads | column -ts'|' | fzf +m | cut -d ' ' -f 1 | xargs -o git switch; }; f"
-	refs = "!f() { git for-each-ref --count=20 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' | column -ts'|' | fzf +m | cut -d ' ' -f 1 | xargs -o git checkout; }; f"
+	refs = "!f() { git for-each-ref --count=20 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' | column -ts'|' | fzf +m | cut -d ' ' -f 1 | cut -d '/' -f 2- | xargs -o git switch; }; f"
 	st = status -sb
 	sti = st --ignored
 	um = "!f() { git rev-parse --show-toplevel && git switch ${1-$(git default)} && git up -v && git switch -; }; f"
