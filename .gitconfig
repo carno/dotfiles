@@ -18,16 +18,13 @@
 	up = "!f() { git pull --rebase ${1-origin} ${2-$(git default)}; }; f"
 	ups = submodule update --recursive -j 4
 	wip = "!vim $(git ls-files -m)"
-[branch "master"]
-	rebase = true
-[branch "main"]
-	rebase = true
 [color]
 	ui = auto
 [commit]
 	verbose = true
 [core]
 	excludesfile = ~/.ignore
+	untrackedCache = true
 [diff]
 	tool = vimdiff
 [diff "sopsdiffer"]
@@ -52,12 +49,16 @@
 	allow = never
 [protocol "git"]
 	allow = never
+[pull]
+	default = current
+	rebase = true
 [push]
 	default = current
 [receive]
 	fsckObjects = true
 [rebase]
 	autosquash = true
+	autostash = true
 [status]
 	submoduleSummary = true
 [transfer]
