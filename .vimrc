@@ -239,6 +239,8 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
+" Confirm completion with enter
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 " fzf mappings {{{2
 nnoremap <leader>f :Files<cr>
 
