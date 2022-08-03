@@ -40,28 +40,11 @@ function s() {
 
 # git helpers
 function git-merged-remote() {
-    for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
+    for branch in $(git branch -r --merged | grep -v HEAD); do echo -e $(git show --format="%ci %cr %an" $branch | head -n 1) \\t$branch; done | sort -r
 }
 
 function git-no-merged-remote() {
-    for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
-}
-
-function ve() {
-    local venv='.venv'
-    local venv_activate="${venv}/bin/activate"
-
-    if [[ -e "${venv_activate}" ]]; then
-        source "${venv_activate}"
-    elif [[ $# -gt 0 ]]; then
-        virtualenv -q -p "$1" "${venv}" && source "${venv_activate}"
-    fi
-}
-
-function v() {
-    ve
-    vim "$@"
-    deactivate
+for branch in $(git branch -r --no-merged | grep -v HEAD); do echo -e $(git show --format="%ci %cr %an" $branch | head -n 1) \\t$branch; done | sort -r
 }
 
 # vim: ft=sh
