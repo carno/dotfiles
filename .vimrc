@@ -194,7 +194,10 @@ let g:coc_filetype_map = {
 \ }
 
 " configure rootPatterns
-autocmd FileType python let b:coc_root_patterns = ['.git', '.venv', 'tox.ini', 'setup.py', 'setup.cfg', 'pyproject.toml', '.python-version']
+autocmd vimrc FileType python let b:coc_root_patterns = ['.git', '.venv', 'tox.ini', 'setup.py', 'setup.cfg', 'pyproject.toml', '.python-version']
+
+" disable snippets for completion
+autocmd vimrc FileType python let b:coc_disabled_sources = ['snippets']
 
 " persist workspace folders
 set sessionoptions+=globals
