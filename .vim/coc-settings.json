@@ -15,6 +15,7 @@
     "python.linting.flake8Args": [
         "--ignore=E501"
     ],
+    "pyright.inlayHints.enable": false,
     "yaml.format.enable": true,
     "yaml.schemas": {
         "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [
