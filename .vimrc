@@ -23,6 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
+Plug 'mechatroner/rainbow_csv'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
 if executable('node')
