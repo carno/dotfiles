@@ -15,8 +15,8 @@ disabled = true
 
 [character]
 format = '$symbol '
-success_symbol = '[➜](bold green) '
-error_symbol = '[✗](bold red) '
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red)'
 vicmd_symbol = '[❮](bold green)'
 disabled = false
 
@@ -45,7 +45,7 @@ min_time_to_notify = 45000
 [conda]
 symbol = ' '
 truncation_length = 1
-format = 'via [$symbol$environment]($style) '
+format = 'via [$symbol$environment]($style)'
 style = 'green bold'
 ignore_base = true
 disabled = false
