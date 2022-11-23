@@ -27,6 +27,7 @@ alias ,alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo package-install
 alias ,git-up='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} um'
 alias ,git-bdone='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} bdone'
 alias ,myip='curl ifconfig.co/'
+alias ,title='tmux rename-window "$(basename $(pwd))/$(git branch --show-current)"'
 
 # functions
 function _error() {
