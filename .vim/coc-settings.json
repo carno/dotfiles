@@ -11,9 +11,9 @@
     "python.formatting.darkerArgs": [
         "-l 100"
     ],
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--ignore=E501"
+    "python.linting.ruffEnabled": true,
+    "python.linting.ruffArgs": [
+        "--ignore E501"
     ],
     "pyright.inlayHints.functionReturnTypes": false,
     "pyright.inlayHints.variableTypes": false,
