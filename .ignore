@@ -1,7 +1,11 @@
 .cache/
 .cargo/
+.config/microsoft-edge/
 .envs/
 .git/
+.local/lib/
+.local/share/
+.pyenv/
 .svn/
 .terraform/
 .venv/
