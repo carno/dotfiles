@@ -1,3 +1,6 @@
+" unbreak vim after debian's 2:9.0.1000-2 {{{1
+set nocompatible
+
 " check for vim-plug {{{1
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
