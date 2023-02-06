@@ -6,6 +6,7 @@
 .local/lib/
 .local/share/
 .pyenv/
+.python-version
 .svn/
 .terraform/
 .venv/
