@@ -29,7 +29,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
@@ -157,5 +156,14 @@ fi
 
 # last but not least, let's go Vim
 set -o vi
+
+if [[ -x "$(command -v atuin)" ]]; then
+    if [[ -f ~/.bash-preexec.sh ]];then 
+        source ~/.bash-preexec.sh
+    fi
+    eval "$(atuin init bash)"
+else
+    export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
+fi
 
 # vim: ft=sh
