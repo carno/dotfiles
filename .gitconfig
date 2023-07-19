@@ -4,6 +4,7 @@
 	ca = commit --amend --no-edit
 	ci = commit 
 	default = "!f() { git rev-parse --abbrev-ref origin/HEAD | cut -c8-; }; f"
+	remotesh = remote set-head origin --auto
 	dt = difftool
 	fixup = "!f() { git log --no-merges --oneline ${1-$(git default)}..$(git branch --show-current) | fzf +m | cut -d ' ' -f 1 | xargs -o git commit -a --fixup; }; f"
 	lg = log --graph --pretty=format:'%C(cyan)%h%C(reset) :%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(red)[%an]%C(reset)' --abbrev-commit --date=relative --date-order
