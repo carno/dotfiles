@@ -190,6 +190,7 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-sh',
     \ 'coc-tag',
+    \ 'coc-typos',
     \ 'coc-yaml'
 \ ]
 
