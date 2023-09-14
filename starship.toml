@@ -97,7 +97,7 @@ use_logical_path = true
 format = '[$path]($style)[$read_only]($read_only_style) '
 style = 'cyan bold'
 disabled = false
-read_only = ' '
+read_only = ' 🔒'
 read_only_style = 'red'
 truncation_symbol = '…/'
 home_symbol = '~'
@@ -357,13 +357,13 @@ detect_folders = ['lua']
 threshold = 75
 format = 'via $symbol[$ram( | $swap)]($style) '
 style = 'white bold dimmed'
-symbol = ' '
+symbol = '🐏'
 disabled = true
 
 [nim]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = ' '
+symbol = '👑 '
 style = 'yellow bold'
 disabled = true
 detect_extensions = [
@@ -437,7 +437,7 @@ disabled = false
 
 [package]
 format = 'is [$symbol$version]($style) '
-symbol = ' '
+symbol = '📦 '
 style = '208 bold'
 display_private = false
 disabled = false
