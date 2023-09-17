@@ -1,14 +1,17 @@
 .cache/
 .cargo/
 .config/microsoft-edge/
+.config/Microsoft/
 .envs/
 .git/
+.local/bin
 .local/lib/
 .local/share/
 .pyenv/
 .python-version
 .svn/
 .terraform/
+.tox/
 .venv/
 .vim/
 Session.vim
