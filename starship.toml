@@ -1,8 +1,11 @@
+# Get editor completions based on the config schema
+'$schema' = 'https://starship.rs/config-schema.json'
+
 # Warning: This config does not include keys that have an unset value
 format = '$all'
 scan_timeout = 30
 command_timeout = 500
-add_newline = false
+add_newline = true
 
 [aws]
 symbol = '  '
@@ -63,7 +66,7 @@ detect_folders = []
 [dart]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🎯 '
+symbol = ' '
 style = 'bold blue'
 disabled = true
 detect_extensions = ['dart']
@@ -97,7 +100,7 @@ use_logical_path = true
 format = '[$path]($style)[$read_only]($read_only_style) '
 style = 'cyan bold'
 disabled = false
-read_only = ' 🔒'
+read_only = ' 󰌾'
 read_only_style = 'red'
 truncation_symbol = '…/'
 home_symbol = '~'
@@ -160,6 +163,13 @@ detect_files = [
     '.elm-version',
 ]
 detect_folders = ['elm-stuff']
+
+[env_var._K8SENV]
+format = '[$symbol($env_value )]($style)'
+symbol = '☸ '
+style = 'blue bold dimmed'
+variable = '_K8SENV'
+disabled = false
 
 [erlang]
 format = 'via [$symbol($version )]($style)'
@@ -345,7 +355,7 @@ disabled = true
 [lua]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🌙 '
+symbol = ' '
 style = 'bold blue'
 lua_binary = 'lua'
 disabled = true
@@ -357,13 +367,13 @@ detect_folders = ['lua']
 threshold = 75
 format = 'via $symbol[$ram( | $swap)]($style) '
 style = 'white bold dimmed'
-symbol = '🐏'
+symbol = '󰍛 '
 disabled = true
 
 [nim]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '👑 '
+symbol = '󰆥 '
 style = 'yellow bold'
 disabled = true
 detect_extensions = [
@@ -376,7 +386,7 @@ detect_folders = []
 
 [nix_shell]
 format = 'via [$symbol$state( \($name\))]($style) '
-symbol = ' '
+symbol = ' '
 style = 'bold blue'
 impure_msg = 'impure'
 pure_msg = 'pure'
@@ -437,7 +447,7 @@ disabled = false
 
 [package]
 format = 'is [$symbol$version]($style) '
-symbol = '📦 '
+symbol = '󰏗 '
 style = '208 bold'
 display_private = false
 disabled = false
@@ -517,7 +527,7 @@ detect_folders = []
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
 style = 'blue bold'
-symbol = '📐 '
+symbol = '󰟔 '
 disabled = true
 detect_extensions = [
     'R',
@@ -544,7 +554,7 @@ detect_folders = []
 [ruby]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '💎 '
+symbol = ' '
 style = 'bold red'
 disabled = true
 detect_extensions = ['rb']
@@ -569,7 +579,7 @@ format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
 disabled = true
 style = 'red bold'
-symbol = '🆂 '
+symbol = ' '
 detect_extensions = [
     'sbt',
     'scala',
