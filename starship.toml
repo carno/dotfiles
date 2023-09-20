@@ -662,7 +662,7 @@ utc_time_offset = 'local'
 time_range = '-'
 
 [username]
-format = '[$user]($style) @ '
+format = '[$user]($style)@'
 style_root = 'red bold'
 style_user = 'yellow bold'
 show_always = true
