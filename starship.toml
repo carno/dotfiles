@@ -641,14 +641,15 @@ detect_files = ['Package.swift']
 detect_folders = []
 
 [terraform]
-format = 'via [$symbol$workspace]($style) '
+format = 'via [$symbol$version]($style) '
 version_format = 'v${raw}'
-symbol = '💠 '
+symbol = '󱁢 '
 style = 'bold 105'
 disabled = false
 detect_extensions = [
     'tf',
-    'hcl',
+    'tfplan',
+    'tfstate'
 ]
 detect_files = []
 detect_folders = ['.terraform']
