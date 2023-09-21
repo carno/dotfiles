@@ -1,7 +1,7 @@
 .cache/
 .cargo/
-.config/microsoft-edge/
 .config/Microsoft/
+.config/microsoft-edge/
 .envs/
 .git/
 .local/bin
@@ -11,6 +11,7 @@
 .python-version
 .svn/
 .terraform/
+.terraform-version
 .tox/
 .venv/
 .vim/
