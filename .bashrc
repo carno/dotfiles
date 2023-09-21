@@ -70,7 +70,7 @@ export LESS='-C -M -I -j 10 -# 4'
 # export TERM=xterm-256color
 
 # don't put duplicate lines in the history. See bash(1) for more options
-# ... and ignore same sucessive entries.
+# ... and ignore same successive entries.
 export HISTCONTROL="erasedups:ignoreboth"
 
 # limit man display width
