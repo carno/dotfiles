@@ -6,6 +6,19 @@
         "python": "mypy",
         "sh": "shellcheck"
     },
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": [
+                "serve"
+            ],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {}
+        }
+    },
     "python.formatting.darkerPath": "~/.local/bin/darker",
     "python.formatting.provider": "darker",
     "python.formatting.darkerArgs": [
