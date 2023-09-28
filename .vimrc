@@ -11,7 +11,6 @@ endif
 " plugins {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'RRethy/vim-illuminate'
-Plug 'Stormherz/tablify'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'honza/vim-snippets'
@@ -39,6 +38,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/TaskList.vim'
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 " define a group `vimrc` and initialize. {{{1
@@ -306,10 +306,6 @@ let g:python_highlight_all = 1
 " signify {{{2
 let g:signify_vcs_list = [ 'git', 'svn' ]
 let g:signify_realtime = 1
-
-" tablify {{{2
-let g:tablify_headerDelimiter = '#'
-let g:tablify_horHeaderDelimiter = '='
 
 " taskList settings {{{2
 nnoremap <leader>td <Plug>TaskList
