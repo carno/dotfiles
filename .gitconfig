@@ -15,7 +15,7 @@
 	refs = "!f() { git for-each-ref --count=20 --sort=-committerdate --format='%(refname:short)|%(committerdate:relative)|%(subject)|%(authorname)' | column -ts'|' | fzf +m | cut -d ' ' -f 1 | cut -d '/' -f 2- | xargs -o git switch; }; f"
 	st = status -sb
 	sti = st --ignored
-	um = "!f() { git rev-parse --show-toplevel && git switch -q ${1-$(git default)} && git up && git switch -q -; }; f"
+	um = "!f() { git rev-parse --show-toplevel && git switch -q ${1-$(git default)} && git upf && git switch -q -; }; f"
 	up = "!f() { git pull --rebase ${1-origin} ${2-$(git default)} -v; }; f"
 	upf = "!f() { git up && git fetch ;}; f"
 	ups = submodule update --recursive -j 4
