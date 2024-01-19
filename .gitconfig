@@ -28,6 +28,7 @@
 	excludesfile = ~/.ignore
 	untrackedCache = true
 [diff]
+	algorithm = histogram
 	tool = vimdiff
 [diff "sopsdiffer"]
 	textconv = sops -d
@@ -42,6 +43,7 @@
 [include]
 	path = ~/.gitlocal
 [merge]
+	conflictStyle = zdiff3
 	log = true
 	tool = vimdiff
 [mergetool]
