@@ -19,11 +19,7 @@
             "initializationOptions": {}
         }
     },
-    "python.formatting.darkerPath": "~/.local/bin/darker",
-    "python.formatting.provider": "darker",
-    "python.formatting.darkerArgs": [
-        "-l 100"
-    ],
+    "python.formatting.provider": "black",
     "python.linting.ruffEnabled": true,
     "python.linting.ruffArgs": [
         "--ignore E501"
