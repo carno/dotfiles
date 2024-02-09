@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -32,22 +33,26 @@ esac
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    # shellcheck disable=SC1090
+    source ~/.bash_aliases
 fi
 
 # for my eyes only
 if [ -f ~/.local_bash ]; then
-    . ~/.local_bash
+    # shellcheck disable=SC1090
+    source ~/.local_bash
 fi
 if [ -f ~/.local_aliases ]; then
-    . ~/.local_aliases
+    # shellcheck disable=SC1090
+    source ~/.local_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    # shellcheck disable=SC1091
+    source /usr/share/bash-completion/bash_completion
 fi
 
 # history settings
@@ -84,7 +89,8 @@ export GPG_TTY=$(tty)
 
 # enable fzf
 if [[ -f ~/.fzf.bash ]]; then
-    . ~/.fzf.bash
+    # shellcheck disable=SC1090
+    source  ~/.fzf.bash
     if [[ -x "$(command -v rg)"  ]]; then
         export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
         export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
@@ -94,37 +100,17 @@ if [[ -f ~/.fzf.bash ]]; then
     fi
 fi
 
-if [[ -x "$(command -v kubectl)" ]]; then
-    source <(kubectl completion bash)
-    alias k=kubectl
-    complete -F __start_kubectl k
-fi
-
-if [[ -x "$(command -v terraform)" ]]; then
-    complete -C terraform terraform
-fi
-
-if [[ -x "$(command -v helm)" ]]; then
-    source <(helm completion bash)
-fi
-
 if [[ -x "$(command -v yq)" ]]; then
+    # shellcheck disable=SC1090
     source <(yq shell-completion bash)
-fi
-
-if [[ -d ~/.krew/bin ]]; then
-    export PATH=${HOME}/.krew/bin:${PATH}
 fi
 
 if [[ -x "$(command -v fortune)" ]]; then
     echo -e "$(fortune -a -s)\n"
 fi
 
-if [[ -x "$(command -v glab)" ]]; then
-    source <(glab completion -s bash)
-fi
-
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    # shellcheck disable=SC1091
     source /etc/profile.d/vte-2.91.sh
 fi
 
@@ -159,6 +145,7 @@ set -o vi
 
 if [[ -x "$(command -v atuin)" ]]; then
     if [[ -f ~/.bash-preexec.sh ]];then 
+        # shellcheck disable=SC1090
         source ~/.bash-preexec.sh
     fi
     eval "$(atuin init bash)"
