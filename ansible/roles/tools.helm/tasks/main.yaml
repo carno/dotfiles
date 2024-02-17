@@ -1,0 +1,48 @@
+---
+- name: Check latest helm version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/helm/helm/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+  register: helm_github_details
+  when: helm.version is undefined
+  tags:
+    - never
+    - helm
+    - work
+
+- name: Set helm.version
+  ansible.builtin.set_fact:
+    helm:
+      version: "{{ helm_github_details.json.tag_name }}"
+  when: not helm_github_details is skipped
+  tags:
+    - never
+    - helm
+    - work
+
+- name: Install helm
+  ansible.builtin.unarchive:
+    src: "https://get.helm.sh/helm-{{ helm.version }}-linux-amd64.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    extra_opts:
+      - '--strip-components=1'
+    include:
+      - 'linux-amd64/helm'
+  register: helm_install
+  tags:
+    - never
+    - helm
+    - work
+
+- name: Generate bash completions
+  ansible.builtin.shell: helm completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/helm"
+  when: helm_install is changed
+  tags:
+    - never
+    - helm
+    - work
+
+# TODO: install helm plugins

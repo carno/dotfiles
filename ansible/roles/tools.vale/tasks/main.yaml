@@ -1,0 +1,33 @@
+---
+- name: Check latest vale version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/errata-ai/vale/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+  register: vale_github_details
+  when: vale.version is undefined
+  tags:
+    - tools
+    - vale
+
+- name: Set vale.version
+  ansible.builtin.set_fact:
+    vale:
+      version: "{{ vale_github_details.json.tag_name }}"
+  when: not vale_github_details is skipped
+  tags:
+    - tools
+    - vale
+
+- name: Install vale
+  ansible.builtin.unarchive:
+    src: "https://github.com/errata-ai/vale/releases/download/{{ vale.version }}/vale_{{ vale.version | replace ('v', '') }}_Linux_64-bit.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    include:
+      - vale
+  tags:
+    - tools
+    - vale
+

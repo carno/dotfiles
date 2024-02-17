@@ -1,0 +1,44 @@
+---
+- name: Check latest flux version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/fluxcd/flux2/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+  register: flux_github_details
+  when: flux.version is undefined
+  tags:
+    - never
+    - flux
+    - work
+
+- name: Set flux.version
+  ansible.builtin.set_fact:
+    flux:
+      version: "{{ flux_github_details.json.tag_name }}"
+  when: not flux_github_details is skipped
+  tags:
+    - never
+    - flux
+    - work
+
+- name: Install flux
+  ansible.builtin.unarchive:
+    src: "https://github.com/fluxcd/flux2/releases/download/{{ flux.version }}/flux_{{ flux.version | replace ('v', '') }}_linux_amd64.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    include:
+      - flux
+  register: flux_install
+  tags:
+    - never
+    - flux
+    - work
+
+- name: Generate bash completions
+  ansible.builtin.shell: flux completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/flux"
+  when: flux_install is changed
+  tags:
+    - never
+    - flux
+    - work

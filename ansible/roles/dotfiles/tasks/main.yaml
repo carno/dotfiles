@@ -1,0 +1,90 @@
+---
+- name: Create home symlinks
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}"
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: link
+  loop:
+    - '.bashrc'
+    - '.bash_aliases'
+    - '.ctags.d'
+    - '.gitconfig'
+    - '.gitlint'
+    - '.ignore'
+    - '.inputrc'
+    - '.mostrc'
+    - '.offlineimaprc'
+    - '.profile'
+    - '.tmux.conf'
+    - '.vimrc'
+  tags:
+    - dotfiles
+
+- name: Create newsboat's config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.newsboat"
+    state: directory
+  tags:
+    - dotfiles
+    - newsboat
+
+- name: Link newsboat's config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/newsboat/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.newsboat/{{ item }}"
+    state: link
+  loop:
+    - 'colors'
+    - 'config'
+    - 'solarized-dark'
+  tags:
+    - dotfiles
+    - newsboat
+
+- name: Create vim's config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.vim"
+    state: directory
+  tags:
+    - dotfiles
+    - vim
+
+- name: Link vim's config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/vim/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.vim/{{ item }}"
+    state: link
+  loop:
+    - 'coc-settings.json'
+    - 'myUltiSnips'
+    - 'spell'
+  tags:
+    - dotfiles
+    - vim
+
+- name: Create ruff's config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/ruff"
+    state: directory
+  tags:
+    - dotfiles
+    - ruff
+
+- name: Link ruff's config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/ruff.toml"
+    path: "{{ ansible_env.HOME }}/.config/ruff/ruff.toml"
+    state: link
+  tags:
+    - dotfiles
+    - ruff
+
+- name: Link black's config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/black"
+    path: "{{ ansible_env.HOME }}/.config/black"
+    state: link
+  tags:
+    - dotfiles
+    - black
+

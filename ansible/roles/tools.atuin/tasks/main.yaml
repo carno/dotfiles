@@ -1,0 +1,58 @@
+---
+- name: Check latest atuin version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/atuinsh/atuin/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+  register: atuin_github_details
+  when: atuin.version is undefined
+  tags:
+    - tools
+    - atuin
+
+- name: Set atuin.version
+  ansible.builtin.set_fact:
+    atuin:
+      version: "{{ atuin_github_details.json.tag_name }}"
+  when: not atuin_github_details is skipped
+  tags:
+    - tools
+    - atuin
+
+- name: Install atuin
+  ansible.builtin.apt:
+    deb: "https://github.com/atuinsh/atuin/releases/download/{{ atuin.version }}/atuin_{{ atuin.version | replace('v', '') }}_amd64.deb"
+  become: yes
+  become_method: su
+  become_flags: '-'
+  tags:
+    - tools
+    - atuin
+
+- name: Install bash-preexec
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh
+    dest: /usr/local/src/bash-preexec.sh
+  tags:
+    - tools
+    - atuin
+
+- name: Create atuin's` config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/atuin"
+    state: directory
+  tags:
+    - dotfiles
+    - tools
+    - atuin
+
+- name: Link atuin's config
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/tools.atuin/files/config.toml"
+    path: "{{ ansible_env.HOME }}/.config/atuin/config.toml"
+    state: link
+  tags:
+    - dotfiles
+    - tools
+    - atuin
