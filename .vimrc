@@ -96,6 +96,7 @@ set shiftround
 
 " wrapping {{{1
 set textwidth=0
+autocmd vimrc FileType markdown setlocal textwidth=100
 
 " colorscheme {{{1
 if (empty($_NOTRUECOLORS))
