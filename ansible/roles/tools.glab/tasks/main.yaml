@@ -1,0 +1,23 @@
+---
+- name: Install glab
+  ansible.builtin.unarchive:
+    src: "https://gitlab.com/gitlab-org/cli/-/releases/{{ glab.version }}/downloads/glab_{{ glab.version | replace ('v', '') }}_Linux_x86_64.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    extra_opts:
+      - '--strip-components=1'
+    include:
+      - 'bin/glab'
+  register: glab_install
+  tags:
+    - never
+    - glab
+    - work
+
+- name: Generate bash completions
+  ansible.builtin.shell: glab completion -s bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/glab"
+  when: glab_install is changed
+  tags:
+    - never
+    - glab
+    - work

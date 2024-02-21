@@ -1,0 +1,47 @@
+---
+- name: Check latest skaffold version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/GoogleContainerTools/skaffold/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: yes
+  register: skaffold_github_details
+  when: skaffold.version is undefined
+  tags:
+    - never
+    - skaffold
+    - kubernetes
+    - work
+
+- name: Set skaffold.version
+  ansible.builtin.set_fact:
+    skaffold:
+      version: "{{ skaffold_github_details.json.tag_name }}"
+  when: not skaffold_github_details is skipped
+  tags:
+    - never
+    - skaffold
+    - kubernetes
+    - work
+
+- name: Install skaffold
+  ansible.builtin.get_url:
+    url: "https://storage.googleapis.com/skaffold/releases/{{ skaffold.version }}/skaffold-linux-amd64"
+    dest: "{{ ansible_env.HOME }}/.local/bin/skaffold"
+    mode: '0755'
+  register: skaffold_install
+  tags:
+    - never
+    - skaffold
+    - kubernetes
+    - work
+
+- name: Generate bash completions
+  ansible.builtin.shell: skaffold completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/skaffold"
+  when: skaffold_install is changed
+  tags:
+    - never
+    - skaffold
+    - kubernetes
+    - work
