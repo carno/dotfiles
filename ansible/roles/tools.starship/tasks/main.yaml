@@ -1,0 +1,42 @@
+---
+- name: Check latest starship version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/starship/starship/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+  register: starship_github_details
+  when: starship.version is undefined
+  tags:
+    - tools
+    - starship
+
+- name: Set starship.version
+  ansible.builtin.set_fact:
+    starship:
+      version: "{{ starship_github_details.json.tag_name }}"
+  when: not starship_github_details is skipped
+  tags:
+    - tools
+    - starship
+
+- name: Install starship
+  ansible.builtin.unarchive:
+    src: "https://github.com/starship/starship/releases/download/{{ starship.version }}/starship-x86_64-unknown-linux-gnu.tar.gz"
+    dest: /usr/local/bin
+    remote_src: yes
+    include:
+      - starship
+  tags:
+    - tools
+    - starship
+
+- name: Link starship config
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/tools.starship/files/starship.toml"
+    path: "{{ ansible_env.HOME }}/.config/starship.toml"
+    state: link
+  tags:
+    - dotfiles
+    - tools
+    - starship

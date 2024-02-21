@@ -1,0 +1,33 @@
+---
+- name: Check latest noti version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/variadico/noti/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+  register: noti_github_details
+  when: noti.version is undefined
+  tags:
+    - tools
+    - noti
+
+- name: Set noti.version
+  ansible.builtin.set_fact:
+    noti:
+      version: "{{ noti_github_details.json.tag_name }}"
+  when: not noti_github_details is skipped
+  tags:
+    - tools
+    - noti
+
+- name: Install noti
+  ansible.builtin.unarchive:
+    src: "https://github.com/variadico/noti/releases/download/{{ noti.version }}/noti{{ noti.version }}.linux-amd64.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    include:
+      - noti
+  tags:
+    - tools
+    - noti
+

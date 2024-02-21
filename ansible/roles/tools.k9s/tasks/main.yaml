@@ -1,0 +1,48 @@
+---
+- name: Check latest k9s version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/derailed/k9s/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+  register: k9s_github_details
+  when: k9s.version is undefined
+  tags:
+    - never
+    - k9s
+    - kubernetes
+    - work
+
+- name: Set k9s.version
+  ansible.builtin.set_fact:
+    k9s:
+      version: "{{ k9s_github_details.json.tag_name }}"
+  when: not k9s_github_details is skipped
+  tags:
+    - never
+    - k9s
+    - kubernetes
+    - work
+
+- name: Install k9s
+  ansible.builtin.unarchive:
+    src: "https://github.com/derailed/k9s/releases/download/{{ k9s.version }}/k9s_Linux_amd64.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    include:
+      - k9s
+  register: k9s_install
+  tags:
+    - never
+    - k9s
+    - kubernetes
+    - work
+
+- name: Generate bash completions
+  ansible.builtin.shell: k9s completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/k9s"
+  when: k9s_install is changed
+  tags:
+    - never
+    - k9s
+    - kubernetes
+    - work

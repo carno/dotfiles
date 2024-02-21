@@ -1,0 +1,11 @@
+---
+- name: Install local python tools
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    executable: "/usr/bin/pip3"
+    extra_args: "--user --break-system packages"
+    state: latest
+  loop: "{{ python_tools }}"
+  tags:
+    - tools
+    - py

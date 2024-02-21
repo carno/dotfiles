@@ -1,0 +1,22 @@
+github_user: ENC[AES256_GCM,data:kC2TaF8=,iv:qidYojcxjV7VOFAN6i2XJhkvfJV9DKF017brNP6K4bY=,tag:g1YKLAjDZSDvnEiO1xr/DQ==,type:str]
+github_token: ENC[AES256_GCM,data:RBD12C1GylynoyRn1657AQOx3VtjZSuEdy/6OltURH8syMndRklfpSim3Qr6LDIPrHdcEExB+/nQoiIBLWAfN+G7xBiqZ875Xrlvab2Rya5lZbW3hnEZcGpUL92/,iv:0dXvPSd2LdwY3b8GN2lUrcPndsi5+lPZ2dAM3ftxJX0=,tag:f9M3snJIXiPqK6+2lEQKwQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age16dmx502nhcs3vd05uj2h36372v6mnk0t0j7a6p0ufr9qa8gt739sr7ccw9
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBrV21MamV4dHUxNmRLcStj
+            QktNMDNFUjY1TmNsblJDdTZ5Z0lCby9mZFhjCmQ2VWFydkFoY0E1R2FtWjF3dTBR
+            NTN0RHZnSjR2bENadThqK0FlZVlJS3MKLS0tIEV5czJZOG1POUxHUWs2WmtJTnlI
+            RGxCT2ROZXlBL3h6b0hVaDR0N2xJVlUK+GEAVF5F7FKNbFit2sX4od2+RcPZ32zY
+            N9UyJyMoQhybduuErKBbJ+RUm9/g6w+3ivolwq/Pdhu3KRB8FMNcGw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-02-19T15:52:48Z"
+    mac: ENC[AES256_GCM,data:jtXDR1xVO58U/fb1bPO0AsBsvjrfqGJEQwlVr6nxrGTGaSJx3EBKJeCNUoq1h7coxRRtv61uxHpX/HGjqhXHWof4dwY5Uc9Ypy+Tlsu7qFBM+1Kr4rnmgR+c/HxOioLrtL4sLU2pt2v/XuHG3jyytQVBlOOloC5Dh0CppebCbho=,iv:P4MqCzp7wK5UWdyxFUb/LefKkpd0jMIzdAuAIUfYjUc=,tag:Ur5hVcyxFUL9IGLCDnWfug==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.8.1

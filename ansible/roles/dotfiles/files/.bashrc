@@ -144,9 +144,9 @@ fi
 set -o vi
 
 if [[ -x "$(command -v atuin)" ]]; then
-    if [[ -f ~/.bash-preexec.sh ]];then 
-        # shellcheck disable=SC1090
-        source ~/.bash-preexec.sh
+    if [[ -f /usr/local/src/bash-preexec.sh ]]; then 
+        # shellcheck disable=SC1091
+        source /usr/local/src/bash-preexec.sh
     fi
     eval "$(atuin init bash)"
 else

@@ -1,0 +1,19 @@
+---
+- name: Create directories in ~
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+  loop:
+    - '.config'
+    - '.local/bin'
+    - '.local/share/bash-completion/completions'
+  tags:
+    - tools
+    - work
+
+- name: Decrypt github token
+  community.sops.load_vars:
+    file: token.sops.yaml
+  tags:
+    - always
+    - tools

@@ -1,0 +1,15 @@
+python_tools:
+  - 'black'
+  - 'httpie'
+  - 'isort'
+  - 'pydeps'
+  - 'ruff'
+  - 'typos'
+  - 'yamllint'
+
+helm:
+  version: 'v3.13.3'
+flux:
+  version: 'v2.2.3'
+kubectl:
+  version: 'v1.24.16'
