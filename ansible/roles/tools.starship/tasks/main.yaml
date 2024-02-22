@@ -5,6 +5,7 @@
     return_content: yes
     user: "{{ github_user }}"
     password: "{{ github_token }}"
+    force_basic_auth: yes
   register: starship_github_details
   when: starship.version is undefined
   tags:

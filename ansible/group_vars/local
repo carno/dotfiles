@@ -7,9 +7,15 @@ python_tools:
   - 'typos'
   - 'yamllint'
 
-helm:
-  version: 'v3.13.3'
 flux:
   version: 'v2.2.3'
+glab:
+  version: 'v1.36.0'
+helm:
+  version: 'v3.13.3'
 kubectl:
   version: 'v1.24.16'
+skaffold:
+  version: 'v2.2.0'
+terraform:
+  version: '1.5.5'

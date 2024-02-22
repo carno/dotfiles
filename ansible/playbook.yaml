@@ -13,8 +13,6 @@
     - tools.k9s
     - tools.flux
     - tools.kubectl
-    # TODO:
-    # - tools.tfenv
-    # - tools.terraform
-    # - tools.glab
-    # - tools.skaffold
+    - tools.glab
+    - tools.skaffold
+    - tools.terraform
