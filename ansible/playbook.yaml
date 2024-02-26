@@ -10,9 +10,10 @@
     - tools.starship
     - tools.vale
     - tools.helm
-    - tools.k9s
+    - tools.helm-docs
     - tools.flux
-    - tools.kubectl
     - tools.glab
+    - tools.k9s
+    - tools.kubectl
     - tools.skaffold
     - tools.terraform
