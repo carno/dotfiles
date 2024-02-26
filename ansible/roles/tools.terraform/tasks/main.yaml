@@ -1,0 +1,13 @@
+---
+- name: Install terraform
+  ansible.builtin.unarchive:
+    src: "https://releases.hashicorp.com/terraform/{{ terraform.version }}/terraform_{{ terraform.version }}_linux_amd64.zip"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    include:
+      - terraform
+  tags:
+    - never
+    - terraform
+    - work
+
