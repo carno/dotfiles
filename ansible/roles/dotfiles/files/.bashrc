@@ -76,7 +76,7 @@ export LESS='-C -M -I -j 10 -# 4'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... and ignore same successive entries.
-export HISTCONTROL="erasedups:ignoreboth"
+export HISTCONTROL="ignoreboth"
 
 # limit man display width
 export MANWIDTH=96
