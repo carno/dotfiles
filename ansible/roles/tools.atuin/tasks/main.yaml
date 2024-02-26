@@ -35,6 +35,9 @@
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh
     dest: /usr/local/src/bash-preexec.sh
+  become: yes
+  become_method: su
+  become_flags: '-'
   tags:
     - tools
     - atuin
