@@ -39,11 +39,31 @@
     - work
 
 - name: Generate bash completions
-  ansible.builtin.shell: helm completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/helm"
+  ansible.builtin.shell:
+    cmd: helm completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/helm"
   when: helm_install is changed
   tags:
     - never
     - helm
     - work
 
-# TODO: install helm plugins
+- name: Install helm plugins
+  ansible.builtin.shell: 
+    cmd: helm plugin install {{ item }}
+    creates: "{{ ansible_env.HOME }}/.local/share/helm/plugins/{{ item | basename }}"
+  loop: "{{ helm_plugins }}"
+  tags:
+    - never
+    - helm
+    - helm-plugins
+    - work
+
+- name: Update helm plugins
+  ansible.builtin.shell: 
+    cmd: helm plugin update {{ item | basename | replace ('helm-', '') }}
+  loop: "{{ helm_plugins }}"
+  tags:
+    - never
+    - helm
+    - helm-plugins
+    - work
