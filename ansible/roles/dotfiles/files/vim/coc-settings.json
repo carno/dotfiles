@@ -36,7 +36,7 @@
             "docker-compose.yml",
             "docker-compose.yaml"
         ],
-        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-playbook.json": [
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/playbook.json": [
             "playbook.yml",
             "playbook.yaml",
             "site.yml",
@@ -44,18 +44,25 @@
             "playbooks/*.yml",
             "playbooks/*.yaml"
         ],
-        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json": [
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/tasks.json": [
             "tasks/*.yml",
-            "handlers/*.yml"
+            "handlers/*.yml",
+            "tasks/*.yaml",
+            "handlers/*.yaml"
         ],
-        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-vars.json": [
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/vars.json": [
             "playbooks/vars/*.yml",
             "vars/*.yml",
             "defaults/*.yml",
             "host_vars/*.yml",
-            "group_vars/*.yml"
+            "group_vars/*.yml",
+            "playbooks/vars/*.yaml",
+            "vars/*.yaml",
+            "defaults/*.yaml",
+            "host_vars/*.yaml",
+            "group_vars/*.yaml"
         ],
-        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json": [
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/inventory.json": [
             "inventory.yml",
             "inventory.yaml"
         ],
