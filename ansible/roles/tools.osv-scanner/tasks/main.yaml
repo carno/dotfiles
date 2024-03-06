@@ -1,0 +1,29 @@
+---
+- name: Check latest osv-scanner version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/google/osv-scanner/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: yes
+  register: osv_scanner_github_details
+  when: osv_scanner.version is undefined
+  tags:
+    - osv-scanner
+
+- name: Set osv-scanner.version
+  ansible.builtin.set_fact:
+    osv_scanner:
+      version: "{{ osv_scanner_github_details.json.tag_name }}"
+  when: not osv_scanner_github_details is skipped
+  tags:
+    - osv-scanner
+
+- name: Install osv-scanner
+  ansible.builtin.get_url:
+    url: "https://github.com/google/osv-scanner/releases/download/{{ osv_scanner.version }}/osv-scanner_linux_amd64"
+    dest: "{{ ansible_env.HOME }}/.local/bin/osv-scanner"
+    mode: '0755'
+  register: osv_scanner_install
+  tags:
+    - osv-scanner

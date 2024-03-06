@@ -9,6 +9,7 @@
     - tools.noti
     - tools.starship
     - tools.vale
+    - tools.osv-scanner
     - tools.helm
     - tools.helm-docs
     - tools.flux
