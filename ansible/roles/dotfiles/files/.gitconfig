@@ -33,6 +33,8 @@
 	tool = vimdiff
 [diff "sopsdiffer"]
 	textconv = sops -d
+[diff "exif"]
+	textconv = exiftool
 [difftool]
 	prompt = false
 [fetch]
