@@ -4,11 +4,11 @@
 alias ..='cd ..'
 alias c='[ $[$RANDOM % 10] = 0 ] && timeout 3 cmatrix; clear || clear'
 alias cp='cp -v'
-if [[ -x "$(command -v exa)" ]]; then
-    alias l='exa -lFg'
-    alias ll='exa -lFg'
-    alias la='exa -alFg'
-    alias tree='exa -T'
+if [[ -x "$(command -v eza)" ]]; then
+    alias l='eza -lgF'
+    alias ll='eza -lgF'
+    alias la='eza -algF'
+    alias tree='eza -TF'
 else
     alias ll='ls -lFh'
     alias la='ls -alFh'
