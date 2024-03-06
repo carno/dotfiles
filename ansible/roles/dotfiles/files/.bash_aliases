@@ -9,6 +9,8 @@ if [[ -x "$(command -v eza)" ]]; then
     alias ll='eza -lgF'
     alias la='eza -algF'
     alias tree='eza -TF'
+    # fix invisible punctuation
+    export EZA_COLORS="xx=38;5;240"
 else
     alias ll='ls -lFh'
     alias la='ls -alFh'
