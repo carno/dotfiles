@@ -1,0 +1,32 @@
+---
+- name: Check latest sops version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/getsops/sops/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: yes
+  register: sops_github_details
+  when: sops.version is undefined
+  tags:
+    - tools
+    - sops
+
+- name: Set sops.version
+  ansible.builtin.set_fact:
+    sops:
+      version: "{{ sops_github_details.json.tag_name }}"
+  when: not sops_github_details is skipped
+  tags:
+    - tools
+    - sops
+
+- name: Install sops
+  ansible.builtin.apt:
+    deb: "https://github.com/getsops/sops/releases/download/{{ sops.version }}/sops_{{ sops.version | replace ('v', '') }}_amd64.deb"
+  become: yes
+  become_method: su
+  become_flags: '-'
+  tags:
+    - tools
+    - sops

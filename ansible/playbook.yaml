@@ -10,6 +10,7 @@
     - tools.starship
     - tools.vale
     - tools.osv-scanner
+    - tools.sops
     - tools.helm
     - tools.helm-docs
     - tools.flux
