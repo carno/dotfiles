@@ -1,0 +1,85 @@
+---
+- name: Create docker plugins' directory
+  ansible.builtin.file:
+    path: "{{ansible_env.HOME }}/.docker/cli-plugins"
+    state: directory
+  tags:
+    - never
+    - buildx
+    - compose
+    - docker
+    - work
+
+- name: Check latest buildx version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/docker/buildx/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: yes
+  register: buildx_github_details
+  when: buildx.version is undefined
+  tags:
+    - never
+    - buildx
+    - docker
+    - work
+
+- name: Set buildx.version
+  ansible.builtin.set_fact:
+    buildx:
+      version: "{{ buildx_github_details.json.tag_name }}"
+  when: not buildx_github_details is skipped
+  tags:
+    - never
+    - buildx
+    - docker
+    - work
+
+- name: Install buildx
+  ansible.builtin.get_url:
+    url: "https://github.com/docker/buildx/releases/download/{{ buildx.version }}/buildx-v0.13.1.linux-amd64"
+    dest: "{{ ansible_env.HOME }}/.docker/cli-plugins/docker-buildx"
+    mode: '0755'
+  tags:
+    - never
+    - buildx
+    - docker
+    - work
+
+- name: Check latest compose version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/docker/compose/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: yes
+  register: compose_github_details
+  when: compose.version is undefined
+  tags:
+    - never
+    - compose
+    - docker
+    - work
+
+- name: Set compose.version
+  ansible.builtin.set_fact:
+    compose:
+      version: "{{ compose_github_details.json.tag_name }}"
+  when: not compose_github_details is skipped
+  tags:
+    - never
+    - compose
+    - docker
+    - work
+
+- name: Install compose
+  ansible.builtin.get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ compose.version }}/docker-compose-linux-x86_64"
+    dest: "{{ ansible_env.HOME }}/.docker/cli-plugins/docker-compose"
+    mode: '0755'
+  tags:
+    - never
+    - compose
+    - docker
+    - work
