@@ -28,6 +28,9 @@
     remote_src: yes
     include:
       - starship
+  become: yes
+  become_method: su
+  become_flags: '-'
   tags:
     - tools
     - starship
