@@ -15,6 +15,7 @@
     - '.mostrc'
     - '.offlineimaprc'
     - '.profile'
+    - '.tigrc'
     - '.tmux.conf'
     - '.vimrc'
   tags:
