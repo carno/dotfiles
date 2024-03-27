@@ -54,4 +54,15 @@ function ,git-no-merged-remote() {
 for branch in $(git branch -r --no-merged | grep -v HEAD); do echo -e "$(git show --format='%ci %cr %an' ${branch} | head -n 1) \t${branch}"; done | sort -r
 }
 
+function ,venv() {
+    # if no python version provided, list available python versions
+    if [[ $# -ne 1 ]]; then
+        pyenv versions --skip-aliases --skip-envs
+    else
+        local python_version="${1}"
+        pyenv virtualenv "${python_version}" "$(basename $(pwd))"
+        pyenv local "$(basename $(pwd))"
+    fi
+}
+
 # vim: ft=sh
