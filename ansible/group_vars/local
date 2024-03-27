@@ -5,6 +5,7 @@ python_tools:
   - 'pydeps'
   - 'ruff'
   - 'typos'
+  - 'uv'
   - 'yamllint'
 
 flux:
