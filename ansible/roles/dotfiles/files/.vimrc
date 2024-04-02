@@ -12,7 +12,9 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'RRethy/vim-illuminate'
 Plug 'Yggdroot/indentLine'
+Plug 'aklt/plantuml-syntax'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'hashivim/vim-terraform'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'itchyny/lightline.vim'
@@ -32,8 +34,11 @@ if executable('node')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'github/copilot.vim'
 endif
+Plug 'pearofducks/ansible-vim'
+Plug 'prurigro/vim-polyglot-darkcloud'
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'ryanoasis/vim-devicons'
-Plug 'sheerun/vim-polyglot'
+Plug 'towolf/vim-helm'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
