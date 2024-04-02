@@ -30,6 +30,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-signify'
 if executable('node')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'github/copilot.vim'
 endif
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
@@ -291,6 +292,21 @@ let g:lightline = {
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+" copilot {{{2
+let g:copilot_filetypes = {
+    \ 'gitcommit': v:true,
+    \ 'markdown': v:true,
+    \ 'python': v:true,
+    \ 'sh': v:true,
+    \ 'yaml': v:true
+    \ }
+
+ autocmd BufReadPre *
+     \ let f=getfsize(expand("<afile>"))
+     \ | if f > 100000 || f == -2
+     \ | let b:copilot_enabled = v:false
+     \ | endif
 
 " markdown-preview {{{2
 " don't autostart
