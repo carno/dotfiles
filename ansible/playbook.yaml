@@ -21,3 +21,5 @@
     - tools.kubectl
     - tools.skaffold
     - tools.terraform
+    # other
+    - tools.gh

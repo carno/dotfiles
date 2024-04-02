@@ -1,0 +1,38 @@
+---
+- name: Check latest gh version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/cli/cli/releases/latest
+    return_content: yes
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: yes
+  register: gh_github_details
+  when: gh.version is undefined
+  tags:
+    - tools
+    - gh
+    - github
+    - never
+
+- name: Set gh.version
+  ansible.builtin.set_fact:
+    gh:
+      version: "{{ gh_github_details.json.tag_name }}"
+  when: not gh_github_details is skipped
+  tags:
+    - tools
+    - gh
+    - github
+    - never
+
+- name: Install gh
+  ansible.builtin.apt:
+    deb: "https://github.com/cli/cli/releases/download/{{ gh.version }}/gh_{{ gh.version | replace('v', '') }}_linux_amd64.deb"
+  become: yes
+  become_method: su
+  become_flags: '-'
+  tags:
+    - tools
+    - gh
+    - github
+    - never
