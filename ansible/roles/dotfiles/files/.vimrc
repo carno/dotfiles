@@ -14,6 +14,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'Yggdroot/indentLine'
 Plug 'aklt/plantuml-syntax'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
