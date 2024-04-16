@@ -19,7 +19,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'itchyny/lightline.vim'
-Plug 'jamessan/vim-gnupg'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jesseleite/vim-agriculture'
 Plug 'joshdick/onedark.vim'
