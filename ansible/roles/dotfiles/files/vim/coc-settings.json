@@ -26,6 +26,7 @@
     ],
     "pyright.inlayHints.functionReturnTypes": false,
     "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.parameterTypes": false,
     "yaml.format.enable": true,
     "yaml.schemas": {
         "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [
