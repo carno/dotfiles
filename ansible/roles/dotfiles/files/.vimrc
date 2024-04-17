@@ -45,6 +45,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/TaskList.vim'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'djoshea/vim-autoread'
 call plug#end()
 
 " define a group `vimrc` and initialize. {{{1
