@@ -270,6 +270,9 @@ nnoremap <leader>il :IndentLinesToggle<cr>
 let g:Illuminate_highlightUnderCursor = 0
 hi illuminatedWord cterm=underline gui=underline
 
+" json {{{1
+let g:vim_json_syntax_conceal = 0
+
 " lightline {{{2
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
