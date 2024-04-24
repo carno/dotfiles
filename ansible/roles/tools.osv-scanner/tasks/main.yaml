@@ -2,10 +2,10 @@
 - name: Check latest osv-scanner version
   ansible.builtin.uri:
     url: https://api.github.com/repos/google/osv-scanner/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: osv_scanner_github_details
   when: osv_scanner.version is undefined
   tags:

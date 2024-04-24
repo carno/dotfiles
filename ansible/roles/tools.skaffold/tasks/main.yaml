@@ -2,10 +2,10 @@
 - name: Check latest skaffold version
   ansible.builtin.uri:
     url: https://api.github.com/repos/GoogleContainerTools/skaffold/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: skaffold_github_details
   when: skaffold.version is undefined
   tags:

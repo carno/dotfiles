@@ -2,10 +2,10 @@
 - name: Check latest k9s version
   ansible.builtin.uri:
     url: https://api.github.com/repos/derailed/k9s/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: k9s_github_details
   when: k9s.version is undefined
   tags:
@@ -29,7 +29,7 @@
   ansible.builtin.unarchive:
     src: "https://github.com/derailed/k9s/releases/download/{{ k9s.version }}/k9s_Linux_amd64.tar.gz"
     dest: "{{ ansible_env.HOME }}/.local/bin"
-    remote_src: yes
+    remote_src: true
     include:
       - k9s
   register: k9s_install

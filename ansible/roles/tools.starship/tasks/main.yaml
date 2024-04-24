@@ -2,10 +2,10 @@
 - name: Check latest starship version
   ansible.builtin.uri:
     url: https://api.github.com/repos/starship/starship/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: starship_github_details
   when: starship.version is undefined
   tags:
@@ -25,10 +25,10 @@
   ansible.builtin.unarchive:
     src: "https://github.com/starship/starship/releases/download/{{ starship.version }}/starship-x86_64-unknown-linux-gnu.tar.gz"
     dest: /usr/local/bin
-    remote_src: yes
+    remote_src: true
     include:
       - starship
-  become: yes
+  become: true
   become_method: su
   become_flags: '-'
   tags:

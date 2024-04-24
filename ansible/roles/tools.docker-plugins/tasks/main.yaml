@@ -13,10 +13,10 @@
 - name: Check latest buildx version
   ansible.builtin.uri:
     url: https://api.github.com/repos/docker/buildx/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: buildx_github_details
   when: buildx.version is undefined
   tags:
@@ -50,10 +50,10 @@
 - name: Check latest compose version
   ansible.builtin.uri:
     url: https://api.github.com/repos/docker/compose/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: compose_github_details
   when: compose.version is undefined
   tags:

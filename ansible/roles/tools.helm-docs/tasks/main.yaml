@@ -2,10 +2,10 @@
 - name: Check latest helm-docs version
   ansible.builtin.uri:
     url: https://api.github.com/repos/norwoodj/helm-docs/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: helm_docs_github_details
   when: helm_docs.version is undefined
   tags:
@@ -29,7 +29,7 @@
   ansible.builtin.unarchive:
     src: "https://github.com/norwoodj/helm-docs/releases/download/{{ helm_docs.version }}/helm-docs_{{ helm_docs.version | replace ('v', '') }}_Linux_x86_64.tar.gz"
     dest: "{{ ansible_env.HOME }}/.local/bin"
-    remote_src: yes
+    remote_src: true
     include:
       - helm-docs
   tags:

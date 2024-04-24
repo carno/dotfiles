@@ -2,10 +2,10 @@
 - name: Check latest atuin version
   ansible.builtin.uri:
     url: https://api.github.com/repos/atuinsh/atuin/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: atuin_github_details
   when: atuin.version is undefined
   tags:
@@ -24,7 +24,7 @@
 - name: Install atuin
   ansible.builtin.apt:
     deb: "https://github.com/atuinsh/atuin/releases/download/{{ atuin.version }}/atuin_{{ atuin.version | replace('v', '') }}_amd64.deb"
-  become: yes
+  become: true
   become_method: su
   become_flags: '-'
   register: atuin_install
@@ -46,7 +46,7 @@
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh
     dest: /usr/local/src/bash-preexec.sh
-  become: yes
+  become: true
   become_method: su
   become_flags: '-'
   tags:

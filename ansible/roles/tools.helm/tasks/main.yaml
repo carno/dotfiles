@@ -2,10 +2,10 @@
 - name: Check latest helm version
   ansible.builtin.uri:
     url: https://api.github.com/repos/helm/helm/releases/latest
-    return_content: yes
+    return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: yes
+    force_basic_auth: true
   register: helm_github_details
   when: helm.version is undefined
   tags:
@@ -27,7 +27,7 @@
   ansible.builtin.unarchive:
     src: "https://get.helm.sh/helm-{{ helm.version }}-linux-amd64.tar.gz"
     dest: "{{ ansible_env.HOME }}/.local/bin"
-    remote_src: yes
+    remote_src: true
     extra_opts:
       - '--strip-components=1'
     include:
