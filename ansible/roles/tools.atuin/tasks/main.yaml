@@ -27,6 +27,17 @@
   become: yes
   become_method: su
   become_flags: '-'
+  register: atuin_install
+  tags:
+    - tools
+    - atuin
+
+- name: Generate completions
+  ansible.builtin.shell: atuin gen-completions --shell bash > /usr/share/bash-completion/completions/atuin
+  become: true
+  become_method: su
+  become_flags: '-'
+  when: atuin_install is changed
   tags:
     - tools
     - atuin
