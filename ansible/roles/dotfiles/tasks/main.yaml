@@ -89,3 +89,25 @@
     - dotfiles
     - black
 
+- name: Create gpg config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.gnupg"
+    state: directory
+    mode: '0700'
+  tags:
+    - dotfiles
+    - gpg
+    - gpg-agent
+
+- name: Copy gpg-agent config files
+  ansible.builtin.copy:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.gnupg/{{ item }}"
+    mode: '0600'
+  loop:
+    - 'gpg.conf'
+    - 'gpg-agent.conf'
+  tags:
+    - dotfiles
+    - gpg
+    - gpg-agent
