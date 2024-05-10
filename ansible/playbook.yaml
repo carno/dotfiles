@@ -19,6 +19,7 @@
     - tools.helm-docs
     - tools.k9s
     - tools.kubectl
+    - tools.kubeconform
     - tools.skaffold
     - tools.terraform
     # other

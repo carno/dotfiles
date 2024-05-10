@@ -1,0 +1,40 @@
+---
+- name: Check latest kubeconform version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/yannh/kubeconform/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: true
+  register: kubeconform_github_details
+  when: kubeconform.version is undefined
+  tags:
+    - never
+    - kubeconform
+    - kubernetes
+    - work
+
+- name: Set kubeconform.version
+  ansible.builtin.set_fact:
+    kubeconform:
+      version: "{{ kubeconform_github_details.json.tag_name }}"
+  when: not kubeconform_github_details is skipped
+  tags:
+    - never
+    - kubeconform
+    - kubernetes
+    - work
+
+- name: Install kubeconform
+  ansible.builtin.unarchive:
+    src: "https://github.com/yannh/kubeconform/releases/download/{{ kubeconform.version }}/kubeconform-linux-amd64.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: true
+    include:
+      - kubeconform
+  register: kubeconform_install
+  tags:
+    - never
+    - kubeconform
+    - kubernetes
+    - work
