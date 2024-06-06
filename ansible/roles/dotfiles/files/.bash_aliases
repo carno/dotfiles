@@ -5,10 +5,10 @@ alias ..='cd ..'
 alias c='[ $[$RANDOM % 10] = 0 ] && timeout 3 cmatrix; clear || clear'
 alias cp='cp -v'
 if [[ -x "$(command -v eza)" ]]; then
-    alias l='eza -lgF'
-    alias ll='eza -lgF'
-    alias la='eza -algF'
-    alias tree='eza -TF'
+    alias l='eza --group --group-directories-first --icons --long'
+    alias ll='l'
+    alias la='ll --all'
+    alias tree='eza --tree --level=2 --long --icons --git'
     # fix invisible punctuation
     export EZA_COLORS="xx=38;5;240"
 else
