@@ -112,6 +112,7 @@ if (empty($_NOTRUECOLORS))
     endif
 endif
 let g:onedark_terminal_italics = 1
+set background=dark
 colorscheme onedark
 
 " show cursor position {{{1
