@@ -22,8 +22,14 @@
     - atuin
 
 - name: Install atuin
-  ansible.builtin.apt:
-    deb: "https://github.com/atuinsh/atuin/releases/download/{{ atuin.version }}/atuin_{{ atuin.version | replace('v', '') }}_amd64.deb"
+  ansible.builtin.unarchive:
+    src: "https://github.com/atuinsh/atuin/releases/download/{{ atuin.version }}/atuin-x86_64-unknown-linux-gnu.tar.gz"
+    dest: /usr/local/bin
+    remote_src: true
+    extra_opts:
+      - '--strip-components=1'
+    include:
+      - 'atuin-x86_64-unknown-linux-gnu/atuin'
   become: true
   become_method: su
   become_flags: '-'
@@ -33,7 +39,7 @@
     - atuin
 
 - name: Generate completions
-  ansible.builtin.shell: atuin gen-completions --shell bash > /usr/share/bash-completion/completions/atuin
+  ansible.builtin.shell: /usr/local/bin/atuin gen-completions --shell bash > /usr/share/bash-completion/completions/atuin
   become: true
   become_method: su
   become_flags: '-'
