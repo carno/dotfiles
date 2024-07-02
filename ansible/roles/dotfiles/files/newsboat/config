@@ -11,8 +11,8 @@ browser "firefox -new-tab %u 1>/dev/null 2>&- &"
 cleanup-on-quit yes
 confirm-mark-all-feeds-read no
 confirm-mark-feed-read no
-download-full-page yes
-download-retries 2
+download-full-page no
+download-retries 1
 error-log "~/.newsboat/error.log"
 feed-sort-order title
 html-renderer "elinks -dump -force-html"
@@ -21,7 +21,7 @@ max-items 50
 notify-format "RSS: %d (%n)"
 notify-program "~/dokumenty/github/scripts/newsboat-notifyd.sh"
 reload-threads 2
-reload-time 60
+reload-time 300
 show-keymap-hint no
 show-read-feeds no
 suppress-first-reload yes
