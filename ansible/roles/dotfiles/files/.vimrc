@@ -194,6 +194,7 @@ autocmd vimrc BufLeave,FocusLost * silent! update
 let g:coc_global_extensions = [
     \ 'coc-diagnostic',
     \ 'coc-json',
+    \ 'coc-markdownlint',
     \ 'coc-pairs',
     \ 'coc-pyright',
     \ 'coc-snippets',
