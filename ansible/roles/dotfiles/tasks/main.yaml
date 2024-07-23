@@ -12,6 +12,7 @@
     - '.gitlint'
     - '.ignore'
     - '.inputrc'
+    - '.markdownlintrc'
     - '.mostrc'
     - '.offlineimaprc'
     - '.profile'
