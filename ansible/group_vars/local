@@ -4,8 +4,8 @@ python_tools:
   - 'isort'
   - 'pydeps'
   - 'ruff'
+  - 'tox'
   - 'typos'
-  - 'uv'
   - 'yamllint'
 
 flux:

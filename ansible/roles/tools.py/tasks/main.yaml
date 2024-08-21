@@ -1,11 +1,12 @@
 ---
-- name: Install local python tools
+- name: Remove local python tools installed by pip
   ansible.builtin.pip:
     name: "{{ item }}"
     executable: "/usr/bin/pip3"
-    extra_args: "--user --break-system-packages"
-    state: latest
+    extra_args: "--break-system-packages"
+    state: absent
   loop: "{{ python_tools }}"
   tags:
-    - tools
+    - never
     - py
+    - tools
