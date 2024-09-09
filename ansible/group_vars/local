@@ -11,12 +11,12 @@ python_tools:
 flux:
   version: 'v2.2.3'
 glab:
-  version: 'v1.45.0'
+  version: 'v1.46.0'
 helm:
-  version: 'v3.13.3'
+  version: 'v3.15.4'
 kubectl:
   version: 'v1.24.16'
 skaffold:
-  version: 'v2.2.0'
+  version: 'v2.13.2'
 terraform:
   version: '1.5.5'
