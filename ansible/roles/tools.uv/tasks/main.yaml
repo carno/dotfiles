@@ -36,9 +36,17 @@
     - tools
     - uv
 
-- name: Generate bash completions
+- name: Generate uv bash completions
   ansible.builtin.shell:
     cmd: uv generate-shell-completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/uv"
+  when: uv_install is changed
+  tags:
+    - tools
+    - uv
+
+- name: Generate uvx bash completions
+  ansible.builtin.shell:
+    cmd: uvx --generate-shell-completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/uvx"
   when: uv_install is changed
   tags:
     - tools
