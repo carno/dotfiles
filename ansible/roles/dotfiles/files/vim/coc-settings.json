@@ -70,7 +70,7 @@
         "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/helmfile.json": [
             "Chart.yaml"
         ],
-        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/master/docs/content/en/schemas/v2beta28.json": [
+        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/refs/heads/main/docs-v2/content/en/schemas/v4beta2.json": [
             "skaffold*.yaml"
         ],
         "https://docs.renovatebot.com/renovate-schema.json": [
