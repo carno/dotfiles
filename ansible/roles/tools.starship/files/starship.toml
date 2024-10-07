@@ -94,7 +94,7 @@ detect_folders = []
 
 [directory]
 truncation_length = 3
-truncate_to_repo = false
+truncate_to_repo = true
 fish_style_pwd_dir_length = 0
 use_logical_path = true
 format = '[$path]($style)[$read_only]($read_only_style) '
@@ -283,7 +283,7 @@ disabled = true
 [hostname]
 ssh_only = false
 trim_at = '.'
-format = '[$hostname]($style) in '
+format = '[$hostname]($style) '
 style = 'green dimmed bold'
 disabled = false
 
