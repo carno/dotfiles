@@ -169,7 +169,7 @@ format = '[$symbol($env_value )]($style)'
 symbol = '☸ '
 style = 'blue bold dimmed'
 variable = '_K8SENV'
-disabled = false
+disabled = true
 
 [erlang]
 format = 'via [$symbol($version )]($style)'
@@ -349,8 +349,8 @@ detect_folders = []
 [kubernetes]
 symbol = '☸ '
 format = '[$symbol$context( \($namespace\))]($style) in '
-style = 'cyan bold'
-disabled = true
+style = 'blue bold dimmed'
+disabled = false
 
 [lua]
 format = 'via [$symbol($version )]($style)'
