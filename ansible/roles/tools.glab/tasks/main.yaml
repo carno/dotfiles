@@ -1,7 +1,7 @@
 ---
 - name: Install glab
   ansible.builtin.unarchive:
-    src: "https://gitlab.com/gitlab-org/cli/-/releases/{{ glab.version }}/downloads/glab_{{ glab.version | replace ('v', '') }}_Linux_x86_64.tar.gz"
+    src: "https://gitlab.com/gitlab-org/cli/-/releases/{{ glab.version }}/downloads/glab_{{ glab.version | replace ('v', '') }}_linux_amd64.tar.gz"
     dest: "{{ ansible_env.HOME }}/.local/bin"
     remote_src: true
     extra_opts:
