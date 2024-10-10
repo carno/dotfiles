@@ -1,0 +1,28 @@
+---
+- name: Check latest hadolint version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/hadolint/hadolint/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: true
+  register: hadolint_github_details
+  when: hadolint.version is undefined
+  tags:
+    - hadolint
+
+- name: Set hadolint.version
+  ansible.builtin.set_fact:
+    hadolint:
+      version: "{{ hadolint_github_details.json.tag_name }}"
+  when: not hadolint_github_details is skipped
+  tags:
+    - hadolint
+
+- name: Install hadolint
+  ansible.builtin.get_url:
+    url: "https://github.com/hadolint/hadolint/releases/download/{{ hadolint.version }}/hadolint-Linux-x86_64"
+    dest: "{{ ansible_env.HOME }}/.local/bin/hadolint"
+    mode: '0755'
+  tags:
+    - hadolint
