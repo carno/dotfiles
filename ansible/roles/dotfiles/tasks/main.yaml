@@ -112,3 +112,24 @@
     - dotfiles
     - gpg
     - gpg-agent
+
+- name: Create tmuxp's config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/tmuxp"
+    state: directory
+  tags:
+    - dotfiles
+    - tmuxp
+
+- name: Link tmuxp's config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/tmuxp/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/tmuxp/{{ item }}"
+    state: link
+  loop:
+    - 'home.yaml'
+    - 'work.yaml'
+    - 'dev.yaml'
+  tags:
+    - dotfiles
+    - tmuxp

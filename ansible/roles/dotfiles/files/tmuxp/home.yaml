@@ -1,0 +1,13 @@
+session_name: h
+windows:
+  - window_name: rss
+    panes:
+      - newsboat
+  - window_name: root
+    focus: true
+    panes:
+      - shell_command:
+        - cmd: 'su -'
+          enter: false
+  - panes:
+      - pane

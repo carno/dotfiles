@@ -4,6 +4,7 @@ python_tools:
   - 'isort'
   - 'pydeps'
   - 'ruff'
+  - 'tmuxp'
   - 'tox'
   - 'typos'
   - 'yamllint'

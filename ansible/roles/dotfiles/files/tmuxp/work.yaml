@@ -1,0 +1,10 @@
+session_name: w
+windows:
+  - window_name: root
+    focus: true
+    panes:
+      - shell_command:
+        - cmd: 'su -'
+          enter: false
+  - panes:
+      - pane

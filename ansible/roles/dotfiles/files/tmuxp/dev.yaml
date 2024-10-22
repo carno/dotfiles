@@ -1,0 +1,9 @@
+session_name: dev
+windows:
+  - layout: even-horizontal
+    panes:
+      - shell_command:
+        - >
+          [[ -f Session.vim ]] && vim -S || vim
+        focus: true
+      - pane
