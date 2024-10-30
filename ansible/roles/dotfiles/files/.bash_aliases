@@ -30,7 +30,6 @@ alias ,git-up='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {
 alias ,git-bdone='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} bdone'
 alias ,myip='curl ifconfig.co/'
 alias ,title='tmux rename-window "$(basename $(pwd))/$(git branch --show-current)"'
-alias ,dev='tmuxp load dev --yes'
 
 # functions
 function _error() {
@@ -48,6 +47,11 @@ function s() {
     else
         tmux -q has-session -t "${1}" && tmux attach-session -d -t "${1}" || tmux new-session -s "${1}"
     fi
+}
+
+function ,dev() {
+    local session_name="${1:-$(basename "$(pwd)")}"
+    tmuxp load dev --yes -s "${session_name}"
 }
 
 # git helpers
