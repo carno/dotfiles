@@ -1,5 +1,6 @@
 [/]
 control-scroll-zoom=true
+quake-active-monitor=true
 quake-height-percent=90
 quake-hide-headerbar=true
 quake-hide-lose-focus=false
@@ -7,10 +8,10 @@ quake-keep-on-top=false
 quake-show-on-all-workspaces=false
 quake-specific-monitor=0
 quake-width-percent=90
-sidebar-on-right=true
 terminal-title-show-when-single=false
 terminal-title-style='small'
 theme-variant='dark'
+warn-vte-config-issue=false
 window-style='disable-csd'
 
 [keybindings]
@@ -31,9 +32,10 @@ background-transparency-percent=0
 badge-color-set=false
 bold-color-set=false
 bold-is-bright=false
+cursor-blink-mode='system'
 cursor-colors-set=false
 cursor-shape='ibeam'
-font='Iosevka Term Medium 9'
+font='IosevkaTerm Nerd Font Regular 10'
 foreground-color='#839496'
 highlight-colors-set=false
 login-shell=true
