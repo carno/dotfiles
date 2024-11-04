@@ -84,9 +84,6 @@ export MANWIDTH=96
 # use vim for man pager
 export MANPAGER="vim -M +MANPAGER -"
 
-# vimgpg
-export GPG_TTY=$(tty)
-
 # enable fzf
 if [[ -f ~/.fzf.bash ]]; then
     # shellcheck disable=SC1090
