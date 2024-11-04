@@ -22,3 +22,23 @@ Deployment provisioned with ansible
 ansible-playbook -i hosts playbook.yaml --ask-become-pass
 ```
 
+### Bootstrapping from scratch
+
+* Ensure `age` is available
+* Ensure `ansible` is available
+
+  For example by using `uv`:
+
+  ```shell
+  curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="/home/${USER}/.local/bin" sh
+
+  uv venv
+
+  uv pip install ansible
+  ```
+
+* Install bootstrapping requirements:
+
+  ```shell
+  ansible-playbook bootstrap.yaml --ask-become-pass
+  ```

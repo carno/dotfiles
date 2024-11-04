@@ -16,7 +16,7 @@
     return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: true
+    force_basic_auth: "{{ gh_auth }}"
   register: buildx_github_details
   when: buildx.version is undefined
   tags:
@@ -53,7 +53,7 @@
     return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: true
+    force_basic_auth: "{{ gh_auth }}"
   register: compose_github_details
   when: compose.version is undefined
   tags:

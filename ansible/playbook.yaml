@@ -1,9 +1,12 @@
 ---
 - name: Bootstrap local env
   hosts: local
+  vars:
+    gh_auth: true
   roles:
     - dotfiles
     - tools.common
+    - tools.vars
     # TODO: remove tools.py in the future after all hosts have been migrated to tools.uv
     - tools.py
     - tools.atuin

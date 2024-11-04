@@ -21,3 +21,7 @@ skaffold:
   version: 'v2.13.2'
 terraform:
   version: '1.5.5'
+
+github_user: ''
+github_token: ''
+gh_auth: false

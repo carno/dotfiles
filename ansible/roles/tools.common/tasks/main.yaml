@@ -10,10 +10,3 @@
   tags:
     - tools
     - work
-
-- name: Decrypt github token
-  community.sops.load_vars:
-    file: token.sops.yaml
-  tags:
-    - always
-    - tools

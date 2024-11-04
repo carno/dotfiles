@@ -5,7 +5,7 @@
     return_content: true
     user: "{{ github_user }}"
     password: "{{ github_token }}"
-    force_basic_auth: true
+    force_basic_auth: "{{ gh_auth }}"
   register: kubeconform_github_details
   when: kubeconform.version is undefined
   tags:

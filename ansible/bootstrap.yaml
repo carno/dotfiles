@@ -1,0 +1,6 @@
+---
+- name: Bootstrap bootstrapping env
+  hosts: local
+  roles:
+    - tools.common
+    - tools.sops
