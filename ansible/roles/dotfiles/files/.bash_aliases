@@ -30,6 +30,7 @@ alias ,git-up='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {
 alias ,git-bdone='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} bdone'
 alias ,myip='curl ifconfig.co/'
 alias ,title='tmux rename-window "$(basename $(pwd))/$(git branch --show-current)"'
+alias ,dive='docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive'
 
 # functions
 function _error() {
