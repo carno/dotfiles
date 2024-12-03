@@ -36,9 +36,7 @@
     path: "{{ ansible_env.HOME }}/.newsboat/{{ item }}"
     state: link
   loop:
-    - 'colors'
     - 'config'
-    - 'solarized-dark'
   tags:
     - dotfiles
     - newsboat

@@ -1,5 +1,5 @@
-# my colors
-include ~/.newsboat/solarized-dark
+# set colorscheme
+include ~/.local/share/doc/newsboat/contrib/colorschemes/nord
 
 # tt-rss
 urls-source "ttrss"
