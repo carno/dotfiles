@@ -19,14 +19,7 @@
             "initializationOptions": {}
         }
     },
-    "python.formatting.provider": "black",
-    "python.linting.ruffEnabled": true,
-    "python.linting.ruffArgs": [
-        "--ignore E501"
-    ],
-    "pyright.inlayHints.functionReturnTypes": false,
-    "pyright.inlayHints.variableTypes": false,
-    "pyright.inlayHints.parameterTypes": false,
+    "inlayHint.enable": false,
     "yaml.format.enable": true,
     "yaml.schemas": {
         "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [
