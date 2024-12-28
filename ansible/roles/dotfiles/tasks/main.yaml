@@ -10,6 +10,7 @@
     - '.ctags.d'
     - '.gitconfig'
     - '.gitlint'
+    - '.gmrunrc'
     - '.ignore'
     - '.inputrc'
     - '.markdownlintrc'

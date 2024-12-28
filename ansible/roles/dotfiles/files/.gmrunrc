@@ -1,0 +1,6 @@
+# Set terminal
+Terminal = xfce4-terminal
+
+# Set search handlers
+URL_search = xdg-open 'https://kagi.com/search?q=%s'
+URL_kagi = xdg-open 'https://kagi.com/search?q=%s'
