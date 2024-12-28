@@ -1,14 +1,20 @@
 # single tab completion
 set show-all-if-ambiguous on
+
 # suffix each returned file completion with a character denoting its type
 set visible-stats on
+
 # turns off the use of the internal pager when returning long completion lists
 set page-completions off
+
 # Ignore case for tab completion
 set completion-ignore-case on
+
 # Don't waste my time with questions <1000
 set completion-query-items 1000
+
 # Add / when autocompleting symlink to directories
 set mark-symlinked-directories on
-# More inteligent autocomplete
+
+# More intelligent autocomplete
 set skip-completed-text on
