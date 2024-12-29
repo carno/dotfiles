@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PATH=$PATH:$HOME/.local/bin:$HOME/.pyenv/bin
+
+exec /etc/xdg/xfce4/xinitrc

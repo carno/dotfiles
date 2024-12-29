@@ -132,3 +132,22 @@
   tags:
     - dotfiles
     - tmuxp
+
+- name: Create xfce4 config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/xfce4"
+    state: directory
+  tags:
+    - dotfiles
+    - xfce4
+
+- name: Link xfce4 config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/xfce4/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/xfce4/{{ item }}"
+    state: link
+  loop:
+    - "xinitrc"
+  tags:
+    - dotfiles
+    - xfce4
