@@ -126,9 +126,10 @@
     path: "{{ ansible_env.HOME }}/.config/tmuxp/{{ item }}"
     state: link
   loop:
-    - 'home.yaml'
-    - 'work.yaml'
     - 'dev.yaml'
+    - 'home.yaml'
+    - 'wide.yaml'
+    - 'work.yaml'
   tags:
     - dotfiles
     - tmuxp
