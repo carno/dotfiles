@@ -152,3 +152,22 @@
   tags:
     - dotfiles
     - xfce4
+
+- name: Create ghostty config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/ghostty"
+    state: directory
+  tags:
+    - dotfiles
+    - ghostty
+
+- name: Link ghostty config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/ghostty/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/ghostty/{{ item }}"
+    state: link
+  loop:
+    - "config"
+  tags:
+    - dotfiles
+    - ghostty
