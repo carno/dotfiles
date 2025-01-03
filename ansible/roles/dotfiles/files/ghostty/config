@@ -1,2 +1,4 @@
+font-family = IosevkaTerm Nerd Font
 font-size = 10
-font-family = Iosevka Term Nerd Font
+
+config-file = ?local
