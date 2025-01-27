@@ -26,6 +26,7 @@
     - tools.k9s
     - tools.kubectl
     - tools.kubeconform
+    - tools.kustomize
     - tools.skaffold
     - tools.terraform
     # other

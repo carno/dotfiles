@@ -17,6 +17,8 @@ helm:
   version: 'v3.15.4'
 kubectl:
   version: 'v1.24.16'
+kustomize:
+  version: 'v5.3.0'
 skaffold:
   version: 'v2.13.2'
 terraform:

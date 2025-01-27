@@ -1,0 +1,45 @@
+---
+- name: Check latest kustomize version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/kubernetes-sigs/kustomize/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: kustomize_github_details
+  when: kustomize.version is undefined
+  tags:
+    - never
+    - kustomize
+    - work
+
+- name: Set kustomize.version
+  ansible.builtin.set_fact:
+    kustomize:
+      version: "{{ kustomize_github_details.json.tag_name }}"
+  when: not kustomize_github_details is skipped
+  tags:
+    - never
+    - kustomize
+    - work
+
+- name: Install kustomize
+  ansible.builtin.unarchive:
+    src: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F{{ kustomize.version }}/kustomize_{{ kustomize.version }}_linux_amd64.tar.gz"
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: true
+    include:
+      - kustomize
+  register: kustomize_install
+  tags:
+    - never
+    - kustomize
+    - work
+
+- name: Generate bash completions
+  ansible.builtin.shell: kustomize completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/kustomize"
+  when: kustomize_install is changed
+  tags:
+    - never
+    - kustomize
+    - work
