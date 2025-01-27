@@ -62,7 +62,6 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 
 # less config
-export LESS_TERMCAP_so=$'\E[30;42m'
 export LESS='-F -R -X -M -I -j 10 -# 4'
 
 # 256 colors
