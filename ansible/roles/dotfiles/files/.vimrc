@@ -192,6 +192,7 @@ autocmd vimrc BufLeave,FocusLost * silent! update
 " plugin configs {{{1
 " coc {{{2
 let g:coc_global_extensions = [
+    \ '@yaegassy/coc-ansible',
     \ 'coc-diagnostic',
     \ 'coc-json',
     \ 'coc-markdownlint',
