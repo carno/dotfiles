@@ -1,4 +1,7 @@
 font-family = IosevkaTerm Nerd Font
 font-size = 10
 
+window-height = 70
+window-width = 300
+
 config-file = ?local
