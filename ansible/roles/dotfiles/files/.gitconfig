@@ -21,6 +21,8 @@
 	upf = "!f() { git up && git fetch ;}; f"
 	ups = submodule update --recursive -j 4
 	wip = "!vim $(git ls-files -m)"
+[branch]
+	sort = -committerdate
 [color]
 	ui = auto
 [commit]
@@ -30,6 +32,9 @@
 	untrackedCache = true
 [diff]
 	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 	tool = vimdiff
 [diff "sopsdiffer"]
 	textconv = sops -d
@@ -38,8 +43,10 @@
 [difftool]
 	prompt = false
 [fetch]
-	prune = true
+	all = true
 	fsckObjects = true
+	prune = true
+	pruneTags = true
 [fetch "fsck"]
 	badTimezone = ignore
 	zeroPaddedFilemode = ignore
@@ -60,7 +67,9 @@
 	default = current
 	rebase = true
 [push]
-	default = current
+	default = simple
+	autoSetupRemote = true
+	followTags = true
 [receive]
 	fsckObjects = true
 [rebase]
@@ -69,5 +78,7 @@
 	updateRefs = true
 [status]
 	submoduleSummary = true
+[tag]
+	sort = version:refname
 [transfer]
 	fsckObjects = true
