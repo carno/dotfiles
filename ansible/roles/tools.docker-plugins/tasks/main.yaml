@@ -8,7 +8,6 @@
     - buildx
     - compose
     - docker
-    - work
 
 - name: Check latest buildx version
   ansible.builtin.uri:
@@ -23,7 +22,6 @@
     - never
     - buildx
     - docker
-    - work
 
 - name: Set buildx.version
   ansible.builtin.set_fact:
@@ -34,7 +32,6 @@
     - never
     - buildx
     - docker
-    - work
 
 - name: Install buildx
   ansible.builtin.get_url:
@@ -45,7 +42,6 @@
     - never
     - buildx
     - docker
-    - work
 
 - name: Check latest compose version
   ansible.builtin.uri:
@@ -60,7 +56,6 @@
     - never
     - compose
     - docker
-    - work
 
 - name: Set compose.version
   ansible.builtin.set_fact:
@@ -71,7 +66,6 @@
     - never
     - compose
     - docker
-    - work
 
 - name: Install compose
   ansible.builtin.get_url:
@@ -82,4 +76,3 @@
     - never
     - compose
     - docker
-    - work
