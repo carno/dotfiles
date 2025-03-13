@@ -26,8 +26,8 @@ alias rm='rm -Iv'
 
 # https://rhodesmill.org/brandon/2009/commands-with-comma/
 alias ,alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo package-install || echo package-broken)" "$(date +"[%d/%m %H:%M]") Finished" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias ,git-up='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} um'
-alias ,git-bdone='find . -maxdepth 3 -name .git -type d -printf "%h\n" | xargs -I {} git -C {} bdone'
+alias ,git-up='fdfind --type dir --unrestricted --format {//} --glob '.git' | xargs -I {} git -C {} um'
+alias ,git-bdone='fdfind --type dir --unrestricted --format {//} --glob '.git' | xargs -I {} git -C {} bdone'
 alias ,myip='curl ifconfig.co/'
 alias ,title='tmux rename-window "$(basename $(pwd))/$(git branch --show-current)"'
 alias ,dive='docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive'
