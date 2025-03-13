@@ -45,8 +45,10 @@ function s() {
         tmuxp load home
     elif [[ "${1}" == "w" ]]; then
         tmuxp load work
+    elif tmux -q has-session -t "${1}"; then
+        tmux attach-session -d -t "${1}"
     else
-        tmux -q has-session -t "${1}" && tmux attach-session -d -t "${1}" || tmux new-session -s "${1}"
+        tmux new-session -s "${1}"
     fi
 }
 
@@ -57,11 +59,15 @@ function ,dev() {
 
 # git helpers
 function ,git-merged-remote() {
-    for branch in $(git branch -r --merged | grep -v HEAD); do echo -e "$(git show --format='%ci %cr %an' ${branch} | head -n 1) \t${branch}"; done | sort -r
+    for branch in $(git branch -r --merged | grep -v HEAD); do
+        echo -e "$(git show --format='%ci %cr %an' "${branch}" | head -n 1) \t${branch}";
+    done | sort -r
 }
 
 function ,git-no-merged-remote() {
-for branch in $(git branch -r --no-merged | grep -v HEAD); do echo -e "$(git show --format='%ci %cr %an' ${branch} | head -n 1) \t${branch}"; done | sort -r
+    for branch in $(git branch -r --no-merged | grep -v HEAD); do
+        echo -e "$(git show --format='%ci %cr %an' "${branch}" | head -n 1) \t${branch}"; 
+    done | sort -r
 }
 
 function ,venv() {
@@ -70,8 +76,8 @@ function ,venv() {
         pyenv versions --skip-aliases --skip-envs
     else
         local python_version="${1}"
-        pyenv virtualenv "${python_version}" "$(basename $(pwd))"
-        pyenv local "$(basename $(pwd))"
+        pyenv virtualenv "${python_version}" "$(basename "$(pwd)")"
+        pyenv local "$(basename "$(pwd)")"
     fi
 }
 
