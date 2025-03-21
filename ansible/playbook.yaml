@@ -17,6 +17,7 @@
     - tools.uv
     - tools.vale
     # work
+    - tools.dive
     - tools.docker-plugins
     - tools.flux
     - tools.glab

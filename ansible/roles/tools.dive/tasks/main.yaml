@@ -1,0 +1,32 @@
+---
+- name: Check latest dive version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/wagoodman/dive/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: dive_github_details
+  when: dive.version is undefined
+  tags:
+    - tools
+    - dive
+
+- name: Set dive.version
+  ansible.builtin.set_fact:
+    dive:
+      version: "{{ dive_github_details.json.tag_name }}"
+  when: not dive_github_details is skipped
+  tags:
+    - tools
+    - dive
+
+- name: Install dive
+  ansible.builtin.apt:
+    deb: "https://github.com/wagoodman/dive/releases/download/{{ dive.version }}/dive_{{ dive.version | replace('v', '') }}_linux_amd64.deb"
+  become: true
+  become_method: su
+  become_flags: '-'
+  tags:
+    - tools
+    - dive
