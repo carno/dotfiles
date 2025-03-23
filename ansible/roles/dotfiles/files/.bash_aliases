@@ -42,9 +42,9 @@ function s() {
     if [[ $# -ne 1 ]]; then
         tmux -q list-sessions
     elif [[ "${1}" == "h" ]]; then
-        tmuxp load home
+        tmuxp load --yes home
     elif [[ "${1}" == "w" ]]; then
-        tmuxp load work
+        tmuxp load --yes work
     elif tmux -q has-session -t "${1}"; then
         tmux attach-session -d -t "${1}"
     else
