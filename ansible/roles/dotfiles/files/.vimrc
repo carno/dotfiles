@@ -33,6 +33,7 @@ Plug 'mhinz/vim-signify'
 if executable('node')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'github/copilot.vim'
+    Plug 'DanBradbury/copilot-chat.vim'
 endif
 Plug 'pearofducks/ansible-vim'
 Plug 'prurigro/vim-polyglot-darkcloud'
