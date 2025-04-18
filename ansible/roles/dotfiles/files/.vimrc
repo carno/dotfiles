@@ -247,9 +247,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 
-" Yet another format mapping
-nmap <leader>b :%!black --quiet --line-length 100 -
-
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
@@ -263,6 +260,7 @@ vmap <C-j> <Plug>(coc-snippets-select)
 inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 " fzf mappings {{{2
 nnoremap <leader>f :Files<cr>
+nnoremap <leader>b :Buffers<cr>
 
 " indentLine {{{2
 let g:indentLine_enabled = 0
