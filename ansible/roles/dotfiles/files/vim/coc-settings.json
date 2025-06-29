@@ -19,7 +19,7 @@
             "initializationOptions": {}
         }
     },
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "ruff",
     "python.linting.ruffEnabled": true,
     "python.linting.ruffArgs": [
         "--ignore E501"
