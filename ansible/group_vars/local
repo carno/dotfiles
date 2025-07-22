@@ -16,7 +16,7 @@ glab:
 helm:
   version: 'v3.15.4'
 kubectl:
-  version: 'v1.24.16'
+  version: 'v1.28.15'
 kustomize:
   version: 'v5.3.0'
 skaffold:

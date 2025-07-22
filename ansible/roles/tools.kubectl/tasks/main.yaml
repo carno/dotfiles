@@ -2,7 +2,7 @@
 - name: Install kubectl
   ansible.builtin.get_url:
     url: "https://dl.k8s.io/release/{{ kubectl.version }}/bin/linux/amd64/kubectl"
-    dest: "{{ ansible_env.HOME }}/.local/bin/kubectl"
+    dest: "{{ ansible_env.HOME }}/.local/bin/"
     mode: '0755'
   register: kubectl_install
   tags:
