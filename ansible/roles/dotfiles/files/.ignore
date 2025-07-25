@@ -2,6 +2,7 @@
 .cargo/
 .config/Microsoft/
 .config/microsoft-edge/
+.envrc
 .envs/
 .git/
 .local/bin
@@ -10,8 +11,8 @@
 .pyenv/
 .python-version
 .svn/
-.terraform/
 .terraform-version
+.terraform/
 .tox/
 .venv/
 .vim/

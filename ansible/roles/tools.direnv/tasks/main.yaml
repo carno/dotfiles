@@ -1,0 +1,51 @@
+---
+
+- name: Check latest direnv version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/direnv/direnv/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: direnv_github_details
+  when: direnv.version is undefined
+  tags:
+    - direnv
+    - tools
+
+- name: Set direnv.version
+  ansible.builtin.set_fact:
+    direnv:
+      version: "{{ direnv_github_details.json.tag_name }}"
+  when: not direnv_github_details is skipped
+  tags:
+    - direnv
+    - tools
+
+- name: Install direnv
+  ansible.builtin.get_url:
+    url: "https://github.com/direnv/direnv/releases/download/{{ direnv.version }}/direnv.linux-amd64"
+    dest: "{{ ansible_env.HOME }}/.local/bin/direnv"
+    mode: '0755'
+  tags:
+    - direnv
+    - tools
+
+- name: Create direnv config dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/direnv"
+    state: directory
+  tags:
+    - direnv
+    - dotfiles
+    - tools
+
+- name: Link direnv config file
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/tools.direnv/files/direnv/direnv.toml"
+    path: "{{ ansible_env.HOME }}/.config/direnv/direnv.toml"
+    state: link
+  tags:
+    - direnv
+    - dotfiles
+    - tools

@@ -147,4 +147,10 @@ else
     export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 fi
 
+# enable direnv
+if [[ -x "$(command -v direnv)" ]]; then
+    export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m'
+    eval "$(direnv hook bash)"
+fi
+
 # vim: ft=sh
