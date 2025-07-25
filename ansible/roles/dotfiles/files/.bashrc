@@ -96,7 +96,11 @@ if [[ -x "$(command -v yq)" ]]; then
 fi
 
 if [[ -x "$(command -v fortune)" ]]; then
-    echo -e "$(fortune -a -s)\n"
+    if [[ -x "$(command -v boxes)" ]]; then
+        fortune -a | boxes -d ansi
+    else
+        echo -e "$(fortune -a -s)\n"
+    fi
 fi
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
