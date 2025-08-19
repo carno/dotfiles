@@ -53,21 +53,23 @@
     - uv
 
 - name: Install python tools
-  ansible.builtin.shell:
-    cmd: uv tool install {{ item }}
-    creates: "{{ ansible_env.HOME }}/.local/share/uv/tools/{{ item }}"
-  loop: "{{ python_tools }}"
-  tags:
-    - py
-    - tools
-    - uv
-
-- name: Upgrade python tools
-  ansible.builtin.shell:
-    cmd: uv tool upgrade {{ item }}
-  register: result
-  changed_when: "'Nothing to upgrade' not in result.stderr"
-  loop: "{{ python_tools }}"
+  block:
+    - name: Install python tools
+      ansible.builtin.shell:
+        cmd: uv tool install {{ item }}
+        creates: "{{ ansible_env.HOME }}/.local/share/uv/tools/{{ item }}"
+      loop: "{{ python_tools }}"
+    - name: Upgrade python tools
+      ansible.builtin.shell:
+        cmd: uv tool upgrade {{ item }}
+      register: result
+      changed_when: "'Nothing to upgrade' not in result.stderr"
+      loop: "{{ python_tools }}"
+  rescue:
+    - name: Re-install python tools
+      ansible.builtin.shell:
+        cmd: uv tool install --reinstall {{ item }}
+      loop: "{{ python_tools }}"
   tags:
     - py
     - tools
