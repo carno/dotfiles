@@ -77,5 +77,6 @@
         "https://docs.renovatebot.com/renovate-schema.json": [
             "renovate.json"
         ]
-    }
+    },
+    "yaml.schemaStore.enable": true
 }
