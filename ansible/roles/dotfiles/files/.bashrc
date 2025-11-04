@@ -97,6 +97,7 @@ fi
 
 if [[ -x "$(command -v fortune)" ]]; then
     if [[ -x "$(command -v boxes)" ]]; then
+        echo
         fortune -a -s | boxes -d ansi
     else
         echo -e "$(fortune -a -s)\n"
