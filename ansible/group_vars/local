@@ -14,7 +14,7 @@ flux:
 glab:
   version: 'v1.77.0'
 helm:
-  version: 'v3.19.0'
+  version: 'v3.19.1'
 kubectl:
   version: 'v1.28.15'
 kustomize:
