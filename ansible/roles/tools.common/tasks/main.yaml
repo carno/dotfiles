@@ -1,7 +1,7 @@
 ---
 - name: Create directories in ~
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/{{ item }}"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/{{ item }}"
     state: directory
   loop:
     - '.config'

@@ -22,7 +22,7 @@
 - name: Install osv-scanner
   ansible.builtin.get_url:
     url: "https://github.com/google/osv-scanner/releases/download/{{ osv_scanner.version }}/osv-scanner_linux_amd64"
-    dest: "{{ ansible_env.HOME }}/.local/bin/osv-scanner"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin/osv-scanner"
     mode: '0755'
   register: osv_scanner_install
   tags:

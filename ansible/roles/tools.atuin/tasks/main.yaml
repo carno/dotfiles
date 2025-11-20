@@ -61,7 +61,7 @@
 
 - name: Create atuin's` config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/atuin"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/atuin"
     state: directory
   tags:
     - dotfiles
@@ -70,8 +70,8 @@
 
 - name: Link atuin's config
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/tools.atuin/files/config.toml"
-    path: "{{ ansible_env.HOME }}/.config/atuin/config.toml"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/tools.atuin/files/config.toml"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/atuin/config.toml"
     state: link
   tags:
     - dotfiles

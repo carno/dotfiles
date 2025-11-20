@@ -25,7 +25,7 @@
 - name: Install direnv
   ansible.builtin.get_url:
     url: "https://github.com/direnv/direnv/releases/download/{{ direnv.version }}/direnv.linux-amd64"
-    dest: "{{ ansible_env.HOME }}/.local/bin/direnv"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin/direnv"
     mode: '0755'
   tags:
     - direnv
@@ -33,7 +33,7 @@
 
 - name: Create direnv config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/direnv"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/direnv"
     state: directory
   tags:
     - direnv
@@ -42,8 +42,8 @@
 
 - name: Link direnv config file
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/tools.direnv/files/direnv/direnv.toml"
-    path: "{{ ansible_env.HOME }}/.config/direnv/direnv.toml"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/tools.direnv/files/direnv/direnv.toml"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/direnv/direnv.toml"
     state: link
   tags:
     - direnv

@@ -24,7 +24,7 @@
 - name: Install vale
   ansible.builtin.unarchive:
     src: "https://github.com/errata-ai/vale/releases/download/{{ vale.version }}/vale_{{ vale.version | replace ('v', '') }}_Linux_64-bit.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     include:
       - vale

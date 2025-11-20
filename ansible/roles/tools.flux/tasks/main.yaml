@@ -26,7 +26,7 @@
 - name: Install flux
   ansible.builtin.unarchive:
     src: "https://github.com/fluxcd/flux2/releases/download/{{ flux.version }}/flux_{{ flux.version | replace ('v', '') }}_linux_amd64.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     include:
       - flux
@@ -37,7 +37,7 @@
     - work
 
 - name: Generate bash completions
-  ansible.builtin.shell: flux completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/flux"
+  ansible.builtin.shell: flux completion bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/flux"
   when: flux_install is changed
   tags:
     - never

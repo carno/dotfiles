@@ -28,7 +28,7 @@
 - name: Install helm-docs
   ansible.builtin.unarchive:
     src: "https://github.com/norwoodj/helm-docs/releases/download/{{ helm_docs.version }}/helm-docs_{{ helm_docs.version | replace ('v', '') }}_Linux_x86_64.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     include:
       - helm-docs

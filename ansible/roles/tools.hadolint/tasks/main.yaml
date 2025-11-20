@@ -22,7 +22,7 @@
 - name: Install hadolint
   ansible.builtin.get_url:
     url: "https://github.com/hadolint/hadolint/releases/download/{{ hadolint.version }}/hadolint-Linux-x86_64"
-    dest: "{{ ansible_env.HOME }}/.local/bin/hadolint"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin/hadolint"
     mode: '0755'
   tags:
     - hadolint

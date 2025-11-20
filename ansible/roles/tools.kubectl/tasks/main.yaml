@@ -2,7 +2,7 @@
 - name: Install kubectl
   ansible.builtin.get_url:
     url: "https://dl.k8s.io/release/{{ kubectl.version }}/bin/linux/amd64/kubectl"
-    dest: "{{ ansible_env.HOME }}/.local/bin/"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin/"
     mode: '0755'
   register: kubectl_install
   tags:
@@ -12,7 +12,7 @@
     - work
 
 - name: Generate bash completions
-  ansible.builtin.shell: kubectl completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/kubectl"
+  ansible.builtin.shell: kubectl completion bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/kubectl"
   when: kubectl_install is changed
   tags:
     - never

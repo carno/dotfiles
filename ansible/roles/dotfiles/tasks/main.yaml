@@ -1,8 +1,8 @@
 ---
 - name: Create home symlinks
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}"
-    path: "{{ ansible_env.HOME }}/{{ item }}"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/{{ item }}"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/{{ item }}"
     state: link
   loop:
     - '.bashrc'
@@ -25,7 +25,7 @@
 
 - name: Create newsboat's config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.newsboat"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.newsboat"
     state: directory
   tags:
     - dotfiles
@@ -33,8 +33,8 @@
 
 - name: Link newsboat's config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/newsboat/{{ item }}"
-    path: "{{ ansible_env.HOME }}/.newsboat/{{ item }}"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/newsboat/{{ item }}"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.newsboat/{{ item }}"
     state: link
   loop:
     - 'config'
@@ -44,7 +44,7 @@
 
 - name: Create vim's config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.vim"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.vim"
     state: directory
   tags:
     - dotfiles
@@ -52,8 +52,8 @@
 
 - name: Link vim's config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/vim/{{ item }}"
-    path: "{{ ansible_env.HOME }}/.vim/{{ item }}"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/vim/{{ item }}"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.vim/{{ item }}"
     state: link
   loop:
     - 'coc-settings.json'
@@ -65,7 +65,7 @@
 
 - name: Create ruff's config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/ruff"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/ruff"
     state: directory
   tags:
     - dotfiles
@@ -73,8 +73,8 @@
 
 - name: Link ruff's config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/ruff.toml"
-    path: "{{ ansible_env.HOME }}/.config/ruff/ruff.toml"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/ruff.toml"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/ruff/ruff.toml"
     state: link
   tags:
     - dotfiles
@@ -82,8 +82,8 @@
 
 - name: Link black's config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/black"
-    path: "{{ ansible_env.HOME }}/.config/black"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/black"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/black"
     state: link
   tags:
     - dotfiles
@@ -91,7 +91,7 @@
 
 - name: Create gpg config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.gnupg"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.gnupg"
     state: directory
     mode: '0700'
   tags:
@@ -101,8 +101,8 @@
 
 - name: Copy gpg-agent config files
   ansible.builtin.copy:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.gnupg/{{ item }}"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/{{ item }}"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.gnupg/{{ item }}"
     mode: '0600'
   loop:
     - 'gpg.conf'
@@ -114,7 +114,7 @@
 
 - name: Create tmuxp's config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/tmuxp"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/tmuxp"
     state: directory
   tags:
     - dotfiles
@@ -122,8 +122,8 @@
 
 - name: Link tmuxp's config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/tmuxp/{{ item }}"
-    path: "{{ ansible_env.HOME }}/.config/tmuxp/{{ item }}"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/tmuxp/{{ item }}"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/tmuxp/{{ item }}"
     state: link
   loop:
     - 'dev.yaml'
@@ -136,7 +136,7 @@
 
 - name: Create xfce4 config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/xfce4"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/xfce4"
     state: directory
   tags:
     - dotfiles
@@ -144,8 +144,8 @@
 
 - name: Link xfce4 config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/xfce4/{{ item }}"
-    path: "{{ ansible_env.HOME }}/.config/xfce4/{{ item }}"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/xfce4/{{ item }}"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/xfce4/{{ item }}"
     state: link
   loop:
     - "xinitrc"
@@ -155,7 +155,7 @@
 
 - name: Create ghostty config dir
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/ghostty"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/ghostty"
     state: directory
   tags:
     - dotfiles
@@ -163,8 +163,8 @@
 
 - name: Link ghostty config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/ghostty/{{ item }}"
-    path: "{{ ansible_env.HOME }}/.config/ghostty/{{ item }}"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/dotfiles/files/ghostty/{{ item }}"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/ghostty/{{ item }}"
     state: link
   loop:
     - "config"

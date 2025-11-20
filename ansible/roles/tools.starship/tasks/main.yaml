@@ -37,8 +37,8 @@
 
 - name: Link starship config
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/tools.starship/files/starship.toml"
-    path: "{{ ansible_env.HOME }}/.config/starship.toml"
+    src: "{{ lookup('ansible.builtin.env', 'PWD') }}/roles/tools.starship/files/starship.toml"
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/starship.toml"
     state: link
   tags:
     - dotfiles

@@ -28,7 +28,7 @@
 - name: Install k9s
   ansible.builtin.unarchive:
     src: "https://github.com/derailed/k9s/releases/download/{{ k9s.version }}/k9s_Linux_amd64.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     include:
       - k9s
@@ -40,7 +40,7 @@
     - work
 
 - name: Generate bash completions
-  ansible.builtin.shell: k9s completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/k9s"
+  ansible.builtin.shell: k9s completion bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/k9s"
   when: k9s_install is changed
   tags:
     - never

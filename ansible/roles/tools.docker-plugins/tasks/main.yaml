@@ -1,7 +1,7 @@
 ---
 - name: Create docker plugins' directory
   ansible.builtin.file:
-    path: "{{ansible_env.HOME }}/.docker/cli-plugins"
+    path: "{{lookup('ansible.builtin.env', 'HOME') }}/.docker/cli-plugins"
     state: directory
   tags:
     - never
@@ -36,7 +36,7 @@
 - name: Install buildx
   ansible.builtin.get_url:
     url: "https://github.com/docker/buildx/releases/download/{{ buildx.version }}/buildx-{{ buildx.version }}.linux-amd64"
-    dest: "{{ ansible_env.HOME }}/.docker/cli-plugins/docker-buildx"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.docker/cli-plugins/docker-buildx"
     mode: '0755'
   tags:
     - never
@@ -70,7 +70,7 @@
 - name: Install compose
   ansible.builtin.get_url:
     url: "https://github.com/docker/compose/releases/download/{{ compose.version }}/docker-compose-linux-x86_64"
-    dest: "{{ ansible_env.HOME }}/.docker/cli-plugins/docker-compose"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.docker/cli-plugins/docker-compose"
     mode: '0755'
   tags:
     - never

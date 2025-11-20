@@ -24,7 +24,7 @@
 - name: Install uv
   ansible.builtin.unarchive:
     src: "https://github.com/astral-sh/uv/releases/download/{{ uv.version }}/uv-x86_64-unknown-linux-gnu.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     extra_opts:
       - '--strip-components=1'
@@ -38,7 +38,7 @@
 
 - name: Generate uv bash completions
   ansible.builtin.shell:
-    cmd: uv generate-shell-completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/uv"
+    cmd: uv generate-shell-completion bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/uv"
   when: uv_install is changed
   tags:
     - tools
@@ -46,7 +46,7 @@
 
 - name: Generate uvx bash completions
   ansible.builtin.shell:
-    cmd: uvx --generate-shell-completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/uvx"
+    cmd: uvx --generate-shell-completion bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/uvx"
   when: uv_install is changed
   tags:
     - tools
@@ -57,7 +57,7 @@
     - name: Install python tools
       ansible.builtin.shell:
         cmd: uv tool install --native-tls {{ item }}
-        creates: "{{ ansible_env.HOME }}/.local/share/uv/tools/{{ item }}"
+        creates: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/uv/tools/{{ item }}"
       loop: "{{ python_tools }}"
     - name: Upgrade python tools
       ansible.builtin.shell:

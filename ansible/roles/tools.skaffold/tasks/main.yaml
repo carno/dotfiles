@@ -28,7 +28,7 @@
 - name: Install skaffold
   ansible.builtin.get_url:
     url: "https://storage.googleapis.com/skaffold/releases/{{ skaffold.version }}/skaffold-linux-amd64"
-    dest: "{{ ansible_env.HOME }}/.local/bin/skaffold"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin/skaffold"
     mode: '0755'
   register: skaffold_install
   tags:
@@ -38,7 +38,7 @@
     - work
 
 - name: Generate bash completions
-  ansible.builtin.shell: skaffold completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/skaffold"
+  ansible.builtin.shell: skaffold completion bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/skaffold"
   when: skaffold_install is changed
   tags:
     - never

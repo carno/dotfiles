@@ -26,7 +26,7 @@
 - name: Install kustomize
   ansible.builtin.unarchive:
     src: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F{{ kustomize.version }}/kustomize_{{ kustomize.version }}_linux_amd64.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     include:
       - kustomize
@@ -37,7 +37,7 @@
     - work
 
 - name: Generate bash completions
-  ansible.builtin.shell: kustomize completion bash > "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/kustomize"
+  ansible.builtin.shell: kustomize completion bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/kustomize"
   when: kustomize_install is changed
   tags:
     - never

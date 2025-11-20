@@ -24,7 +24,7 @@
 - name: Install noti
   ansible.builtin.unarchive:
     src: "https://github.com/variadico/noti/releases/download/{{ noti.version }}/noti{{ noti.version }}.linux-amd64.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     include:
       - noti

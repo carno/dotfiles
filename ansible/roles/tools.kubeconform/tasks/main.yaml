@@ -28,7 +28,7 @@
 - name: Install kubeconform
   ansible.builtin.unarchive:
     src: "https://github.com/yannh/kubeconform/releases/download/{{ kubeconform.version }}/kubeconform-linux-amd64.tar.gz"
-    dest: "{{ ansible_env.HOME }}/.local/bin"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
     include:
       - kubeconform
