@@ -37,6 +37,12 @@ ansible-playbook -i hosts playbook.yaml --ask-become-pass
   uv pip install ansible
   ```
 
+  or using `uv tool`:
+
+  ```shell
+  uv tool install --with-executables-from ansible-core ansible
+  ```
+
 * Install bootstrapping requirements:
 
   ```shell
