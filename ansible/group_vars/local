@@ -20,7 +20,7 @@ kubectl:
 kustomize:
   version: 'v5.3.0'
 skaffold:
-  version: 'v2.13.2'
+  version: 'v2.17.0'
 terraform:
   version: '1.5.5'
 
