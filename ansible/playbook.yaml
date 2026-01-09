@@ -18,6 +18,7 @@
     - tools.uv
     - tools.vale
     # work
+    - tools.copilot-cli
     - tools.dive
     - tools.docker-plugins
     - tools.flux

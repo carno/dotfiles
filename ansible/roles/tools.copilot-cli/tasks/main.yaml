@@ -1,0 +1,33 @@
+---
+- name: Check latest copilot-cli version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/github/copilot-cli/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: copilot_github_details
+  when: copilot.version is undefined
+  tags:
+    - copilot-cli
+    - tools
+
+- name: Set copilot-cli.version
+  ansible.builtin.set_fact:
+    copilot:
+      version: "{{ copilot_github_details.json.tag_name }}"
+  when: not copilot_github_details is skipped
+  tags:
+    - copilot-cli
+    - tools
+
+- name: Install copilot-cli
+  ansible.builtin.unarchive:
+    src: "https://github.com/github/copilot-cli/releases/download/{{ copilot.version }}/copilot-linux-x64.tar.gz"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
+    remote_src: true
+    include:
+      - 'copilot'
+  tags:
+    - copilot-cli
+    - tools
