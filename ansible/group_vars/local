@@ -12,9 +12,9 @@ python_tools:
 flux:
   version: 'v2.3.0'
 glab:
-  version: 'v1.81.0'
+  version: 'v1.82.0'
 helm:
-  version: 'v3.19.4'
+  version: 'v3.20.0'
 kubectl:
   version: 'v1.28.15'
 kustomize:
