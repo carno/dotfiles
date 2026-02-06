@@ -1,10 +1,6 @@
 github_user: ENC[AES256_GCM,data:kC2TaF8=,iv:qidYojcxjV7VOFAN6i2XJhkvfJV9DKF017brNP6K4bY=,tag:g1YKLAjDZSDvnEiO1xr/DQ==,type:str]
-github_token: ENC[AES256_GCM,data:xTEwcCSQUYN9jEz8taJXvuJmzfZZmshHa16y2Iq/jIx0FqzUKMKvurFORt72lMf6MnS9qbGQ6vwD1gqh0UQH7sheYxUUYLdEqYH5Ay/tIeBvSXvkSGT7nAQnxhYs,iv:0+VjY3gzEOtNnzkIHFyUp8XOwdNnjehEfyrogJgOwJ0=,tag:AUCAjRCB90mlXyEScHvBKQ==,type:str]
+github_token: ENC[AES256_GCM,data:tGzPg1xW8PT5dMVsAM5jc/5b6S/+GKXsKe+8Qa0KG7DNFZGy26mZvhy/lILYKu1iN8/ymt2pmo83zCVpgdXI/Q4n4OkdixO/sVIREVz9htIrF8f+n9NweW1eDKu9,iv:E2KR+u0Vt3TBaP6UnZvqCoS4OtrL6wr/nvXnTDgB/2c=,tag:MWrObje8PVb8PWfyKXEvHQ==,type:str]
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
     age:
         - recipient: age16dmx502nhcs3vd05uj2h36372v6mnk0t0j7a6p0ufr9qa8gt739sr7ccw9
           enc: |
@@ -15,8 +11,7 @@ sops:
             RGxCT2ROZXlBL3h6b0hVaDR0N2xJVlUK+GEAVF5F7FKNbFit2sX4od2+RcPZ32zY
             N9UyJyMoQhybduuErKBbJ+RUm9/g6w+3ivolwq/Pdhu3KRB8FMNcGw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-02-13T17:32:38Z"
-    mac: ENC[AES256_GCM,data:Trb7MzZ2dVlcV4BE9qGNdvqggIHTw6IF42vqUZtYssQ1mS9kJv+H1tMfi8ftnEWdHGFVLbUZxsxVE4kxBvtMUKWBtwtb6/Laje4OqBMUKL6mhFRBLpi1ZnJkOVLF04R+upA/QXC5gLth2IfSU2p3cBALWS6vw9eE+jWhcu8rK0I=,iv:2QHd5lHI67OC4zj1Xb10AlvgKLMsSC1tfsSNaGgn6mg=,tag:rbtGGzYtItrizZKwEocZNA==,type:str]
-    pgp: []
+    lastmodified: "2026-02-06T12:27:38Z"
+    mac: ENC[AES256_GCM,data:zuwoTIPYGHAdNkJtNyn/2c/WSXnuHNe++s5AjJ82j9IMZqXf3VgnZfaPZGgl9jyD528NgpTt4o09Ty3gM+KN1m2eYlp7jkVK26TlcPCxl9NitgEBma7WB8xN790E7oBoU+7d/FnrtRyJOzy5cqqPpl7y1eTc1+CXpNEVJHiXsns=,iv:AiUo/gPSqQHDsq9E9kyctlYXfny4sLqYsQXfSYO0++k=,tag:z9LuYoHBofdSyP19038ggA==,type:str]
     unencrypted_suffix: _unencrypted
-    version: 3.9.4
+    version: 3.11.0
