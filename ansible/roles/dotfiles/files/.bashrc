@@ -135,6 +135,13 @@ else
     PS1='\A | \u@\h | \w | $(__git_ps1 " %s | ")${PIPESTATUS[@]}\n(\j) \$ '
 fi
 
+
+# enable direnv
+if [[ -x "$(command -v direnv)" ]]; then
+    export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m'
+    eval "$(direnv hook bash)"
+fi
+#
 # last but not least, let's go Vim
 set -o vi
 
@@ -146,12 +153,6 @@ if [[ -x "$(command -v atuin)" ]]; then
     eval "$(atuin init bash)"
 else
     export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
-fi
-
-# enable direnv
-if [[ -x "$(command -v direnv)" ]]; then
-    export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m'
-    eval "$(direnv hook bash)"
 fi
 
 # vim: ft=sh
