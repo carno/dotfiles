@@ -22,6 +22,7 @@
     - tools.dive
     - tools.docker-plugins
     - tools.flux
+    - tools.flux9s
     - tools.glab
     - tools.hadolint
     - tools.helm
