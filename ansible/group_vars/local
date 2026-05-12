@@ -10,7 +10,7 @@ python_tools:
   - 'yamllint'
 
 flux:
-  version: 'v2.3.0'
+  version: 'v2.6.4'
 glab:
   version: 'v1.95.0'
 helm:
