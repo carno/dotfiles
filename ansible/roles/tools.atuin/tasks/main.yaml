@@ -50,7 +50,7 @@
 
 - name: Install bash-preexec
   ansible.builtin.get_url:
-    url: https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh
+    url: https://raw.githubusercontent.com/rcaloras/bash-preexec/refs/tags/0.6.0/bash-preexec.sh
     dest: /usr/local/src/bash-preexec.sh
   become: true
   become_method: su
