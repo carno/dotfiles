@@ -1,0 +1,36 @@
+---
+- name: Check latest opentofu version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/opentofu/opentofu/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: opentofu_github_details
+  when: opentofu.version is undefined
+  tags:
+    - never
+    - opentofu
+    - work
+
+- name: Set opentofu.version
+  ansible.builtin.set_fact:
+    opentofu:
+      version: "{{ opentofu_github_details.json.tag_name }}"
+  when: not opentofu_github_details is skipped
+  tags:
+    - never
+    - opentofu
+    - work
+
+- name: Install opentofu
+  ansible.builtin.unarchive:
+    src: "https://github.com/opentofu/opentofu/releases/download/{{ opentofu.version }}/tofu_{{ opentofu.version | replace('v', '') }}_linux_amd64.tar.gz"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
+    remote_src: true
+    include:
+      - tofu
+  tags:
+    - never
+    - opentofu
+    - work
