@@ -8,7 +8,7 @@
     },
     "languageserver": {
         "terraform": {
-            "command": "terraform-ls",
+            "command": "tofu-ls",
             "args": [
                 "serve"
             ],
