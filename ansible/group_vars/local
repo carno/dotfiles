@@ -23,8 +23,6 @@ opentofu:
   version: 'v1.12.1'
 skaffold:
   version: 'v2.17.0'
-sops:
-  version: 'v3.13.1'
 terraform:
   version: '1.5.5'
 
