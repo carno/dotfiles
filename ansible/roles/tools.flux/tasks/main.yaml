@@ -43,3 +43,22 @@
     - never
     - flux
     - work
+
+- name: Install flux operator plugin
+  ansible.builtin.shell:
+    cmd: flux plugin install operator
+    creates: "{{ lookup('ansible.builtin.env', 'HOME') }}/.fluxcd/plugins/flux-operator"
+  tags:
+    - never
+    - flux
+    - flux-plugins
+    - work
+
+- name: Update flux operator plugin
+  ansible.builtin.shell:
+    cmd: flux plugin update operator
+  tags:
+    - never
+    - flux
+    - flux-plugins
+    - work
