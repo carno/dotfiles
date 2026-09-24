@@ -10,11 +10,11 @@ python_tools:
   - 'yamllint'
 
 flux:
-  version: 'v2.9.0'
+  version: 'v2.9.5'
 glab:
-  version: 'v1.118.0'
+  version: 'v1.119.0'
 helm:
-  version: 'v3.21.4'
+  version: 'v3.22.0'
 kubectl:
   version: 'v1.34.8'
 kustomize:
