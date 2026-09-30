@@ -12,7 +12,7 @@ python_tools:
 flux:
   version: 'v2.9.5'
 glab:
-  version: 'v1.119.0'
+  version: 'v1.120.0'
 helm:
   version: 'v3.22.0'
 kubectl:
