@@ -78,5 +78,8 @@
             "renovate.json"
         ]
     },
-    "yaml.schemaStore.enable": true
+    "yaml.schemaStore.enable": true,
+    "json.schemaDownload.trustedDomains": {
+      "https://docs.renovatebot.com": true
+    }
 }
