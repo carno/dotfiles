@@ -1,0 +1,41 @@
+---
+- name: Check latest rumdl version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/rvben/rumdl/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: rumdl_github_details
+  when: rumdl.version is undefined
+  tags:
+    - tools
+    - rumdl
+
+- name: Set rumdl.version
+  ansible.builtin.set_fact:
+    rumdl:
+      version: "{{ rumdl_github_details.json.tag_name }}"
+  when: not rumdl_github_details is skipped
+  tags:
+    - tools
+    - rumdl
+
+- name: Install rumdl
+  ansible.builtin.unarchive:
+    src: "https://github.com/rvben/rumdl/releases/download/{{ rumdl.version }}/rumdl-{{ rumdl.version }}-x86_64-unknown-linux-gnu.tar.gz"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
+    remote_src: true
+    include:
+      - rumdl
+  register: rumdl_install
+  tags:
+    - tools
+    - rumdl
+
+- name: Generate bash completions
+  ansible.builtin.shell: rumdl completions bash > "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/rumdl"
+  when: rumdl_install is changed
+  tags:
+    - tools
+    - rumdl

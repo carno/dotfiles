@@ -17,6 +17,7 @@
     - tools.starship
     - tools.uv
     - tools.vale
+    - tools.rumdl
     # work
     - tools.dive
     - tools.docker-plugins
