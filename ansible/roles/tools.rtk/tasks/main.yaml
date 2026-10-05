@@ -1,0 +1,35 @@
+---
+- name: Check latest rtk version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/rtk-ai/rtk/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: rtk_github_details
+  when: rtk.version is undefined
+  tags:
+    - never
+    - rtk
+    - work
+
+- name: Set rtk.version
+  ansible.builtin.set_fact:
+    rtk:
+      version: "{{ rtk_github_details.json.tag_name }}"
+  when: not rtk_github_details is skipped
+  tags:
+    - never
+    - rtk
+    - work
+
+- name: Install rtk
+  ansible.builtin.apt:
+    deb: "https://github.com/rtk-ai/rtk/releases/download/{{ rtk.version }}/rtk_{{ rtk.version | replace('v', '') }}-1_amd64.deb"
+  become: true
+  become_method: su
+  become_flags: '-'
+  tags:
+    - never
+    - rtk
+    - work
