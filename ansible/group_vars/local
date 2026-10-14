@@ -9,6 +9,8 @@ python_tools:
   - 'typos'
   - 'yamllint'
 
+az:
+  version: '2.91.0'
 flux:
   version: 'v2.9.5'
 glab:

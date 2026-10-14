@@ -1,0 +1,76 @@
+---
+- name: Check latest az version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/Azure/azure-cli/releases/latest
+    return_content: true
+    user: "{{ github_user }}"
+    password: "{{ github_token }}"
+    force_basic_auth: "{{ gh_auth }}"
+  register: az_github_details
+  when: az.version is undefined
+  tags:
+    - never
+    - az
+    - work
+
+- name: Set az.version
+  ansible.builtin.set_fact:
+    az:
+      version: "{{ az_github_details.json.tag_name | regex_replace('^azure-cli-', '') }}"
+  when: not az_github_details is skipped
+  tags:
+    - never
+    - az
+    - work
+
+- name: Ensure az install directory exists
+  ansible.builtin.file:
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/opt/azure-cli-{{ az.version }}"
+    state: directory
+  tags:
+    - never
+    - az
+    - work
+
+- name: Install az
+  ansible.builtin.unarchive:
+    src: "https://github.com/Azure/azure-cli/releases/download/azure-cli-{{ az.version }}/azure-cli-{{ az.version }}-linux-x86_64.tar.gz"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/opt/azure-cli-{{ az.version }}"
+    remote_src: true
+  register: az_install
+  tags:
+    - never
+    - az
+    - work
+
+- name: Install az wrapper
+  ansible.builtin.copy:
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin/az"
+    mode: '0755'
+    content: |
+      #!/usr/bin/env bash
+      set -euo pipefail
+      if [[ -z "${AZ_PYTHON:-}" ]]; then
+        if command -v python3.14 >/dev/null 2>&1; then
+          export AZ_PYTHON="$(command -v python3.14)"
+        else
+          echo "Error: python3.14 not found; set AZ_PYTHON" >&2
+          exit 1
+        fi
+      fi
+      exec "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/opt/azure-cli-{{ az.version }}/libexec/bin/az" "$@"
+  register: az_wrapper
+  tags:
+    - never
+    - az
+    - work
+
+- name: Install bash completions
+  ansible.builtin.copy:
+    src: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/opt/azure-cli-{{ az.version }}/completions/bash/az"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/share/bash-completion/completions/az"
+    mode: '0644'
+  tags:
+    - never
+    - az
+    - work
