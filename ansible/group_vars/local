@@ -14,7 +14,7 @@ az:
 flux:
   version: 'v2.9.5'
 glab:
-  version: 'v1.123.0'
+  version: 'v1.124.0'
 helm:
   version: 'v3.22.0'
 kubectl:
