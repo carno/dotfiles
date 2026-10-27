@@ -22,7 +22,7 @@ kubectl:
 kustomize:
   version: 'v5.7.1'
 opentofu:
-  version: 'v1.12.7'
+  version: 'v1.12.9'
 skaffold:
   version: 'v2.17.0'
 terraform:
