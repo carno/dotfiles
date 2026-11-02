@@ -29,13 +29,12 @@
     - tools.helm-docs
     - tools.k9s
     - tools.kubectl
+    - tools.kubelogin
     - tools.kubeconform
     - tools.kustomize
     - tools.opentofu
     - tools.az
     - tools.rtk
     - tools.skaffold
-    - tools.terraform
     # other
     - tools.gh
-    - tools.kubelogin
