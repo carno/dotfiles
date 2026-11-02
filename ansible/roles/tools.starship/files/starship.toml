@@ -348,7 +348,7 @@ detect_folders = []
 
 [kubernetes]
 symbol = '☸ '
-format = '[$symbol$context( \($namespace\))]($style) in '
+format = '[$symbol$cluster( \($namespace\))]($style) in '
 style = 'blue bold dimmed'
 disabled = false
 
