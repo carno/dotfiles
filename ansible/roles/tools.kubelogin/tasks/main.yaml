@@ -33,8 +33,10 @@
       kubelogin.version }}/kubelogin-linux-amd64.zip
     dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.local/bin"
     remote_src: true
+    extra_opts:
+      - '-j'
     include:
-      - kubelogin
+      - bin/linux_amd64/kubelogin
   register: _kubelogin_install
   tags:
     - never
